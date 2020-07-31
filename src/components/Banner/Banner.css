@@ -1,0 +1,95 @@
+
+.banner {
+    display: inline-block;
+    background: transparent;
+    color: var(--mainWhite);
+    padding: 2rem 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    border-radius: 3px;
+    /* border: 3px solid white; */
+    height: 42vh;
+    }
+    .banner h1 {
+        font-family: 'Varela Round';
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        letter-spacing: 0.8rem;
+        background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: 400;
+        margin-bottom: 0px;
+        margin-bottom: 4rem;
+    }
+    .banner h2 {
+        max-width: 20rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem !important;
+    }
+    .banner p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    }
+    
+    .banner-subtitle{
+        color: rgba(255,255,255,1);
+        margin: .5rem auto 1.5rem auto;
+    }
+    
+    .banner .social {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .icon-button {
+        text-align: center;
+        height: 3rem;
+        width: 3rem;
+        background: rgba(255,255,255,.1);
+        border-radius: 100%;
+        line-height: 3rem;
+        color: rgba(255,255,255,.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px .5rem;
+    }
+    
+    .icon-button:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    @media screen and (max-width: 575px) {
+        .banner {
+            position: relative;
+        }
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 991px) {
+    .banner {
+        padding: 2rem 3rem;
+        position: relative;
+    }
+    .banner h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+    }
+    @media screen and (min-width: 992px) {
+    .banner {
+        padding: 2rem 6rem;
+    }
+    .banner h1 {
+        font-size: 6.5rem;
+        line-height: 6.5rem;
+        letter-spacing: 0.8rem;
+    }
+    .banner h2 {
+        max-width: 30rem;
+        font-size: 1.25rem;
+    }
+    }

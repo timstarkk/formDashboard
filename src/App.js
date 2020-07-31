@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
 
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Home from './pages/Home';
+import Store from './pages/Store';
+import ItemPage from './pages/ItemPage/ItemPage';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Navbar from './components/Navbar/Navbar';
+import AboutPage from './pages/AboutPage';
+import ConfirmPage from './pages/Confirm';
+
+Amplify.configure(config);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/store" component={Store} />
+          <Route exact path="/store/:slug" component={ItemPage} />
+          <Route exact path="/account/signup" component={SignUp} />
+          <Route exact path="/account/signin" component={SignIn} />
+          <Route exact path="/account/confirm" component={ConfirmPage} />
+          <Route exact path="/about" component={AboutPage} />
+        </Switch>
+      </ScrollToTop>
+    </>
   );
 }
 

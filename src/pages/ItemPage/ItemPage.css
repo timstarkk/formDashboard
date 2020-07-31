@@ -1,0 +1,147 @@
+.item-page {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-columns: minmax(200px, auto);
+}
+
+.item-img-area {
+    /* border: 2px solid green; */
+    padding: 2rem;
+}
+
+.item-grid img {
+    width: 560px;
+    max-width: 50vw;
+}
+
+.item-text-area {
+    /* border: 2px solid gold; */
+    height: 800px;
+    padding: 6rem 2rem;
+}
+
+.item-text-area p {
+    font-size: 17px;
+    color: #565656
+}
+
+.item-page h4 {
+    font-size: 2rem;
+    letter-spacing: var(--mainSpacing);
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.item-page .line {
+    width: 5rem;
+    height: 2px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    background: var(--primaryColor);
+    margin-bottom: 2rem;
+  }
+
+.item-page h5 {
+    color: var(--primaryColor);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    /* border: 2px solid darkred; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus-minus-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minus-one {
+    /* border: 2px solid gold; */
+    width: 2rem;
+    height: 2rem;
+    color: var(--primaryColor);
+}
+
+.plus-one {
+    /* border: 2px solid gold; */
+    width: 2rem;
+    height: 2rem;
+    color: var(--primaryColor);
+}
+
+.plus-minus-button:hover {
+    cursor: pointer;
+    color: var(--primaryColorLight)
+}
+
+.num-display {
+    /* border: 2px solid green; */
+    height: 2.5rem;
+    width: 3.75rem;
+    margin: 0rem .75rem;
+}
+
+.num-box {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.add-button {
+    border: 1px solid var(--primaryColor);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    height: 2.5rem;
+    width: 80%;
+}
+
+.add-button:hover {
+    cursor: pointer;
+}
+
+.description-area {
+    margin-top: 2rem;
+    /* border: 2px solid gold; */
+    width: 100%;
+}
+
+.error {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    margin-top: 8rem;
+    color: (var(--darkGrey), 0.2);
+  }
+
+@media (max-width: 590px) {
+    .item-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .item-grid img {
+        max-width: 80vw;
+    }
+  }

@@ -1,0 +1,28 @@
+.about-section {
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section h4 {
+    padding-top: 8rem;
+    font-size: 2rem;
+    letter-spacing: var(--mainSpacing);
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.about-section .line {
+    width: 5rem;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--primaryColor);
+    margin-bottom: 4rem;
+}
+
+.about-section p {
+font-size: 17px;
+color: #565656
+}

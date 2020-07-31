@@ -1,0 +1,24 @@
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.footer-section div {
+    width: 5rem;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--primaryColor);
+  }
+
+.footer-section p {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
