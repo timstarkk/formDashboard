@@ -125,7 +125,7 @@ class Navbar extends Component {
                             <Link to="/" className="text-link">
                                 <div className="logo-div">
                                     <p className={"logo-text " + (this.state.scrolled ? "nav-scrolled" : "") + (this.getLocation() !== '/' ? " nav-white" : "")}>
-                                        ShoeStore
+                                        Form Dashboard
                                 </p>
                                 </div>
                                 {/* <img src={logo} alt="logo" style={{ width: "250px", height: "auto" }} /> */}
