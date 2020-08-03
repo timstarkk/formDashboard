@@ -55,7 +55,7 @@ body.show::-webkit-scrollbar {
 }
 
 #app-container.show {
-  transform: translateX(-400px);
+  transform: translateX(400px);
   overflow: visible;
 }
 
