@@ -12,7 +12,7 @@ export default function Home() {
             <Hero>
                 <Banner title="Form" subtitle="soles and laces">
                     <Link to='/store'>
-                        <div className="btn btn-primary">shop now</div>
+                        <div className="btn btn-primary">get started</div>
                     </Link>
                 </Banner>
             </Hero>
