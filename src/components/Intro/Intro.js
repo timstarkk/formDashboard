@@ -19,7 +19,7 @@ export default function Intro() {
                     <h4>only the best</h4>
                     <p>Our selection is handpicked from across the world by a seasoned team of individuals who have a proven taste for the highest quality footwear. We look and find the hidden gems, so you don't have to.</p>
                     <div className="btn-container">
-                        <Link to="/store">
+                        <Link to="/dashboard">
                             <div className="btn btn-primary">get some</div>
                         </Link>
                     </div>
