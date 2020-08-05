@@ -6,7 +6,7 @@ import config from './aws-exports';
 
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Home from './pages/Home';
-import Store from './pages/Store';
+import DashboardPage from './pages/DashboardPage';
 import ItemPage from './pages/ItemPage/ItemPage';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
@@ -22,8 +22,8 @@ function App() {
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/store" component={Store} />
-          <Route exact path="/store/:slug" component={ItemPage} />
+          <Route exact path="/dashboard" component={DashboardPage} />
+          <Route exact path="/dashboard/:slug" component={ItemPage} />
           <Route exact path="/account/signup" component={SignUp} />
           <Route exact path="/account/signin" component={SignIn} />
           <Route exact path="/account/confirm" component={ConfirmPage} />
