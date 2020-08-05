@@ -143,11 +143,11 @@ class Navbar extends Component {
                                 }}>Home</Link>
                             </li>
                             <li>
-                                <Link to="/store" onClick={() => {
+                                <Link to="/dashboard" onClick={() => {
                                     this.setState({
                                         isOpen: false
                                     })
-                                }}>Store</Link>
+                                }}>Dashboard</Link>
                             </li>
                             <li>
                                 <Link to="/About" onClick={() => {
