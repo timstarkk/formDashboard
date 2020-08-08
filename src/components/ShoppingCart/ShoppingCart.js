@@ -38,7 +38,7 @@ export default class ShoppingCart extends Component {
                 <div id="flyout-menu" className={visibility}>
                     <div className="top-area">
                         <CloseButton id="close-button" onClick={() => toggleCart()} />
-                        <h3 id="your-cart">Your Cart</h3>
+                        <h3 id="your-cart">Toolbox</h3>
                         <div className="outer-line" />
                     </div>
                     <div id="cart-items-area">
@@ -46,14 +46,6 @@ export default class ShoppingCart extends Component {
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
-                        <div id="subtotal-area">
-                            <h5>subtotal</h5>
-                            <h5>${subtotal}</h5>
-                        </div>
-                        <div className="disclaimer">
-                            <p>Taxes and shipping calculated at checkout</p>
-                        </div>
-                        <div className="btn btn-primary checkout-button">checkout <Arrow className="checkout-arrow" /></div>
                     </div>
                 </div>
             </>
