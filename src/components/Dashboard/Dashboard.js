@@ -14,10 +14,12 @@ export default class Dashboard extends Component {
         });
 
         return (
-            <section className="dashboard-section">
-                <h4>Dashboard</h4>
-                <div className='line'></div>
-            </section>
+            <>
+                <section className="dashboard-section">
+                    <h4>Dashboard</h4>
+                    <div className='line'></div>
+                </section>
+            </>
         )
     }
 }
