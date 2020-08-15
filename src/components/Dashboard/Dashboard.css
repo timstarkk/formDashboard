@@ -17,3 +17,7 @@
     background: var(--primaryColor);
     margin-bottom: 4rem;
   }
+
+.dashboard-container {
+    border: 2px solid gold;
+}
