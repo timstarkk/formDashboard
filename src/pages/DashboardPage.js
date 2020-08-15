@@ -1,11 +1,11 @@
 import React from 'react';
-import Products from '../components/Products/Products';
+import Dashboard from '../components/Dashboard/Dashboard';
 import Footer from '../components/Footer/Footer';
 
 export default function DashboardPage() {
     return (
         <>
-            <Products />
+            <Dashboard />
             <Footer />
         </>
     )
