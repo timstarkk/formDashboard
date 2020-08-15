@@ -41,9 +41,9 @@ export default class ShoppingCart extends Component {
                         <h3 id="your-cart">Toolbox</h3>
                         <div className="outer-line" />
                     </div>
-                    <div id="cart-items-area">
+                    {/* <div id="cart-items-area">
                         <CartList cartItems={cartItemsData} />
-                    </div>
+                    </div> */}
                     <div className="bottom-area">
                         <div className="outer-line" />
                     </div>
