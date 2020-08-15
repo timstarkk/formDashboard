@@ -11,7 +11,7 @@ export default function Home() {
         <>
             <Hero>
                 <Banner title="Form Dashboard" subtitle="Forms you want. Data you need.">
-                    <Link to='/store'>
+                    <Link to='/dashboard'>
                         <div className="btn btn-primary">get started</div>
                     </Link>
                 </Banner>
