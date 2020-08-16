@@ -11,6 +11,10 @@ export default class ShoppingCart extends Component {
         super();
     }
 
+    myFunction = () => {
+        console.log('hello dude');
+    };
+
     render() {
         let { toggleCart, cartVisible, cartItemsData } = this.context;
         let visibility = "hide";
@@ -43,7 +47,7 @@ export default class ShoppingCart extends Component {
                     </div>
                     <div id="cart-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
-                        <div id="test-btn" className="btn btn-secondary">hello</div>
+                        <div id="test-btn" className="btn btn-secondary" onClick={() => this.myFunction()}>hello</div>
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
