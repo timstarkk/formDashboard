@@ -43,6 +43,7 @@ export default class ShoppingCart extends Component {
                     </div>
                     <div id="cart-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
+                        <div id="test-btn" className="btn btn-secondary">hello</div>
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
