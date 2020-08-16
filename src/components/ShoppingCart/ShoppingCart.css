@@ -90,6 +90,7 @@
   margin: 0 auto;
   background: var(--primaryColor);
 }
+
 #cart-items-area {
   flex: 2;
   overflow: scroll;
@@ -126,6 +127,10 @@
 
 .checkout-arrow {
   font-size: 1.5rem;
+}
+
+#test-btn {
+  color: var(--mainBlack);
 }
 
 @media screen and (max-width: 399px) {
