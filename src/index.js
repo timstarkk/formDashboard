@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ItemProvider } from './context';
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import ShoppingCart from './components/ShoppingCart/Toolbox';
 
 ReactDOM.render(
     <ItemProvider>
