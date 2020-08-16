@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ItemContext } from '../../context';
 import { MdClose as CloseButton } from "react-icons/md";
 import { IoIosArrowRoundForward as Arrow } from "react-icons/io";
-import './ShoppingCart.css';
+import './Toolbox.css';
 import CartList from '../CartList/CartList';
 
 export default class ShoppingCart extends Component {
