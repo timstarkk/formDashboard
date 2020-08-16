@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import { Auth } from 'aws-amplify';
-import './Account.css';
+import './Authentication.css';
 import { ItemContext } from '../../context';
 
 export default class SignInForm extends Component {
