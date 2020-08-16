@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"formdashboard7b7ab42d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
