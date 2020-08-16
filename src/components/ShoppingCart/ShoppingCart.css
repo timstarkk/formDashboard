@@ -95,6 +95,8 @@
   flex: 2;
   overflow: scroll;
   -ms-overflow-style: none;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #cart-items-area::-webkit-scrollbar {
