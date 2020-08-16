@@ -5,7 +5,7 @@ import { IoIosArrowRoundForward as Arrow } from "react-icons/io";
 import './Toolbox.css';
 import CartList from '../CartList/CartList';
 
-export default class ShoppingCart extends Component {
+export default class Toolbox extends Component {
     static contextType = ItemContext;
     constructor() {
         super();
