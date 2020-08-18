@@ -82,7 +82,7 @@ export default class SignInForm extends Component {
                 <div className="account-wrapper">
                     <div className="account-section">
                         <div className="container-wrapper">
-                            <h4>Sign In To Your Account</h4>
+                            <h4>sign in to your account</h4>
                             <div className="line" />
                             <form onSubmit={this.handleSubmit}>
                                 <input type="text" name="username" placeholder="username" onChange={this.handleChange} />
