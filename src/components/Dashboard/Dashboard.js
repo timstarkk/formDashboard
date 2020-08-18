@@ -16,9 +16,11 @@ export default class Dashboard extends Component {
         return (
             <>
                 <section className="dashboard-section">
-                    <h4>Dashboard</h4>
-                    <div className='line'></div>
-                    <div className='dashboard-container'></div>
+                    <div className="container-wrapper">
+                        <h4>Dashboard</h4>
+                        <div className='line'></div>
+                        <div className='dashboard-container'></div>
+                    </div>
                 </section>
             </>
         )
