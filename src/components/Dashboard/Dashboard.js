@@ -3,6 +3,7 @@ import { ItemContext } from '../../context';
 import './Dashboard.css';
 import Item from '../Item/Item';
 import Loading from '../Loading/Loading';
+import Form from '../Form/Form';
 
 export default class Dashboard extends Component {
     static contextType = ItemContext;
@@ -19,7 +20,9 @@ export default class Dashboard extends Component {
                     <div className="container-wrapper">
                         <h4>Dashboard</h4>
                         <div className='line'></div>
-                        <div className='dashboard-container'></div>
+                        <div className='dashboard-container'>
+                            <Form />
+                        </div>
                     </div>
                 </section>
             </>
