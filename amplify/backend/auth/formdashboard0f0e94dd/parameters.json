@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "formdashboard7b7ab42d_identitypool_7b7ab42d",
+    "identityPoolName": "formdashboard0f0e94dd_identitypool_0f0e94dd",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "formda7b7ab42d",
-    "userPoolName": "formdashboard7b7ab42d_userpool_7b7ab42d",
+    "resourceNameTruncated": "formda0f0e94dd",
+    "userPoolName": "formdashboard0f0e94dd_userpool_0f0e94dd",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "formda7b7ab42d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "formda0f0e94dd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7b7ab42d",
-    "resourceName": "formdashboard7b7ab42d",
+    "sharedId": "0f0e94dd",
+    "resourceName": "formdashboard0f0e94dd",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,9 +46,6 @@
         ]
     },
     "useDefault": "default",
-    "usernameAttributes": [
-        "email"
-    ],
     "userPoolGroupList": [],
     "dependsOn": []
 }
