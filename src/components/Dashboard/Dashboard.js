@@ -21,6 +21,7 @@ export default class Dashboard extends Component {
                         <h4>Dashboard</h4>
                         <div className='line'></div>
                         <div className='dashboard-container'>
+                            <div className='btn btn-primary'>hello</div>
                         </div>
                     </div>
                 </section>
