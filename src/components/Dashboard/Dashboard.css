@@ -20,7 +20,7 @@
   }
 
 .dashboard-container {
-    border: 2px solid gold;
+    /* border: 2px solid gold; */
     background-color: var(--mainWhite);
     min-height: 60vh;
 }
