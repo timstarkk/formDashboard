@@ -35,7 +35,7 @@ html.show {
 body {
   color: var(--mainBlack);
   background: var(--mainBlack);
-  font-family: 'nunito';
+  /* font-family: 'nunito'; */
   line-height: 1.4;
   overflow-x: hidden;
   overflow-y: hidden;
