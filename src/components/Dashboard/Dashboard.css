@@ -21,4 +21,5 @@
 
 .dashboard-container {
     border: 2px solid gold;
+    background-color: var(--mainWhite);
 }
