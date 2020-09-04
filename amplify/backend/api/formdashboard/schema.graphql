@@ -1,0 +1,10 @@
+type User @model {
+  id: ID!
+  userSub: String!
+  forms: [Form!]
+}
+
+type Form {
+  id: ID!
+  contentsArray: [String!]
+}
