@@ -1,10 +1,10 @@
 type User @model {
   id: ID!
-  userSub: String!
+  email: String!
+  confirmedDate: String!
   forms: [Form!]
 }
 
 type Form {
-  id: ID!
   contentsArray: [String!]
-}
+} 
