@@ -136,31 +136,6 @@ class ItemProvider extends Component {
         }
     };
 
-    visitorCartAdd = (item) => {
-        const key = item.id;
-        if (localStorage.getItem('shoppingCart') !== null) {
-            // localStorage.removeItem('shoppingCart');
-            console.log(this.state.addAmount);
-            let shoppingCart = JSON.parse(window.localStorage.getItem('shoppingCart'));
-
-            if (shoppingCart.items[`${key}`]) {
-                shoppingCart.items[`${key}`] = shoppingCart.items[`${key}`] + this.state.addAmount;
-                window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            } else {
-                shoppingCart.items[`${key}`] = this.state.addAmount
-                window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            }
-        } else {
-            const shoppingCart = {
-                items: {
-                    [key]: this.state.addAmount
-                }
-            };
-            window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            console.log('added to cart');
-        }
-    };
-
     userCartAdd = (item) => {
         console.log('running user cart add');
         let itemId = item.id;
