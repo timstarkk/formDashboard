@@ -18,8 +18,11 @@ export default class Dashboard extends Component {
             <>
                 <section className="dashboard-section">
                     <div className="container-wrapper">
-                        <h4>Dashboard</h4>
+                        <div className="header-wrapper">
+                            <h4 id='dashboard-header'>Dashboard</h4>
+                        </div>
                         <div className='dashboard-container'>
+                            <p>add form:</p>
                             <div className='btn btn-primary' id='add-button'>+</div>
                         </div>
                     </div>
