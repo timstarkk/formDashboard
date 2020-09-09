@@ -108,6 +108,10 @@ class ItemProvider extends Component {
         });
     };
 
+    addFormButton = () => {
+        console.log('whats up bros')
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
@@ -115,7 +119,8 @@ class ItemProvider extends Component {
                 setCurrentUser: this.setCurrentUser,
                 handleChange: this.handleChange,
                 toggleCart: this.toggleCart,
-                afterSignOut: this.afterSignOut
+                afterSignOut: this.afterSignOut,
+                addFormButton: this.addFormButton
             }}>
                 {this.props.children}
             </ItemContext.Provider>
