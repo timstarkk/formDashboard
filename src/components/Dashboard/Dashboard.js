@@ -7,6 +7,17 @@ import Form from '../Form/Form';
 
 export default class Dashboard extends Component {
     static contextType = ItemContext;
+
+    async componentDidMount() {
+        let { isLoggedIn } = this.context;
+
+        if (isLoggedIn) {
+            console.log('logged in');
+        } else {
+            console.log('not logged in not not')
+        }
+    }
+
     render() {
         let { loading, shopItems: items, addFormButton } = this.context;
 
