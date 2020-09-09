@@ -87,14 +87,15 @@ class ItemProvider extends Component {
 
     setCurrentUser = userInfo => {
         this.setState({
-            currentUser: userInfo
+            currentUser: userInfo,
+            isLoggedIn: true
         });
 
     };
 
     afterSignOut = () => {
         this.setState({
-            cartItemsData: []
+            isLoggedIn: false
         })
     };
 
