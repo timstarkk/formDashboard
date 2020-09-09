@@ -108,25 +108,6 @@ class ItemProvider extends Component {
         });
     };
 
-    checkLocalCart = () => {
-        console.log('checking local cart');
-        console.log(this.state.cartItemsData)
-        const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
-        console.log(shoppingCart.items);
-        const newItems = [];
-        for (const key in shoppingCart.items) {
-
-            const item = {
-                itemId: key,
-                amount: shoppingCart.items[key]
-            }
-            newItems.push(item);
-        }
-
-        this.addFromLocalStorage(newItems);
-        
-    };
-
     render() {
         return (
             <ItemContext.Provider value={{
