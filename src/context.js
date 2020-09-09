@@ -101,29 +101,6 @@ class ItemProvider extends Component {
         })
     };
 
-    addFromLocalStorage = (newItems) => {
-    console.log('running add from local storage');
-    let userSub = this.state.currentUser.sub;
-
-    // checks for current user cart
-    const checkForCart = `
-    query {
-        listShoppingCarts(filter: {
-            userSub: {
-                contains: "${userSub}"
-            }
-        }) {
-            items {
-                id
-                items {
-                    itemId
-                    amount
-                }
-            }
-        }
-    }
-    `
-
     API.graphql(graphqlOperation(checkForCart)).then(res => {
         let cartExists = res.data.listShoppingCarts.items.length;
         
