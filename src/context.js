@@ -84,13 +84,6 @@ class ItemProvider extends Component {
         })
     };
 
-    getItem = slug => {
-        let tempItems = [...this.state.shopItems];
-        const item = tempItems.find(item => item.slug === slug);
-
-        return item;
-    };
-
     setCurrentUser = userInfo => {
         this.setState({
             currentUser: userInfo
