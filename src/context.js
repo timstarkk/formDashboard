@@ -108,47 +108,6 @@ class ItemProvider extends Component {
         });
     };
 
-    getCartItemsData = (cartItems) => {
-        console.log('getting cart items data');
-        const cartItemsArray = [];
-
-        for (const item of cartItems) {
-            let itemId = item.itemId;
-            let amount = item.amount;
-
-            const getItemData = `
-                query {
-                    getStoreItem(
-                    id: "${itemId}"
-                    ){
-                    fields {
-                        images {
-                        imageFields {
-                            file {
-                            url
-                            }
-                        }
-                        }
-                        name
-                        price
-                    }
-                    }
-                }
-            `
-
-            API.graphql(graphqlOperation(getItemData)).then(res => {
-                res.data.getStoreItem.fields.amount = amount;
-                res.data.getStoreItem.fields.itemId = itemId;
-                cartItemsArray.push(res.data.getStoreItem.fields);
-
-                console.log(cartItemsArray);
-                this.setState({
-                    cartItemsData: cartItemsArray
-                })
-            }).catch(err => console.log(err.message));
-        }
-    };
-
     handlePlusMinus = (itemId, amount, operator, index) => { 
         if (operator === "plus") {
             amount++;
