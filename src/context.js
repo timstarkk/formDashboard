@@ -112,17 +112,10 @@ class ItemProvider extends Component {
         return (
             <ItemContext.Provider value={{
                 ...this.state,
-                getItem: this.getItem,
                 setCurrentUser: this.setCurrentUser,
                 handleChange: this.handleChange,
-                addAmountButton: this.addAmountButton,
-                handleAddToCart: this.handleAddToCart,
-                resetAddAmount: this.resetAddAmount,
                 toggleCart: this.toggleCart,
-                getCartItems: this.getCartItems,
-                getCartItemsData: this.getCartItemsData,
-                afterSignOut: this.afterSignOut,
-                handlePlusMinus: this.handlePlusMinus
+                afterSignOut: this.afterSignOut
             }}>
                 {this.props.children}
             </ItemContext.Provider>
