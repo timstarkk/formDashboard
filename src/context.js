@@ -23,7 +23,8 @@ class ItemProvider extends Component {
         amount: 0,
         cartVisible: false,
         cartItemsData: [],
-        cartId: ''
+        cartId: '',
+        isLoggedIn: false
     };
 
     async componentDidMount() {
