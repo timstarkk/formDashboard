@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ItemContext } from '../../context';
+import { Auth } from 'aws-amplify';
 import './Dashboard.css';
 import Item from '../Item/Item';
 import Loading from '../Loading/Loading';
@@ -8,14 +9,24 @@ import Form from '../Form/Form';
 export default class Dashboard extends Component {
     static contextType = ItemContext;
 
-    async componentDidMount() {
-        let { isLoggedIn } = this.context;
+    state = {
+        isLoggedIn: false
+    }
 
-        if (isLoggedIn) {
-            console.log('logged in');
-        } else {
-            console.log('not logged in not not')
-        }
+    async componentDidMount() {
+        Auth.currentSession()
+            .then(data => {
+                console.log('user logged in');
+                this.setState({
+                    isLoggedIn: true
+                })
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({
+                    isLoggedIn: false
+                })
+            });
     }
 
     render() {
@@ -27,6 +38,8 @@ export default class Dashboard extends Component {
 
         return (
             <>
+            {this.state.isLoggedIn
+                ? 
                 <section className="dashboard-section">
                     <div className="container-wrapper">
                         <div className="header-wrapper">
@@ -38,6 +51,18 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                 </section>
+                :
+                <section className="dashboard-section">
+                    <div className="container-wrapper">
+                        <div className="header-wrapper">
+                            <h4 id='dashboard-header'>Dashboard</h4>
+                        </div>
+                        <div className='dashboard-container'>
+                            <p>please sign in to view dashboard...</p>
+                        </div>
+                    </div>
+                </section>
+            }
             </>
         )
     }
