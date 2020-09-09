@@ -59,7 +59,7 @@ class Navbar extends Component {
                 })
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             });
     }
 
