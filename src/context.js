@@ -101,14 +101,6 @@ class ItemProvider extends Component {
         })
     };
 
-    handleAddToCart = item => {
-        if (!this.state.currentUser.username) {
-            this.visitorCartAdd(item);
-        } else {
-            this.userCartAdd(item);
-        }
-    };
-
     userCartAdd = (item) => {
         console.log('running user cart add');
         let itemId = item.id;
