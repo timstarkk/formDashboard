@@ -105,10 +105,40 @@ class ItemProvider extends Component {
     };
 
     addFormButton = () => {
-        console.log('whats up bros')
+        let that = this;
+        // this.addFormFunction(that);
 
-        console.log(this.state.currentUser);
 
+        const userId = this.state.currentUser.sub
+        console.log(userId);
+
+        const addForm = `
+            mutation {
+                updateUser(input: {
+                    id: "${userId}",
+                    forms: {
+                        contentsArray: ["default"]
+                    }
+                }) {
+                    id forms { contentsArray }
+                }
+            }
+        `
+
+        console.log(addForm);
+        API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err.message));
+               
+        // const getForms = `
+        // query {
+        //     getUser(id: "${userId}") {
+        //         forms {
+        //             contentsArray
+        //         }
+        //     }
+        // }
+        // `
+        
+        // console.log (forms);
         //do I need to do the thing where I grab the items and then convert to string and json reverse and blah blah?
         // if so do here
 
@@ -124,6 +154,34 @@ class ItemProvider extends Component {
         // update cart with updated item amount
         // API.graphql(graphqlOperation(addForm)).then(() => console.log('updated item in cart db')).catch(err => console.log(`you broke it `, err));
     };
+
+    async addFormFunction(that) {
+        console.log(that);
+        try {
+            console.log('whats up bros')
+            const userId = that.state.currentUser.sub
+            console.log(userId);
+
+            const addForm = `
+                mutation {
+                    updateUser(input: {
+                        id: "${userId}",
+                        forms: {
+                            contentsArray: ["default"]
+                        }
+                    }) {
+                        id forms { contentsArray }
+                    }
+                }
+            `
+            let forms = await API.graphql(graphqlOperation(addForm)).then(res => res.data.getUser.forms).catch(err => console.log(err.message));
+                    
+            console.log(forms);
+        } catch (error) {
+            console.log('error bro: ');
+            console.log(error);
+        }
+    }
 
     render() {
         return (
