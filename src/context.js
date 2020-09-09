@@ -84,12 +84,6 @@ class ItemProvider extends Component {
         })
     };
 
-    resetAddAmount = () => {
-        this.setState({
-            addAmount: 1
-        })
-    };
-
     getItem = slug => {
         let tempItems = [...this.state.shopItems];
         const item = tempItems.find(item => item.slug === slug);
