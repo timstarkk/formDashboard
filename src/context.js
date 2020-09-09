@@ -84,20 +84,6 @@ class ItemProvider extends Component {
         })
     };
 
-    addAmountButton = direction => {
-        if (direction === 'minus') {
-            if (this.state.addAmount > 1) {
-                this.setState({
-                    addAmount: this.state.addAmount - 1
-                })
-            }
-        } else if (direction === 'plus') {
-            this.setState({
-                addAmount: this.state.addAmount + 1
-            })
-        }
-    };
-
     resetAddAmount = () => {
         this.setState({
             addAmount: 1
