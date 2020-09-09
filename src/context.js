@@ -108,66 +108,6 @@ class ItemProvider extends Component {
         });
     };
 
-    getCartItems = () => {
-        console.log('hello from get cart items');
-        if (Object.keys(this.state.currentUser).length === 0) {
-            console.log('not signed in');
-            const cartItemsArray = []
-            const shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
-            const cartItems = shoppingCart.items;
-            console.log(cartItems);
-            for (const key in cartItems) {
-                const itemId = key;
-                const amount = cartItems[key];
-                console.log(key + " " + amount)
-                cartItemsArray.push({
-                    itemId,
-                    amount
-                })
-            }
-            this.getCartItemsData(cartItemsArray);
-        } else {
-            console.log('user is signed in');
-            Auth.currentSession()
-                .then(data => {
-                    let userSub = data.accessToken.payload.sub;
-                    console.log(userSub);
-                    const getCart = `
-                        query {
-                            listShoppingCarts(filter: {
-                                userSub: {
-                                    contains: "${userSub}"
-                                }
-                            }) {
-                                items {
-                                    id
-                                    items {
-                                        itemId
-                                        amount
-                                    }
-                                }
-                            }
-                        }
-                    `
-
-                    API.graphql(graphqlOperation(getCart)).then(res => {
-                        console.log(res);
-                        const cartId = res.data.listShoppingCarts.items[0].id
-                        let cartItems = res.data.listShoppingCarts.items[0].items
-                        console.log(cartItems);
-
-                        this.getCartItemsData(cartItems);
-                        this.setState({
-                            cartId
-                        })
-                    });
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        }
-    };
-
     getCartItemsData = (cartItems) => {
         console.log('getting cart items data');
         const cartItemsArray = [];
