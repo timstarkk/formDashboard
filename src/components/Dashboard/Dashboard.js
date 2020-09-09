@@ -8,7 +8,7 @@ import Form from '../Form/Form';
 export default class Dashboard extends Component {
     static contextType = ItemContext;
     render() {
-        let { loading, shopItems: items } = this.context;
+        let { loading, shopItems: items, addFormButton } = this.context;
 
         items = items.map(item => {
             return <Item key={item.id} item={item} />
@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
                         </div>
                         <div className='dashboard-container'>
                             <p>add form:</p>
-                            <div className='btn btn-primary' id='add-button'>+</div>
+                            <div className='btn btn-primary' id='add-button' onClick={addFormButton}>+</div>
                         </div>
                     </div>
                 </section>
