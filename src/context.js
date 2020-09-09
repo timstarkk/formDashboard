@@ -87,10 +87,6 @@ class ItemProvider extends Component {
     setCurrentUser = userInfo => {
         this.setState({
             currentUser: userInfo
-        }, () => {
-            if (this.state.currentUser.username) {
-                this.checkLocalCart();
-            }
         });
 
     };
@@ -110,6 +106,23 @@ class ItemProvider extends Component {
 
     addFormButton = () => {
         console.log('whats up bros')
+
+        console.log(this.state.currentUser);
+
+        //do I need to do the thing where I grab the items and then convert to string and json reverse and blah blah?
+        // if so do here
+
+        // const addForm = `
+        //     mutation {
+        //         updateUser(input: {
+        //             id: "${userId}"
+        //             items: ${unquotedItems}
+        //         }) {items {itemId amount}}
+        //     }
+        // `
+
+        // update cart with updated item amount
+        // API.graphql(graphqlOperation(addForm)).then(() => console.log('updated item in cart db')).catch(err => console.log(`you broke it `, err));
     };
 
     render() {
