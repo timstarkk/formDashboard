@@ -5,6 +5,7 @@ import './Dashboard.css';
 import Item from '../Item/Item';
 import Loading from '../Loading/Loading';
 import Form from '../Form/Form';
+import FormThumbnail from '../FormThumbnail/FormThumbnail';
 
 export default class Dashboard extends Component {
     static contextType = ItemContext;
