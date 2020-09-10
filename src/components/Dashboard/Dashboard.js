@@ -15,6 +15,7 @@ export default class Dashboard extends Component {
     }
 
     async componentDidMount() {
+        // check if user is logged in, and set state accordingly
         Auth.currentSession()
             .then(data => {
                 console.log('user logged in');
