@@ -32,10 +32,10 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        let { loading, shopItems: items, addFormButton } = this.context;
+        let { loading, forms, addFormButton } = this.context;
 
-        items = items.map(item => {
-            return <Item key={item.id} item={item} />
+        forms = forms.map(form => {
+            return <FormThumbnail key={form.id} form={form}/>
         });
 
         return (
@@ -49,7 +49,7 @@ export default class Dashboard extends Component {
                         </div>
                         <div className='dashboard-container'>
                             <div id='formsList'>
-
+                                {forms}
                             </div>
                             <div className='btn btn-primary' id='add-button' onClick={addFormButton}>+</div>
                         </div>
