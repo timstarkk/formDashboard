@@ -10,9 +10,6 @@ let items = [];
 
 class ItemProvider extends Component {
     state = {
-        shopItems: [],
-        sortedItems: [],
-        featuredItems: [],
         loading: true,
         type: 'all',
         price: 0,
@@ -24,7 +21,8 @@ class ItemProvider extends Component {
         cartVisible: false,
         cartItemsData: [],
         cartId: '',
-        isLoggedIn: false
+        isLoggedIn: false,
+        forms: []
     };
 
     async componentDidMount() {
