@@ -126,32 +126,7 @@ class ItemProvider extends Component {
         `
         
         API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err.message));
-               
-        // const getForms = `
-        // query {
-        //     getUser(id: "${userId}") {
-        //         forms {
-        //             contentsArray
-        //         }
-        //     }
-        // }
-        // `
         
-        // console.log (forms);
-        //do I need to do the thing where I grab the items and then convert to string and json reverse and blah blah?
-        // if so do here
-
-        // const addForm = `
-        //     mutation {
-        //         updateUser(input: {
-        //             id: "${userId}"
-        //             items: ${unquotedItems}
-        //         }) {items {itemId amount}}
-        //     }
-        // `
-
-        // update cart with updated item amount
-        // API.graphql(graphqlOperation(addForm)).then(() => console.log('updated item in cart db')).catch(err => console.log(`you broke it `, err));
     };
 
     async addFormFunction(that) {
