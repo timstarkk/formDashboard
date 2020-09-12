@@ -180,7 +180,23 @@ class ItemProvider extends Component {
             console.log('error bro: ');
             console.log(error);
         }
-    }
+    };
+
+    getForms = () => {
+        const userId = this.state.currentUser.sub
+
+        const getForms = `
+        query {
+            getUser(id: "${userId}") {
+                forms {
+                    contentsArray
+                }
+            }
+        }
+        `
+
+        API.graphql(graphqlOperation(getForms)).then(res => console.log(res)).catch(error => console.log(error.message));
+    };
 
     render() {
         return (
