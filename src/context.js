@@ -206,7 +206,8 @@ class ItemProvider extends Component {
                 handleChange: this.handleChange,
                 toggleCart: this.toggleCart,
                 afterSignOut: this.afterSignOut,
-                addFormButton: this.addFormButton
+                addFormButton: this.addFormButton,
+                getForms: this.getForms
             }}>
                 {this.props.children}
             </ItemContext.Provider>
