@@ -8,10 +8,12 @@ export default function FormThumbnail(form) {
     console.log(contentsArray);
     return (
         <>
-            <div>
-                id: {id}
+            <div id="formThumbnailBox">
+                <div>
+                    id: {id}
+                </div>
+                <div>contents: {contentsArray}</div>
             </div>
-            <div>contents: {contentsArray}</div>
         </>
     );
 };
