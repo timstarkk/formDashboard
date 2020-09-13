@@ -1,10 +1,17 @@
 import React from 'react';
 import './FormThumbnail.css';
 
-export default function FormThumbnail() {
+export default function FormThumbnail(form) {
+    const {id, contentsArray} = form.form;
+    console.log(form);
+    console.log(id);
+    console.log(contentsArray);
     return (
-        <div>
-            hello from FormThumbnail
-        </div>
+        <>
+            <div>
+                id: {id}
+            </div>
+            <div>contents: {contentsArray}</div>
+        </>
     );
 };
