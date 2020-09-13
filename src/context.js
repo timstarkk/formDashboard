@@ -106,8 +106,6 @@ class ItemProvider extends Component {
 
     addFormButton = () => {
         let that = this;
-        // this.addFormFunction(that);
-
 
         const userId = this.state.currentUser.sub
         console.log(userId);
@@ -126,7 +124,6 @@ class ItemProvider extends Component {
         `
         
         API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err));
-        
     };
 
     async addFormFunction(that) {
