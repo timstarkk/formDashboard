@@ -125,7 +125,7 @@ class ItemProvider extends Component {
             }
         `
         
-        API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err.message));
+        API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err));
         
     };
 
