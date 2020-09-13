@@ -11,17 +11,29 @@ export default class Dashboard extends Component {
     static contextType = ItemContext;
 
     state = {
-        isLoggedIn: false
+        isLoggedIn: false,
+        forms: []
     }
 
     async componentDidMount() {
+        let that = this;
+        
+        const { getForms } = this.context;
+        
         // check if user is logged in, and set state accordingly
-        Auth.currentSession()
-            .then(data => {
+        await Auth.currentSession()
+            .then(async data => {
+                console.log(data);
                 console.log('user logged in');
-                this.setState({
-                    isLoggedIn: true
-                })
+                let tempFunc = async function() {
+                    let forms = await getForms();
+                    that.setState({
+                        isLoggedIn: true,
+                        forms
+                    });
+                };
+
+                tempFunc();
             })
             .catch(err => {
                 console.log(err);
@@ -29,14 +41,32 @@ export default class Dashboard extends Component {
                     isLoggedIn: false
                 })
             });
+
+
+        // let forms = getForms();
+
+        // console.log(forms);
+
+        // let forms = await getForms();
+
+        // this.setState({
+        //     forms
+        // })
     }
 
     render() {
-        let { loading, forms, addFormButton } = this.context;
+        let { loading, addFormButton } = this.context;
 
-        forms = forms.map(form => {
-            return <FormThumbnail key={form.id} form={form}/>
-        });
+        let forms = null;
+
+        if (this.state.isLoggedIn) {
+            console.log(this.state);
+            forms = this.state.forms
+    
+            forms = forms.map(form => {
+                return <FormThumbnail key={form.id} form={form}/>
+            });
+        }
 
         return (
             <>
