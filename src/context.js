@@ -158,7 +158,14 @@ class ItemProvider extends Component {
     };
 
     getForms = () => {
-        const userId = this.state.currentUser.sub
+        let that = this;
+
+        return this.getFormsAsync(that);
+    };
+
+    async getFormsAsync(that) {
+        // return [{id: '1', content: 'forms'}];
+        const userId = that.state.currentUser.sub;
 
         const getForms = `
         query {
@@ -170,7 +177,8 @@ class ItemProvider extends Component {
         }
         `
 
-        API.graphql(graphqlOperation(getForms)).then(res => console.log(res)).catch(error => console.log(error.message));
+        let forms = await API.graphql(graphqlOperation(getForms)).then(res => res.data.getUser.forms).catch(error => console.log(error.message));
+        return forms;
     };
 
     render() {
