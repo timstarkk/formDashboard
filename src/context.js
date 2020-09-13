@@ -3,6 +3,7 @@ import query from './data';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
+import { v4 as uuidv4 } from 'uuid';
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -106,6 +107,7 @@ class ItemProvider extends Component {
 
     addFormButton = () => {
         let that = this;
+        let uuid = uuidv4();
 
         const userId = this.state.currentUser.sub
         console.log(userId);
@@ -115,8 +117,8 @@ class ItemProvider extends Component {
                 updateUser(input: {
                     id: "${userId}",
                     forms: {
-                        id: "ID!",
-                        contentsArray: ["default"]
+                        id: "${uuid}",
+                        contentsArray: ["i think i just did it"]
                     }
                 }) {
                     id forms { id, contentsArray }
@@ -169,6 +171,7 @@ class ItemProvider extends Component {
         query {
             getUser(id: "${userId}") {
                 forms {
+                    id
                     contentsArray
                 }
             }
@@ -176,6 +179,7 @@ class ItemProvider extends Component {
         `
 
         let forms = await API.graphql(graphqlOperation(getForms)).then(res => res.data.getUser.forms).catch(error => console.log(error.message));
+        console.log(forms);
         return forms;
     };
 
