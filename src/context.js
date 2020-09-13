@@ -115,10 +115,11 @@ class ItemProvider extends Component {
                 updateUser(input: {
                     id: "${userId}",
                     forms: {
+                        id: "ID!",
                         contentsArray: ["default"]
                     }
                 }) {
-                    id forms { contentsArray }
+                    id forms { id, contentsArray }
                 }
             }
         `
