@@ -5,6 +5,7 @@ type User @model {
   forms: [Form!]
 }
 
-type Form {
+type Form  @model {
+  id: ID!
   contentsArray: [String!]
 } 
