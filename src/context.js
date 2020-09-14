@@ -107,19 +107,30 @@ class ItemProvider extends Component {
 
     addFormButton = () => {
         let that = this;
-        let uuid = uuidv4();
+        this.addFormFunction(that);
+    };
 
-        const userId = this.state.currentUser.sub
-        console.log(userId);
+    async addFormFunction(that) {
+        let uuid = uuidv4();
+        const userId = that.state.currentUser.sub
+        let forms = await that.getForms();
+        let newForm = {
+            id: uuid,
+            contentsArray: ["Default"]
+        };
+        forms.push(newForm);
+        console.log(forms);
+        
+        let stringifiedItems = JSON.stringify(forms);
+        console.log(stringifiedItems);
+        let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
+        console.log(unquotedItems);
 
         const addForm = `
             mutation {
                 updateUser(input: {
                     id: "${userId}",
-                    forms: {
-                        id: "${uuid}",
-                        contentsArray: ["i think i just did it"]
-                    }
+                    forms: ${unquotedItems}
                 }) {
                     id forms { id, contentsArray }
                 }
@@ -127,34 +138,6 @@ class ItemProvider extends Component {
         `
         
         API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err));
-    };
-
-    async addFormFunction(that) {
-        console.log(that);
-        try {
-            console.log('whats up bros')
-            const userId = that.state.currentUser.sub
-            console.log(userId);
-
-            const addForm = `
-                mutation {
-                    updateUser(input: {
-                        id: "${userId}",
-                        forms: {
-                            contentsArray: ["default"]
-                        }
-                    }) {
-                        id forms { contentsArray }
-                    }
-                }
-            `
-            let forms = await API.graphql(graphqlOperation(addForm)).then(res => res.data.getUser.forms).catch(err => console.log(err.message));
-                    
-            console.log(forms);
-        } catch (error) {
-            console.log('error bro: ');
-            console.log(error);
-        }
     };
 
     getForms = () => {
@@ -178,7 +161,7 @@ class ItemProvider extends Component {
         }
         `
 
-        let forms = await API.graphql(graphqlOperation(getForms)).then(res => res.data.getUser.forms).catch(error => console.log(error.message));
+        let forms = await API.graphql(graphqlOperation(getForms)).then(res => {console.log(res); return res.data.getUser.forms}).catch(error => console.log(error.message));
         console.log(forms);
         return forms;
     };
