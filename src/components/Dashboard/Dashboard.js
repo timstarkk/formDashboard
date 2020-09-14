@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
 
     async componentDidMount() {
         let that = this;
-        
+
         const { getForms } = this.context;
         
         // check if user is logged in, and set state accordingly
@@ -60,7 +60,6 @@ export default class Dashboard extends Component {
         let forms = null;
 
         if (this.state.isLoggedIn) {
-            console.log(this.state);
             forms = this.state.forms
     
             forms = forms.map(form => {
