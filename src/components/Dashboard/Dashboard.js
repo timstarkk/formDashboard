@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { ItemContext } from '../../context';
 import { Auth } from 'aws-amplify';
 import './Dashboard.css';
@@ -8,32 +9,29 @@ import Form from '../Form/Form';
 import FormThumbnail from '../FormThumbnail/FormThumbnail';
 
 export default class Dashboard extends Component {
+    _isMounted = false;
     static contextType = ItemContext;
-
     state = {
         isLoggedIn: false,
-        forms: []
+        forms: [],
+        switch: false
     }
 
     async componentDidMount() {
+        this._isMounted = true;
+        console.log(this);
         let that = this;
-
-        const { getForms } = this.context;
-        
         // check if user is logged in, and set state accordingly
         await Auth.currentSession()
             .then(async data => {
                 console.log(data);
                 console.log('user logged in');
-                let tempFunc = async function() {
-                    let forms = await getForms();
-                    that.setState({
-                        isLoggedIn: true,
-                        forms
-                    });
-                };
 
-                tempFunc();
+                this.formGetter(that);
+
+                that.setState({
+                    isLoggedIn: true
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -41,22 +39,38 @@ export default class Dashboard extends Component {
                     isLoggedIn: false
                 })
             });
+    }
 
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
 
-        // let forms = getForms();
+    async formGetter(that) {
+        const { getForms } = this.context;
 
-        // console.log(forms);
+        let forms = await getForms();
+        console.log(forms);
+        that.setState({
+            forms
+        })
+    }
 
-        // let forms = await getForms();
+    handleAddForm() {
+        // console.log('hello bros');
+        // let that = this;
+        // this.formGetter(that);
 
-        // this.setState({
-        //     forms
-        // })
+        const element = (
+            <div>
+            <h1>Hello, world!</h1>
+            <h2>It is {new Date().toLocaleTimeString()}.</h2>
+            </div>
+        );
+        ReactDOM.render(element, document.getElementById('root'));
     }
 
     render() {
         let { loading, addFormButton } = this.context;
-
         let forms = null;
 
         if (this.state.isLoggedIn) {
@@ -80,7 +94,7 @@ export default class Dashboard extends Component {
                             <div id='formsList'>
                                 {forms}
                             </div>
-                            <div className='btn btn-primary' id='add-button' onClick={addFormButton}>+</div>
+                            <div className='btn btn-primary' id='add-button' onClick={() => {addFormButton(); this.handleAddForm();}}>+</div>
                         </div>
                     </div>
                 </section>
