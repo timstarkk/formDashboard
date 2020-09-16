@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { ItemContext } from '../../context';
 import { Auth } from 'aws-amplify';
 import './Dashboard.css';
@@ -56,18 +55,10 @@ export default class Dashboard extends Component {
     }
 
     handleAddForm() {
-        // console.log('hello bros');
-        // let that = this;
-        // this.formGetter(that);
-
-        const element = (
-            <div>
-            <h1>Hello, world!</h1>
-            <h2>It is {new Date().toLocaleTimeString()}.</h2>
-            </div>
-        );
-        ReactDOM.render(element, document.getElementById('root'));
-    }
+        console.log('hello bros');
+        let that = this;
+        this.formGetter(that);
+    };
 
     render() {
         let { loading, addFormButton } = this.context;
