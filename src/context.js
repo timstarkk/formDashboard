@@ -137,7 +137,7 @@ class ItemProvider extends Component {
             }
         `
         
-        API.graphql(graphqlOperation(addForm)).then(res => console.log('update successful!')).catch(err => console.log(err));
+        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     };
 
     getForms = () => {
@@ -163,6 +163,14 @@ class ItemProvider extends Component {
 
         let forms = await API.graphql(graphqlOperation(getForms)).then(res => {console.log(res); return res.data.getUser.forms}).catch(error => console.log(error.message));
         console.log(forms);
+
+        this.setState({
+            forms
+        }, () => {
+            console.log('**********************');
+            console.log(forms);
+            console.log('**********************');
+        })
         return forms;
     };
 
