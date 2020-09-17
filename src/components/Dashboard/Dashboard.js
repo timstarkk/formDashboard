@@ -102,7 +102,8 @@ export default class Dashboard extends Component {
                             <div id='forms-list'>
                                 {forms}
                             </div>
-                            <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>+</div>
+                            <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>
+                                <p>+</p></div>
                         </div>
                     </div>
                 </section>
