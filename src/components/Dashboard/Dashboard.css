@@ -39,3 +39,7 @@
     border: 2px solid darkgreen;
     display: flex;
 }
+
+#add-button {
+    border-radius: .2rem;
+}
