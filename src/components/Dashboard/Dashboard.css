@@ -42,4 +42,8 @@
 
 #add-button {
     border-radius: .2rem;
+    font-size: 80px;
+    padding: 0px;
+    height: 60px;
+    width: 60px;
 }
