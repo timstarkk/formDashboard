@@ -17,10 +17,19 @@ export default class Dashboard extends Component {
     }
 
     async componentDidMount() {
+        console.log('componentDidMount mount mount mount')
         this._isMounted = true;
         console.log(this);
         let that = this;
         // check if user is logged in, and set state accordingly
+        this.checkLoginGetForms(that);
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    async checkLoginGetForms(that) {
         await Auth.currentSession()
             .then(async data => {
                 console.log(data);
@@ -40,9 +49,23 @@ export default class Dashboard extends Component {
             });
     }
 
-    componentWillUnmount() {
-        this._isMounted = false;
+    handleAddForm() {
+        let that = this;
+
+        this.handleAddFormAsync(that);
     }
+
+    async handleAddFormAsync(that) {
+        console.log('handleAddForm');
+        const { addFormButton } =   that.context;
+        await addFormButton(); 
+        await that.formGetter(that);
+        console.log(that.state);
+        let forms = that.state.forms;
+        that.setState({
+            forms
+        }, () => that.forceUpdate())
+    };
 
     async formGetter(that) {
         const { getForms } = this.context;
@@ -54,23 +77,17 @@ export default class Dashboard extends Component {
         })
     }
 
-    handleAddForm() {
-        console.log('hello bros');
-        let that = this;
-        this.formGetter(that);
-    };
-
     render() {
-        let { loading, addFormButton } = this.context;
+        console.log("renderingggggggggg");
+        // let { loading, addFormButton } = this.context;
         let forms = null;
 
-        if (this.state.isLoggedIn) {
-            forms = this.state.forms
-    
-            forms = forms.map(form => {
-                return <FormThumbnail key={form.id} form={form}/>
-            });
-        }
+        forms = this.context.forms;
+        // why are all these versions of forms different?
+        console.log(forms); // returns [array(9)]
+        forms = forms.map(form => {
+            return <FormThumbnail key={form.id} form={form}/>
+        });
 
         return (
             <>
@@ -85,7 +102,7 @@ export default class Dashboard extends Component {
                             <div id='forms-list'>
                                 {forms}
                             </div>
-                            <div className='btn btn-primary' id='add-button' onClick={() => {addFormButton(); this.handleAddForm();}}>+</div>
+                            <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>+</div>
                         </div>
                     </div>
                 </section>
