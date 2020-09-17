@@ -46,6 +46,7 @@
     padding: 0px;
     height: 60px;
     width: 60px;
+    background-color: var(--lightDarkGrey);
 }
 
 #add-button > p {
@@ -54,4 +55,9 @@
     position: relative;
     bottom: 28px;
     left: 2px;
+    color: var(--mainGrey);
+}
+
+#add-button:hover {
+    background-color: var(--mainDarkGrey);
 }
