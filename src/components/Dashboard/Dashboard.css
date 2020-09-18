@@ -24,6 +24,7 @@
     background-color: var(--mainWhite);
     min-height: 90vh;
     padding: 2rem;
+    border-radius: 8px;
 }
 
 .header-container {
