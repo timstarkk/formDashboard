@@ -10,7 +10,7 @@
 
   .nav-white {
     color: black;
-    background-color: var(--mainGrey);
+    background-color: var(--primaryBlue);
   }
 
   .nav-header {
@@ -54,10 +54,10 @@
     color: var(--mainWhite, 30%);
   }
   .nav-links.nav-white a {
-    color: var(--mainBlack);
+    color: var(--mainWhite);
   }
   .nav-links.nav-white a:hover {
-    color: var(--mainBlack);
+    color: var(--mainWhite);
   }
   .show-nav {
     height: auto;
@@ -79,7 +79,7 @@
     letter-spacing: var(--mainSpacing);
   }
   .logo-text.nav-white {
-    color: var(--mainBlack);
+    color: var(--mainWhite);
   }
   
   .navbar.nav-scrolled {
