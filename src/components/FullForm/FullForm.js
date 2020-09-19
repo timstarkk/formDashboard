@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { ItemContext } from '../../context';
 import { MdClose as CloseButton } from "react-icons/md";
-import { IoIosArrowRoundForward as Arrow } from "react-icons/io";
 import './FullForm.css';
-import CartList from '../CartList/CartList';
 
 export default class FullForm extends Component {
     static contextType = ItemContext;
