@@ -1,4 +1,6 @@
 #full-form-container {
     background-color: var(--mainWhite);
     border-radius: 8px;
+    position: relative;
+    bottom: 8px;
 }
