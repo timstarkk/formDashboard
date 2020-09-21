@@ -3,4 +3,5 @@
     border-radius: 8px;
     position: relative;
     bottom: 8px;
+    min-height: 90vh;
 }
