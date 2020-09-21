@@ -24,7 +24,7 @@
     /* border: 2px solid gold; */
     background-color: var(--lightDarkGrey);
     height: 320px;
-    padding: 2rem;
+    padding: 0rem 2rem 2rem 2rem;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
@@ -62,4 +62,10 @@
 
 #add-button:hover {
     background-color: var(--mainDarkGrey);
+}
+
+#form-toggle-button-container {
+    position: absolute;
+    /* top: 0px; */
+    right: 5px;
 }
