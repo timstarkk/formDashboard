@@ -14,13 +14,13 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { toggleCart, cartVisible, cartItemsData } = this.context;
-        let visibility = "hide";
-        let subtotal = 0;
+        // let { toggleCart, cartVisible, cartItemsData } = this.context;
+        // let visibility = "hide";
+        // let subtotal = 0;
 
-        for (const item of cartItemsData) {
-            subtotal += item.price * item.amount
-        };
+        // for (const item of cartItemsData) {
+        //     subtotal += item.price * item.amount
+        // };
 
         // can transform cartVisible into another variable
         // for opening and closing the dashboard toolbox
@@ -37,20 +37,28 @@ export default class FullForm extends Component {
         //     }
         // };
         return (
+            // <>
+            //     <div id="menu-background" className={visibility} onClick={() => toggleCart()} />
+            //     <div id="flyout-menu" className={visibility}>
+            //         <div className="top-area">
+            //             <CloseButton id="close-button" onClick={() => toggleCart()} />
+            //             <h3 id="your-cart">FullForm</h3>
+            //             <div className="outer-line" />
+            //         </div>
+            //         <div id="cart-items-area">
+            //             {/* <CartList cartItems={cartItemsData} /> */}
+            //             <div id="test-btn" className="btn btn-secondary" onClick={() => this.myFunction()}>hello</div>
+            //         </div>
+            //         <div className="bottom-area">
+            //             <div className="outer-line" />
+            //         </div>
+            //     </div>
+                
+            // </>
             <>
-                <div id="menu-background" className={visibility} onClick={() => toggleCart()} />
-                <div id="flyout-menu" className={visibility}>
-                    <div className="top-area">
-                        <CloseButton id="close-button" onClick={() => toggleCart()} />
-                        <h3 id="your-cart">FullForm</h3>
-                        <div className="outer-line" />
-                    </div>
-                    <div id="cart-items-area">
-                        {/* <CartList cartItems={cartItemsData} /> */}
-                        <div id="test-btn" className="btn btn-secondary" onClick={() => this.myFunction()}>hello</div>
-                    </div>
-                    <div className="bottom-area">
-                        <div className="outer-line" />
+                <div className="container-wrapper">
+                    <div id="full-form-container">
+                        <p>hello from full form, display selected form contents here.</p>
                     </div>
                 </div>
             </>
