@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 import Form from '../Form/Form';
 import FormThumbnail from '../FormThumbnail/FormThumbnail';
 import FullForm from '../FullForm/FullForm';
+import ToggleButton from 'react-toggle-button';
 
 export default class Dashboard extends Component {
     _isMounted = false;
@@ -100,6 +101,15 @@ export default class Dashboard extends Component {
                             <h4 id='dashboard-header'>Dashboard</h4>
                         </div>
                         <div className='dashboard-container'>
+                            <ToggleButton
+                                value={ this.state.value || false }
+                                id="form-toggle-button"
+                                onToggle={(value) => {
+                                    this.setState({
+                                    value: !value,
+                                    })
+                                }
+                            } />
                             <div id='forms-list'>
                                 {forms}
                             </div>
