@@ -22,7 +22,7 @@
 
 .dashboard-container {
     /* border: 2px solid gold; */
-    background-color: var(--mainWhite);
+    background-color: var(--lightDarkGrey);
     height: 320px;
     padding: 2rem;
     border-radius: 8px;
