@@ -6,6 +6,7 @@ import Item from '../Item/Item';
 import Loading from '../Loading/Loading';
 import Form from '../Form/Form';
 import FormThumbnail from '../FormThumbnail/FormThumbnail';
+import FullForm from '../FullForm/FullForm';
 
 export default class Dashboard extends Component {
     _isMounted = false;
@@ -103,8 +104,10 @@ export default class Dashboard extends Component {
                                 {forms}
                             </div>
                             <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>
-                                <p>+</p></div>
+                                <p>+</p>
+                            </div>
                         </div>
+                        <FullForm />
                     </div>
                 </section>
                 :
