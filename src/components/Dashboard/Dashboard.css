@@ -66,6 +66,6 @@
 
 #form-toggle-button-container {
     position: absolute;
-    /* top: 0px; */
-    right: 5px;
+    top: 72px;
+    right: 20px;
 }
