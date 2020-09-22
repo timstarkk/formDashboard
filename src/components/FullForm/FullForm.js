@@ -5,8 +5,9 @@ import './FullForm.css';
 
 export default class FullForm extends Component {
     static contextType = ItemContext;
-    constructor() {
+    constructor(props) {
         super();
+        console.log(props);
     }
 
     myFunction = () => {
