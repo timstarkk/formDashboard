@@ -13,10 +13,11 @@ import Switch from "react-switch";
 export default class Dashboard extends Component {
     _isMounted = false;
     static contextType = ItemContext;
+
     state = {
         isLoggedIn: false,
         forms: [],
-        switch: false
+        openSwitch: false
     }
 
     async componentDidMount() {
@@ -78,7 +79,11 @@ export default class Dashboard extends Component {
         that.setState({
             forms
         })
-    }
+    };
+
+    handleSwitch(openSwitch) {
+    this.setState({ openSwitch: !openSwitch });
+    };
 
     render() {
         console.log("renderingggggggggg");
@@ -103,6 +108,7 @@ export default class Dashboard extends Component {
                         </div>
                         <div className='dashboard-container'>
                             <div id="form-toggle-button-container">
+                                <Switch onChange={() => this.handleSwitch(this.state.openSwitch)} checked={this.state.openSwitch} /> 
                             </div>
                             <div id='forms-list'>
                                 {forms}
