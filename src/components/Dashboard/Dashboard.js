@@ -7,6 +7,9 @@ import Loading from '../Loading/Loading';
 import Form from '../Form/Form';
 import FormThumbnail from '../FormThumbnail/FormThumbnail';
 import FullForm from '../FullForm/FullForm';
+import Switch from "react-switch";
+
+
 export default class Dashboard extends Component {
     _isMounted = false;
     static contextType = ItemContext;
