@@ -113,6 +113,8 @@ export default class Dashboard extends Component {
                                     checked={this.state.openSwitch} 
                                     height={18}
                                     width={38}
+                                    uncheckedIcon={false}
+                                    checkedIcon={false}
                                 /> 
                             </div>
                             <div id='forms-list'>
