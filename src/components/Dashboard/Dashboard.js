@@ -107,14 +107,16 @@ export default class Dashboard extends Component {
                             <h4 id='dashboard-header'>Dashboard</h4>
                         </div>
                         <div id="form-toggle-button-container">
-                            <Switch 
-                                onChange={() => this.handleSwitch(this.state.openSwitch)} 
-                                checked={this.state.openSwitch} 
-                                height={18}
-                                width={38}
-                                uncheckedIcon={false}
-                                checkedIcon={false}
-                            /> 
+                            <div id="form-toggle-button">
+                                <Switch 
+                                    onChange={() => this.handleSwitch(this.state.openSwitch)} 
+                                    checked={this.state.openSwitch} 
+                                    height={18}
+                                    width={38}
+                                    uncheckedIcon={false}
+                                    checkedIcon={false}
+                                /> 
+                            </div>
                         </div>
                         <div className='dashboard-container'>
                             <div id='forms-list'>
