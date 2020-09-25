@@ -82,7 +82,10 @@ export default class Dashboard extends Component {
     };
 
     handleSwitch(openSwitch) {
-    this.setState({ openSwitch: !openSwitch });
+        const { toggleForm } = this.context;
+
+        toggleForm();
+        this.setState({ openSwitch: !openSwitch });
     };
 
     render() {
