@@ -65,6 +65,13 @@
 }
 
 #form-toggle-button-container {
-    position: relative;
-    left: 460px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+#form-toggle-button {
+    width: 44px;
+    display: flex;
+    align-items: center;
 }
