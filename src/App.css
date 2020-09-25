@@ -66,12 +66,16 @@ body.show::-webkit-scrollbar {
   transform: translateX(0vw, 0, 0);
 }
 
+#full-form-container {
+  transition: all 0.35s cubic-bezier(0.46, 0.01 , 0.32, 1);
+}
+
 #full-form-container.show {
-  border: 2px solid darkgreen;
+  transform: translateY(312px);
 }
 
 #full-form-container.hide {
-  border: 2px solid gold;
+  transform: translateY(0vh, 0, 0);
 }
 
 h1 {
