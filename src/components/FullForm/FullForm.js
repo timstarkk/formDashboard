@@ -15,47 +15,26 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { toggleCart, hideToolbox } = this.context;
+        let { hideToolbox } = this.context;
         let visibility = "hide";
-        let subtotal = 0;
-
-        for (const item of cartItemsData) {
-            subtotal += item.price * item.amount
-        };
 
         // can transform hideToolbox into another variable
         // for opening and closing the dashboard toolbox
         if (hideToolbox) {
             visibility = 'show';
-            document.getElementById('app-container').classList.add('show');
+            document.getElementById('full-form-container').classList.add('show');
             document.body.classList.add('show');
             document.getElementsByTagName('html')[0].classList.add('show');
         } else {
-            if (document.getElementById('app-container') !== null) {
-                document.getElementById('app-container').classList.remove('show');
+            console.log('not hiide tool')
+            if (document.getElementById('full-form-container') !== null) {
+                document.getElementById('full-form-container').classList.remove('show');
                 document.body.classList.remove('show');
                 document.getElementsByTagName('html')[0].classList.remove('show');
             }
         };
+
         return (
-            // <>
-            //     <div id="menu-background" className={visibility} onClick={() => toggleCart()} />
-            //     <div id="flyout-menu" className={visibility}>
-            //         <div className="top-area">
-            //             <CloseButton id="close-button" onClick={() => toggleCart()} />
-            //             <h3 id="your-cart">FullForm</h3>
-            //             <div className="outer-line" />
-            //         </div>
-            //         <div id="cart-items-area">
-            //             {/* <CartList cartItems={cartItemsData} /> */}
-            //             <div id="test-btn" className="btn btn-secondary" onClick={() => this.myFunction()}>hello</div>
-            //         </div>
-            //         <div className="bottom-area">
-            //             <div className="outer-line" />
-            //         </div>
-            //     </div>
-                
-            // </>
             <>
                 <div className="container-wrapper">
                     <div id="full-form-container">
