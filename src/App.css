@@ -66,6 +66,14 @@ body.show::-webkit-scrollbar {
   transform: translateX(0vw, 0, 0);
 }
 
+#full-form-container.show {
+  border: 2px solid darkgreen;
+}
+
+#full-form-container.hide {
+  border: 2px solid gold;
+}
+
 h1 {
   font-weight: 700;
   font-size: 3em;
