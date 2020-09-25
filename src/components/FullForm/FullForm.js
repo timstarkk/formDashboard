@@ -15,7 +15,7 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { toggleCart, cartVisible, cartItemsData } = this.context;
+        let { toggleCart, hideToolbox } = this.context;
         let visibility = "hide";
         let subtotal = 0;
 
@@ -23,9 +23,9 @@ export default class FullForm extends Component {
             subtotal += item.price * item.amount
         };
 
-        // can transform cartVisible into another variable
+        // can transform hideToolbox into another variable
         // for opening and closing the dashboard toolbox
-        if (cartVisible) {
+        if (hideToolbox) {
             visibility = 'show';
             document.getElementById('app-container').classList.add('show');
             document.body.classList.add('show');
