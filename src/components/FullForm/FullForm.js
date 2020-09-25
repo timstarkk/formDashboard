@@ -21,12 +21,13 @@ export default class FullForm extends Component {
         // can transform hideToolbox into another variable
         // for opening and closing the dashboard toolbox
         if (hideToolbox) {
-            visibility = 'show';
-            document.getElementById('full-form-container').classList.add('show');
-            document.body.classList.add('show');
-            document.getElementsByTagName('html')[0].classList.add('show');
+            if (document.getElementById('full-form-container') !== null) {
+                visibility = 'show';
+                document.getElementById('full-form-container').classList.add('show');
+                document.body.classList.add('show');
+                document.getElementsByTagName('html')[0].classList.add('show');
+            }
         } else {
-            console.log('not hiide tool')
             if (document.getElementById('full-form-container') !== null) {
                 document.getElementById('full-form-container').classList.remove('show');
                 document.body.classList.remove('show');
