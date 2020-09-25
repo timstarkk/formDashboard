@@ -98,10 +98,9 @@ class ItemProvider extends Component {
         })
     };
 
-    toggleCart = () => {
-        this.getCartItems();
+    toggleForm = () => {
         this.setState({
-            cartVisible: !this.state.cartVisible
+            hideToolbox: !this.state.hideToolbox
         });
     };
 
@@ -180,7 +179,7 @@ class ItemProvider extends Component {
                 ...this.state,
                 setCurrentUser: this.setCurrentUser,
                 handleChange: this.handleChange,
-                toggleCart: this.toggleCart,
+                toggleForm: this.toggleForm,
                 afterSignOut: this.afterSignOut,
                 addFormButton: this.addFormButton,
                 getForms: this.getForms
