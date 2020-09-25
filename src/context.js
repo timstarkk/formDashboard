@@ -19,7 +19,7 @@ class ItemProvider extends Component {
         currentUser: {},
         addAmount: 1,
         amount: 0,
-        hideToolbox: false,
+        hideToolbox: true,
         cartItemsData: [],
         cartId: '',
         isLoggedIn: false,
