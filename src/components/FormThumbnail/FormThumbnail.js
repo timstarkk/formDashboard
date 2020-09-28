@@ -9,10 +9,12 @@ export default function FormThumbnail(form) {
     return (
         <>
             <div id="formThumbnailBox">
-                <div>
-                    id: {id}
+                <div className="thumbnailItem">
+                    <div>
+                        id: {id}
+                    </div>
+                    <div>contents: {contentsArray}</div>
                 </div>
-                <div>contents: {contentsArray}</div>
             </div>
         </>
     );
