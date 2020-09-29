@@ -30,9 +30,9 @@ html {
   background-color: var(--mainBlack);
 }
 
-html.show {
-  /* overflow: hidden; */
-}
+/* html.show {
+  overflow: hidden;
+} */
 
 body {
   color: var(--mainBlack);
