@@ -24,14 +24,10 @@ export default class FullForm extends Component {
             if (document.getElementById('full-form-container') !== null) {
                 visibility = 'show';
                 document.getElementById('full-form-container').classList.add('show');
-                document.body.classList.add('show');
-                document.getElementsByTagName('html')[0].classList.add('show');
             }
         } else {
             if (document.getElementById('full-form-container') !== null) {
                 document.getElementById('full-form-container').classList.remove('show');
-                document.body.classList.remove('show');
-                document.getElementsByTagName('html')[0].classList.remove('show');
             }
         };
 
