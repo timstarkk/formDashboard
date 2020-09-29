@@ -1,5 +1,6 @@
 import React from 'react';
 import './FormThumbnail.css';
+import { ItemContext } from '../../context';
 
 export default function FormThumbnail(form) {
     const {id, contentsArray} = form.form;
