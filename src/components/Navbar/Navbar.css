@@ -10,7 +10,7 @@
 
   .nav-white {
     color: black;
-    background-color: var(--primaryBlue);
+    /* background-color: var(--primaryBlue); */
   }
 
   .nav-header {
