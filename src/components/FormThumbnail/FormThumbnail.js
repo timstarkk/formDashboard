@@ -3,13 +3,11 @@ import './FormThumbnail.css';
 
 export default function FormThumbnail(form) {
     const {id, contentsArray} = form.form;
-    console.log(form);
-    console.log(id);
-    console.log(contentsArray);
+    
     return (
         <>
             <div id="formThumbnailBox">
-                <div className="thumbnailItem">
+                <div className="thumbnailItem" onClick={() => console.log('you clicked it')}>
                     <div>
                         id: {id}
                     </div>
