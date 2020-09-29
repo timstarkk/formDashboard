@@ -31,7 +31,7 @@ html {
 }
 
 html.show {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
