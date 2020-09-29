@@ -47,7 +47,7 @@ body.show {
   -ms-overflow-style: none;
 }
 
-body.show::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 
