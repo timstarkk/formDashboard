@@ -173,6 +173,10 @@ class ItemProvider extends Component {
         return forms;
     };
 
+    handleSelectForm() {
+        console.log('you selected a form');
+    }
+
     render() {
         return (
             <ItemContext.Provider value={{
@@ -182,7 +186,8 @@ class ItemProvider extends Component {
                 toggleForm: this.toggleForm,
                 afterSignOut: this.afterSignOut,
                 addFormButton: this.addFormButton,
-                getForms: this.getForms
+                getForms: this.getForms,
+                handleSelectForm: this.handleSelectForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>
