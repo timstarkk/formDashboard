@@ -36,6 +36,7 @@
 
 #dashboard-header {
     width: 0;
+    visibility: hidden;
 }
 
 #forms-list {
