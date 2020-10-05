@@ -24,7 +24,8 @@ class ItemProvider extends Component {
         cartId: '',
         isLoggedIn: false,
         forms: [],
-        selectedFormId: ''
+        formSelected: false,
+        selectedForm: ''
     };
 
     async componentDidMount() {
@@ -174,9 +175,10 @@ class ItemProvider extends Component {
         return forms;
     };
 
-    handleSelectForm = (id) => {
+    handleSelectForm = (form) => {
         this.setState({
-            selectedFormId: id
+            selectedForm: form,
+            formSelected: true
         })
     }
 
