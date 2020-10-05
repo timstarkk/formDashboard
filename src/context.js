@@ -174,8 +174,10 @@ class ItemProvider extends Component {
         return forms;
     };
 
-    handleSelectForm() {
-        console.log('you selected a form');
+    handleSelectForm = (id) => {
+        this.setState({
+            selectedFormId: id
+        })
     }
 
     render() {
