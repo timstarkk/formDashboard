@@ -23,7 +23,8 @@ class ItemProvider extends Component {
         cartItemsData: [],
         cartId: '',
         isLoggedIn: false,
-        forms: []
+        forms: [],
+        selectedFormId: ''
     };
 
     async componentDidMount() {
