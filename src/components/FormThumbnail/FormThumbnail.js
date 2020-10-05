@@ -10,7 +10,7 @@ export default function FormThumbnail(form) {
     return (
         <>
             <div id="formThumbnailBox">
-                <div className="thumbnailItem" onClick={() => handleSelectForm(id)}>
+                <div className="thumbnailItem" onClick={() => handleSelectForm(form.form)}>
                     <div>
                         id: {id}
                     </div>
