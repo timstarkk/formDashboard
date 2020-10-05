@@ -15,7 +15,7 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { hideToolbox, forms } = this.context;
+        let { hideToolbox, forms, selectedFormId } = this.context;
         let visibility = "hide";
     
         // can transform hideToolbox into another variable
@@ -35,7 +35,7 @@ export default class FullForm extends Component {
             <>
                 <div className="container-wrapper">
                     <div id="full-form-container">
-                    <p>{forms.map(form => <div>{form.id} // {form.contentsArray}</div>)}</p>
+                    <p>{selectedFormId}</p>
                     </div>
                 </div>
             </>
