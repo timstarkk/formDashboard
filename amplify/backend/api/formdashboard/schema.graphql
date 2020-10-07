@@ -7,5 +7,15 @@ type User @model {
 
 type Form {
   id: ID!
-  contentsArray: [String!]
+  contents: [FormContents!]
 } 
+
+type FormContents {
+  columns: Int
+  rows: Int
+  layout: [Row!]
+}
+
+type Row {
+  something: String
+}
