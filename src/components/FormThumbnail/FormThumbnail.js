@@ -3,7 +3,7 @@ import './FormThumbnail.css';
 import { ItemContext } from '../../context';
 
 export default function FormThumbnail(form) {
-    const { id, contentsArray } = form.form;
+    const { id, contents } = form.form;
 
     const { handleSelectForm } = useContext(ItemContext)
     
@@ -14,7 +14,7 @@ export default function FormThumbnail(form) {
                     <div>
                         id: {id}
                     </div>
-                    <div>contents: {contentsArray}</div>
+                    <div>contents: {contents}</div>
                 </div>
             </div>
         </>
