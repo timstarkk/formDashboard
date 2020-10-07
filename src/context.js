@@ -117,8 +117,9 @@ class ItemProvider extends Component {
         let forms = await that.getForms();
         let newForm = {
             id: uuid,
-            contentsArray: ["Default"]
+            contents: ["Default"]
         };
+
         forms.push(newForm);
         console.log(forms);
         
@@ -133,7 +134,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contentsArray }
+                    id forms { id, contents }
                 }
             }
         `
@@ -156,7 +157,7 @@ class ItemProvider extends Component {
             getUser(id: "${userId}") {
                 forms {
                     id
-                    contentsArray
+                    contents
                 }
             }
         }

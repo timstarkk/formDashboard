@@ -39,7 +39,7 @@ export default class FullForm extends Component {
                         formSelected == false ?
                             <p>'please select a form'</p> :
                             <>
-                                <p>{selectedForm.contentsArray}</p>
+                                <p>{selectedForm.contents}</p>
                             </>
                     }
                     </div>
