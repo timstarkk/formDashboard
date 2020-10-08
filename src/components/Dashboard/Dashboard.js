@@ -123,7 +123,7 @@ export default class Dashboard extends Component {
                         </div>
                         <div className='dashboard-container'>
                             <div id='forms-list'>
-                                {forms}
+                                {/* {forms} */}
                             </div>
                             <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>
                                 <p>+</p>
