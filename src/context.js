@@ -3,6 +3,7 @@ import query from './data';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
+import { v4 as uuidv4 } from 'uuid';
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -10,9 +11,6 @@ let items = [];
 
 class ItemProvider extends Component {
     state = {
-        shopItems: [],
-        sortedItems: [],
-        featuredItems: [],
         loading: true,
         type: 'all',
         price: 0,
@@ -21,9 +19,13 @@ class ItemProvider extends Component {
         currentUser: {},
         addAmount: 1,
         amount: 0,
-        cartVisible: false,
+        hideToolbox: true,
         cartItemsData: [],
-        cartId: ''
+        cartId: '',
+        isLoggedIn: false,
+        forms: [],
+        formSelected: false,
+        selectedForm: ''
     };
 
     async componentDidMount() {
@@ -84,558 +86,120 @@ class ItemProvider extends Component {
         })
     };
 
-    addAmountButton = direction => {
-        if (direction === 'minus') {
-            if (this.state.addAmount > 1) {
-                this.setState({
-                    addAmount: this.state.addAmount - 1
-                })
-            }
-        } else if (direction === 'plus') {
-            this.setState({
-                addAmount: this.state.addAmount + 1
-            })
-        }
-    };
-
-    resetAddAmount = () => {
-        this.setState({
-            addAmount: 1
-        })
-    };
-
-    getItem = slug => {
-        let tempItems = [...this.state.shopItems];
-        const item = tempItems.find(item => item.slug === slug);
-
-        return item;
-    };
-
     setCurrentUser = userInfo => {
         this.setState({
-            currentUser: userInfo
-        }, () => {
-            if (this.state.currentUser.username) {
-                this.checkLocalCart();
-            }
+            currentUser: userInfo,
+            isLoggedIn: true
         });
 
     };
 
     afterSignOut = () => {
         this.setState({
-            cartItemsData: []
+            isLoggedIn: false
         })
     };
 
-    handleAddToCart = item => {
-        if (!this.state.currentUser.username) {
-            this.visitorCartAdd(item);
-        } else {
-            this.userCartAdd(item);
-        }
+    toggleForm = () => {
+        this.setState({
+            hideToolbox: !this.state.hideToolbox
+        });
     };
 
-    visitorCartAdd = (item) => {
-        const key = item.id;
-        if (localStorage.getItem('shoppingCart') !== null) {
-            // localStorage.removeItem('shoppingCart');
-            console.log(this.state.addAmount);
-            let shoppingCart = JSON.parse(window.localStorage.getItem('shoppingCart'));
-
-            if (shoppingCart.items[`${key}`]) {
-                shoppingCart.items[`${key}`] = shoppingCart.items[`${key}`] + this.state.addAmount;
-                window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            } else {
-                shoppingCart.items[`${key}`] = this.state.addAmount
-                window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            }
-        } else {
-            const shoppingCart = {
-                items: {
-                    [key]: this.state.addAmount
-                }
-            };
-            window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-            console.log('added to cart');
-        }
+    addFormButton = () => {
+        let that = this;
+        this.addFormFunction(that);
     };
 
-    userCartAdd = (item) => {
-        console.log('running user cart add');
-        let itemId = item.id;
-        let userSub = this.state.currentUser.sub;
-        let newItem = {};
+    async addFormFunction(that) {
+        let uuid = uuidv4();
+        const userId = that.state.currentUser.sub
+        let forms = await that.getForms();
+        let newForm = {
+            id: uuid,
+            contents: ["Default"]
+        };
 
+        forms.push(newForm);
+        console.log(forms);
         
-        newItem = {
-            itemId,
-            amount: this.state.addAmount,
-        }
+        let stringifiedItems = JSON.stringify(forms);
+        console.log(stringifiedItems);
+        let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
+        console.log(unquotedItems);
 
-        // checks for current user cart
-        const checkForCart = `
-        query {
-            listShoppingCarts(filter: {
-                userSub: {
-                    contains: "${userSub}"
+        const addForm = `
+            mutation {
+                updateUser(input: {
+                    id: "${userId}",
+                    forms: ${unquotedItems}
+                }) {
+                    id forms { id, contents { columns, rows, layout { something } } }
                 }
-            }) {
-                items {
+            }
+        `
+        
+        // API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+    };
+
+    getForms = () => {
+        let that = this;
+
+        return this.getFormsAsync(that);
+    };
+
+    async getFormsAsync(that) {
+        // return [{id: '1', content: 'forms'}];
+        const userId = that.state.currentUser.sub;
+
+        const getForms = `
+        query {
+            getUser(id: "${userId}") {
+                forms {
                     id
-                    items {
-                        itemId
-                        amount
+                    contents {
+                        columns
+                        rows
+                        layout {
+                            something
+                        }
                     }
                 }
             }
         }
         `
 
-        API.graphql(graphqlOperation(checkForCart)).then(res => {
-            let cartExists = res.data.listShoppingCarts.items.length;
-            let itemExists = false;
+        let forms = await API.graphql(graphqlOperation(getForms)).then(res => {console.log(res); return res.data.getUser.forms}).catch(error => console.log(error.message));
+        console.log(forms);
 
-            if (cartExists) {
-                // retrieve and prepare items data
-                let cartId = res.data.listShoppingCarts.items[0].id;
-                let cartItems = res.data.listShoppingCarts.items[0].items;
-                console.log(cartItems);
-
-                for (const [index, cartItem] of cartItems.entries()) {
-                    if (cartItem.itemId === itemId) {
-                        cartItems[index].amount += this.state.addAmount;
-
-                        console.log(cartItem);
-                        itemExists = true;
-                    }
-                }
-
-                if (itemExists) {
-                    console.log('item exists');
-                    let stringifiedItems = JSON.stringify(cartItems);
-                    let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-                    const updateCart = `
-                        mutation {
-                            updateShoppingCart(input: {
-                            id: "${cartId}"
-                            items: ${unquotedItems}
-                            }) {items {itemId amount}}
-                        }
-                    `
-
-                    // update cart with updated item amount
-                    API.graphql(graphqlOperation(updateCart)).then(() => console.log('updated item in cart db')).catch(err => console.log(`you broke it `, err));
-                } else {
-                    console.log(cartItems);
-                    console.log(newItem);
-                    cartItems.push(newItem);
-                    let stringifiedItems = JSON.stringify(cartItems);
-                    let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-                    const updateCart = `
-                        mutation {
-                            updateShoppingCart(input: {
-                            id: "${cartId}"
-                            items: ${unquotedItems}
-                            }) {items {itemId amount}}
-                        }
-                    `
-
-                    // update cart with new item added
-                    API.graphql(graphqlOperation(updateCart)).then(() => console.log('added item to cart db')).catch(err => console.log(`you broke it `, err));
-                }
-            } else {
-                // if doesn't exist, create that cart
-                let amount = this.state.addAmount;
-
-                const createCart = `
-                    mutation {
-                        createShoppingCart(input: {
-                        userSub: "${userSub}"
-                        items: [{
-                            itemId: "${itemId}"
-                            amount: ${amount}
-                        }]
-                        }) { 
-                            id 
-                            userSub 
-                            items {
-                                itemId
-                                amount
-                            }
-                        }
-                    }
-                `
-
-                // create cart with selected item and amount
-                API.graphql(graphqlOperation(createCart)).then(() => console.log('cart created successfully')).catch(err => console.log(`whoops `, err));
-            }
-
-        }).catch(err => console.log(err))
-    };
-
-    addFromLocalStorage = (newItems) => {
-    console.log('running add from local storage');
-    let userSub = this.state.currentUser.sub;
-
-    // checks for current user cart
-    const checkForCart = `
-    query {
-        listShoppingCarts(filter: {
-            userSub: {
-                contains: "${userSub}"
-            }
-        }) {
-            items {
-                id
-                items {
-                    itemId
-                    amount
-                }
-            }
-        }
-    }
-    `
-
-    API.graphql(graphqlOperation(checkForCart)).then(res => {
-        let cartExists = res.data.listShoppingCarts.items.length;
-        
-        if (cartExists) {
-            // retrieve and prepare items data
-            let cartId = res.data.listShoppingCarts.items[0].id;
-            let cartItems = res.data.listShoppingCarts.items[0].items;
-            console.log(cartItems);
-
-            for (const [index, item] of newItems.entries()) {
-                let itemExists = false;
-
-                for (const cartItem of cartItems){
-                    if (item.itemId === cartItem.itemId) {
-                    cartItem.amount += item.amount;
-                    itemExists = true;
-                    }
-                }
-
-                if (!itemExists) {
-                    cartItems.push(item);
-                }
-            }
-
-                let stringifiedItems = JSON.stringify(cartItems);
-                let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-                const updateCart = `
-                    mutation {
-                        updateShoppingCart(input: {
-                        id: "${cartId}"
-                        items: ${unquotedItems}
-                        }) {items {itemId amount}}
-                    }
-                `
-
-                // update cart with new item added
-                API.graphql(graphqlOperation(updateCart)).then(() => {
-                    // clear local storage
-                    let emptyCart = {
-                        items: {}
-                    }
-                    localStorage.setItem('shoppingCart', JSON.stringify(emptyCart));
-                }).catch(err => console.log(`you broke it `, err));
-            }
-         else {
-            // if doesn't exist, create that cart
-            let stringifiedItems = JSON.stringify(newItems);
-            let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-            const createCart = `
-                mutation {
-                    createShoppingCart(input: {
-                    userSub: "${userSub}"
-                    items: ${unquotedItems}
-                    }) { 
-                        id 
-                        userSub 
-                        items {
-                            itemId
-                            amount
-                        }
-                    }
-                }
-            `
-            // create cart with selected item and amount
-            API.graphql(graphqlOperation(createCart)).then(() => {
-                    // clear local storage
-                    let emptyCart = {
-                        items: {}
-                    }
-                    localStorage.setItem('shoppingCart', JSON.stringify(emptyCart));
-            }).catch(err => console.log(`whoops `, err));
-        }
-
-    }).catch(err => console.log(err))
-    };
-
-    toggleCart = () => {
-        this.getCartItems();
         this.setState({
-            cartVisible: !this.state.cartVisible
-        });
+            forms
+        }, () => {
+            console.log('**********************');
+            console.log(forms);
+            console.log('**********************');
+        })
+        return forms;
     };
 
-    getCartItems = () => {
-        console.log('hello from get cart items');
-        if (Object.keys(this.state.currentUser).length === 0) {
-            console.log('not signed in');
-            const cartItemsArray = []
-            const shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
-            const cartItems = shoppingCart.items;
-            console.log(cartItems);
-            for (const key in cartItems) {
-                const itemId = key;
-                const amount = cartItems[key];
-                console.log(key + " " + amount)
-                cartItemsArray.push({
-                    itemId,
-                    amount
-                })
-            }
-            this.getCartItemsData(cartItemsArray);
-        } else {
-            console.log('user is signed in');
-            Auth.currentSession()
-                .then(data => {
-                    let userSub = data.accessToken.payload.sub;
-                    console.log(userSub);
-                    const getCart = `
-                        query {
-                            listShoppingCarts(filter: {
-                                userSub: {
-                                    contains: "${userSub}"
-                                }
-                            }) {
-                                items {
-                                    id
-                                    items {
-                                        itemId
-                                        amount
-                                    }
-                                }
-                            }
-                        }
-                    `
-
-                    API.graphql(graphqlOperation(getCart)).then(res => {
-                        console.log(res);
-                        const cartId = res.data.listShoppingCarts.items[0].id
-                        let cartItems = res.data.listShoppingCarts.items[0].items
-                        console.log(cartItems);
-
-                        this.getCartItemsData(cartItems);
-                        this.setState({
-                            cartId
-                        })
-                    });
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        }
-    };
-
-    getCartItemsData = (cartItems) => {
-        console.log('getting cart items data');
-        const cartItemsArray = [];
-
-        for (const item of cartItems) {
-            let itemId = item.itemId;
-            let amount = item.amount;
-
-            const getItemData = `
-                query {
-                    getStoreItem(
-                    id: "${itemId}"
-                    ){
-                    fields {
-                        images {
-                        imageFields {
-                            file {
-                            url
-                            }
-                        }
-                        }
-                        name
-                        price
-                    }
-                    }
-                }
-            `
-
-            API.graphql(graphqlOperation(getItemData)).then(res => {
-                res.data.getStoreItem.fields.amount = amount;
-                res.data.getStoreItem.fields.itemId = itemId;
-                cartItemsArray.push(res.data.getStoreItem.fields);
-
-                console.log(cartItemsArray);
-                this.setState({
-                    cartItemsData: cartItemsArray
-                })
-            }).catch(err => console.log(err.message));
-        }
-    };
-
-    handlePlusMinus = (itemId, amount, operator, index) => { 
-        if (operator === "plus") {
-            amount++;
-        } else {
-            amount--;
-        }
-
-        if (Object.keys(this.state.currentUser).length === 0) {
-            console.log('user not logged in');
-            if (amount === 0) {
-                const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
-                delete shoppingCart.items[`${itemId}`];
-                console.log(shoppingCart)
-                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-
-                let cartItemsData = this.state.cartItemsData;
-                cartItemsData.splice(index, 1);
-                this.setState({
-                    cartItemsData
-                })
-            } else {
-                const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
-                shoppingCart.items[`${itemId}`] = amount;
-                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-
-                let cartItemsData = this.state.cartItemsData;
-
-                for (const [index, item] of cartItemsData.entries()) {
-                    if (item.itemId === itemId) {
-                        cartItemsData[index].amount = amount;
-                    }
-                }
-
-                console.log(cartItemsData);
-                this.setState({})
-            }
-        } else {
-            const cartId = this.state.cartId;
-            const userSub = this.state.currentUser.sub
-
-            const getCurrentCart = `
-                query {
-                    listShoppingCarts(filter: {
-                        userSub: {
-                            contains: "${userSub}"
-                        }
-                    }) {
-                        items {
-                            id
-                            items {
-                                itemId
-                                amount
-                            }
-                        }
-                    }
-                }
-            `
-
-            if (amount === 0) {
-                // remove item from cart
-                API.graphql(graphqlOperation(getCurrentCart)).then(res => {
-                    let cartItems = res.data.listShoppingCarts.items[0].items;
-                    cartItems.splice(index, 1);
-                    let stringifiedItems = JSON.stringify(cartItems);
-                    let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-                    const updateCart = `
-                        mutation {
-                            updateShoppingCart(input: {
-                            id: "${cartId}"
-                            items: ${unquotedItems}
-                            }) {items {itemId amount}}
-                        }
-                    `
-
-                    API.graphql(graphqlOperation(updateCart)).then(res => {
-                        let cartItemsData = this.state.cartItemsData;
-                        cartItemsData.splice(index, 1);
-                        this.setState({
-                            cartItemsData
-                        });
-                    }).catch(err => console.log(err));
-                }).catch(err => console.log(err));
-            } else {
-
-                API.graphql(graphqlOperation(getCurrentCart)).then(res => {
-                    let cartItems = res.data.listShoppingCarts.items[0].items;
-                    for (const [index, item] of cartItems.entries()) {
-                        if (item.itemId === itemId) {
-                            cartItems[index].amount = amount;
-                        }
-                    }
-
-                    let stringifiedItems = JSON.stringify(cartItems);
-                    let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-                    const updateCart = `
-                        mutation {
-                            updateShoppingCart(input: {
-                            id: "${cartId}"
-                            items: ${unquotedItems}
-                            }) {items {itemId amount}}
-                        }
-                    `
-
-                    API.graphql(graphqlOperation(updateCart)).then(res => {
-                        let cartItemsData = this.state.cartItemsData;
-                        cartItemsData[index].amount = amount;
-                        this.setState({
-                            cartItemsData
-                        });
-                    }).catch(err => console.log(err));
-                })
-            }
-        }
-    };
-
-    checkLocalCart = () => {
-        console.log('checking local cart');
-        console.log(this.state.cartItemsData)
-        const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
-        console.log(shoppingCart.items);
-        const newItems = [];
-        for (const key in shoppingCart.items) {
-
-            const item = {
-                itemId: key,
-                amount: shoppingCart.items[key]
-            }
-            newItems.push(item);
-        }
-
-        this.addFromLocalStorage(newItems);
-        
-    };
+    handleSelectForm = (form) => {
+        this.setState({
+            selectedForm: form,
+            formSelected: true
+        })
+    }
 
     render() {
         return (
             <ItemContext.Provider value={{
                 ...this.state,
-                getItem: this.getItem,
                 setCurrentUser: this.setCurrentUser,
                 handleChange: this.handleChange,
-                addAmountButton: this.addAmountButton,
-                handleAddToCart: this.handleAddToCart,
-                resetAddAmount: this.resetAddAmount,
-                toggleCart: this.toggleCart,
-                getCartItems: this.getCartItems,
-                getCartItemsData: this.getCartItemsData,
+                toggleForm: this.toggleForm,
                 afterSignOut: this.afterSignOut,
-                handlePlusMinus: this.handlePlusMinus
+                addFormButton: this.addFormButton,
+                getForms: this.getForms,
+                handleSelectForm: this.handleSelectForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>

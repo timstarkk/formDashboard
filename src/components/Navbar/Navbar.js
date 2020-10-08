@@ -59,8 +59,7 @@ class Navbar extends Component {
                 })
             })
             .catch(err => {
-                console.log(err);
-                console.log(this.state.isSignedIn)
+                // console.log(err);
             });
     }
 
@@ -164,14 +163,14 @@ class Navbar extends Component {
                                     })
                                 }}><AccountIcon id="account-link" /></Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a onClick={() => {
                                     toggleCart()
                                     this.setState({
                                         isOpen: false
                                     })
                                 }}><CartIcon id="cart-icon" /></a>
-                            </li>
+                            </li> */}
                         </ul>
                     </div >
                 </nav >

@@ -10,14 +10,16 @@
   --primaryColor: #fd588b;
   --primaryColorLight: #ff2d70;
   --primaryColorDark: #fd588cc2;
+  --primaryBlue: #6da5ff;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
   --mainGrey: #f2f3f7;
+  --mainDarkGrey: #afbfbf;
   --lightDarkGrey: #cecece;
   --darkGrey: #202529;
   --mainTransition: all 0.0s linear;
-  --secondTransition: all .1s linear;
+  --secondTransition: all .07s linear;
   --mainSpacing: .0625em;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
@@ -28,9 +30,9 @@ html {
   background-color: var(--mainBlack);
 }
 
-html.show {
+/* html.show {
   overflow: hidden;
-}
+} */
 
 body {
   color: var(--mainBlack);
@@ -45,13 +47,14 @@ body.show {
   -ms-overflow-style: none;
 }
 
-body.show::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 
 #app-container {
   background-color: var(--mainGrey);
   transition: all 0.35s cubic-bezier(0.46, 0.01 , 0.32, 1);
+  background-color: var(--primaryBlue);
 }
 
 #app-container.show {
@@ -61,6 +64,18 @@ body.show::-webkit-scrollbar {
 
 #app-container.hide {
   transform: translateX(0vw, 0, 0);
+}
+
+#full-form-container {
+  transition: all 0.35s cubic-bezier(0.46, 0.01 , 0.32, 1);
+}
+
+#full-form-container.show {
+  transform: translateY(312px);
+}
+
+#full-form-container.hide {
+  transform: translateY(0vh, 0, 0);
 }
 
 h1 {

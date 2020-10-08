@@ -1,7 +1,8 @@
 .dashboard-section {
-    padding-top: 10rem;
+    padding-top: 2rem;
     display: flex;
     justify-content: center;
+    background-color: var(--primaryBlue);
 }
 
 .dashboard-section h4 {
@@ -17,13 +18,15 @@
     margin: 0 auto;
     background: var(--primaryColor);
     margin-bottom: 4rem;
-  }
+}
 
 .dashboard-container {
     /* border: 2px solid gold; */
-    background-color: var(--mainWhite);
-    min-height: 60vh;
-    padding: 2rem;
+    background-color: var(--lightDarkGrey);
+    height: 320px;
+    padding: 0rem 2rem 2rem 2rem;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
 
 .header-container {
@@ -33,4 +36,54 @@
 
 #dashboard-header {
     width: 0;
+    visibility: hidden;
 }
+
+#forms-list {
+    display: flex;
+}
+
+#add-button {
+    border-radius: .2rem;
+    font-size: 80px;
+    padding: 0px;
+    height: 60px;
+    width: 60px;
+    background-color: var(--lightDarkGrey);
+}
+
+#add-button > p {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    bottom: 28px;
+    left: 2px;
+    color: var(--mainGrey);
+}
+
+#add-button:hover {
+    background-color: var(--mainDarkGrey);
+}
+
+#form-toggle-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+#form-toggle-button {
+    width: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.thumbnailItem {
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.thumbnailItem:hover {
+    cursor: pointer;
+};
