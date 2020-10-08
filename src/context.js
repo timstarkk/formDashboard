@@ -134,12 +134,12 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents }
+                    id forms { id, contents { columns, rows, layout { something } } }
                 }
             }
         `
         
-        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+        // API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     };
 
     getForms = () => {
@@ -157,7 +157,13 @@ class ItemProvider extends Component {
             getUser(id: "${userId}") {
                 forms {
                     id
-                    contents
+                    contents {
+                        columns
+                        rows
+                        layout {
+                            something
+                        }
+                    }
                 }
             }
         }

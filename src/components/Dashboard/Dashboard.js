@@ -96,9 +96,9 @@ export default class Dashboard extends Component {
         forms = this.context.forms;
         // why are all these versions of forms different?
         console.log(forms); // returns [array(9)]
-        forms = forms.map(form => {
-            return <FormThumbnail key={form.id} form={form}/>
-        });
+        // forms = forms.map(form => {
+        //     return <FormThumbnail key={form.id} form={form}/>
+        // });
 
         return (
             <>
