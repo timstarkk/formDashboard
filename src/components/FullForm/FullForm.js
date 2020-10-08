@@ -8,10 +8,22 @@ export default class FullForm extends Component {
     constructor(props) {
         super();
         console.log(props);
+
+        this.state = {
+            textbox: ""
+        }
     }
 
     myFunction = () => {
         console.log('hello dude');
+    };
+
+    handleChange = (e) => {
+        console.log(e.target.name);
+        console.log(e.target.value);
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     };
 
     render() {
@@ -36,12 +48,24 @@ export default class FullForm extends Component {
                 <div className="container-wrapper">
                     <div id="full-form-container">
                     {
-                        formSelected == false ?
-                            <p>'please select a form'</p> :
-                            <>
-                                <p>{selectedForm.contents}</p>
-                            </>
+                        // formSelected == false ?
+                        //     <p>'please select a form'</p> :
+                        //     <>
+                        //         <p>{selectedForm.contents}</p>
+                        //     </>
                     }
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <input
+                        type="text"
+                        name="textbox"
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
                     </div>
                 </div>
             </>
