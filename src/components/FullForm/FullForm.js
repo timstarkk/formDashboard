@@ -10,7 +10,8 @@ export default class FullForm extends Component {
         console.log(props);
 
         this.state = {
-            textbox: ""
+            textbox: "",
+            textbox2: ""
         }
     }
 
@@ -47,25 +48,29 @@ export default class FullForm extends Component {
             <>
                 <div className="container-wrapper">
                     <div id="full-form-container">
-                    {
-                        // formSelected == false ?
-                        //     <p>'please select a form'</p> :
-                        //     <>
-                        //         <p>{selectedForm.contents}</p>
-                        //     </>
-                    }
-                    <div class="grid-item">1</div>
-                    <div class="grid-item">2</div>
-                    <div class="grid-item">3</div>
-                    <div class="grid-item">4</div>
-                    <div class="grid-item">5</div>
-                    <div class="grid-item">6</div>
-                    <input
-                        type="text"
-                        name="textbox"
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    />
+                        {
+                            // formSelected == false ?
+                            //     <p>'please select a form'</p> :
+                            //     <>
+                            //         <p>{selectedForm.contents}</p>
+                            //     </>
+                        }
+                        <input
+                            id="textbox1"
+                            type="text"
+                            name="textbox"
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                        />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input
+                            id="textbox2"
+                            type="text"
+                            name="textbox2"
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                        />
                     </div>
                 </div>
             </>
