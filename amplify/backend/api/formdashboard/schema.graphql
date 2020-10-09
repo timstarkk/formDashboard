@@ -13,9 +13,11 @@ type Form {
 type FormContents {
   columns: Int
   rows: Int
-  layout: [Row!]
+  elements: [FormElement!]
 }
 
-type Row {
-  something: String
+type FormElement {
+  type: String
+  start: Int
+  end: Int
 }
