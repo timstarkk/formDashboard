@@ -7,7 +7,7 @@ type User @model {
 
 type Form {
   id: ID!
-  contents: [FormContents!]
+  contents: FormContents!
 } 
 
 type FormContents {
