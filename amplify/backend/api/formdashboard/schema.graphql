@@ -5,7 +5,7 @@ type User @model {
   forms: [Form!]
 }
 
-type Form @model {
+type Form {
   id: ID!
   contents: [FormContents!]
 } 
