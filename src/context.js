@@ -160,8 +160,10 @@ class ItemProvider extends Component {
                     contents {
                         columns
                         rows
-                        layout {
-                            something
+                        elements {
+                            type
+                            start
+                            end
                         }
                     }
                 }
