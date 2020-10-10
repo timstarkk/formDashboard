@@ -117,7 +117,17 @@ class ItemProvider extends Component {
         let forms = await that.getForms();
         let newForm = {
             id: uuid,
-            contents: ["Default"]
+            contents: {
+                columns: 9,
+                rows: 9,
+                elements: [
+                    {
+                        type: "timbo",
+                        start: 9,
+                        end: 9
+                    }
+                ]
+            }
         };
 
         forms.push(newForm);
@@ -134,12 +144,12 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { something } } }
+                    id forms { id, contents { columns, rows, elements { type, start, end } } }
                 }
             }
         `
-        
-        // API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+
+        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     };
 
     getForms = () => {
