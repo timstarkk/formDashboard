@@ -94,11 +94,6 @@ export default class Dashboard extends Component {
         let forms = null;
 
         forms = this.context.forms;
-        // why are all these versions of forms different?
-        console.log(forms); // returns [array(9)]
-        // forms = forms.map(form => {
-        //     return <FormThumbnail key={form.id} form={form}/>
-        // });
 
         return (
             <>
@@ -123,7 +118,9 @@ export default class Dashboard extends Component {
                         </div>
                         <div className='dashboard-container'>
                             <div id='forms-list'>
-                                {/* {forms} */}
+                                {
+                                forms.map(form => {return <FormThumbnail key={form.id} form={form}/>})
+                                }
                             </div>
                             <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>
                                 <p>+</p>
