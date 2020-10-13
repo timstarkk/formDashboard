@@ -215,7 +215,8 @@ class ItemProvider extends Component {
                 afterSignOut: this.afterSignOut,
                 addFormButton: this.addFormButton,
                 getForms: this.getForms,
-                handleSelectForm: this.handleSelectForm
+                handleSelectForm: this.handleSelectForm,
+                readForm: this.readForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>
