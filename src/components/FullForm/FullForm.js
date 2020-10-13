@@ -28,7 +28,7 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { hideToolbox, forms, formSelected, selectedForm } = this.context;
+        let { hideToolbox, forms, formSelected, selectedForm, readForm } = this.context;
         let visibility = "hide";
         
         // can transform hideToolbox into another variable
@@ -48,6 +48,9 @@ export default class FullForm extends Component {
             <>
                 <div className="container-wrapper">
                     <div id="full-form-container">
+                        {
+                            readForm();
+                        }
                         {
                             // formSelected == false ?
                             //     <p>'please select a form'</p> :
