@@ -201,7 +201,7 @@ class ItemProvider extends Component {
         })
     }
 
-    readForm = () => {
+    displayForm = () => {
         console.log('reading form');
     };
 
@@ -216,7 +216,7 @@ class ItemProvider extends Component {
                 addFormButton: this.addFormButton,
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
-                readForm: this.readForm
+                displayForm: this.displayForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>
