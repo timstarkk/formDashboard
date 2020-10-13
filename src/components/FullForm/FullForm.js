@@ -49,14 +49,11 @@ export default class FullForm extends Component {
                 <div className="container-wrapper">
                     <div id="full-form-container">
                         {
-                            displayForm()
-                        }
-                        {
-                            // formSelected == false ?
-                            //     <p>'please select a form'</p> :
-                            //     <>
-                            //         <p>{selectedForm.contents}</p>
-                            //     </>
+                            formSelected == false ?
+                                <p>'please select a form'</p> :
+                                <>
+                                    {displayForm()}
+                                </>
                         }
                         {/* <input
                             id="textbox1"
