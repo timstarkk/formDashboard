@@ -55,7 +55,7 @@ export default class FullForm extends Component {
                             //         <p>{selectedForm.contents}</p>
                             //     </>
                         }
-                        <input
+                        {/* <input
                             id="textbox1"
                             type="text"
                             name="textbox"
@@ -70,7 +70,7 @@ export default class FullForm extends Component {
                             name="textbox2"
                             value={this.state.value}
                             onChange={this.handleChange}
-                        />
+                        /> */}
                     </div>
                 </div>
             </>
