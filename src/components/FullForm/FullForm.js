@@ -49,7 +49,7 @@ export default class FullForm extends Component {
                 <div className="container-wrapper">
                     <div id="full-form-container">
                         {
-                            readForm();
+                            displayForm();
                         }
                         {
                             // formSelected == false ?
