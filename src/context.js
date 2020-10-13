@@ -201,6 +201,10 @@ class ItemProvider extends Component {
         })
     }
 
+    readForm = () => {
+        console.log('reading form');
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
