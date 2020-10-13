@@ -202,7 +202,7 @@ class ItemProvider extends Component {
     }
 
     displayForm = () => {
-        console.log('reading form');
+        return <div><p>hello</p></div>
     };
 
     render() {
