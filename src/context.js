@@ -209,7 +209,6 @@ class ItemProvider extends Component {
         // map through elements (id, type, name, value=this.state.value, onChange={this.handleChange})
         let displayELements = elements.map(element => {
             if (element.type === 'textbox') {
-                // need to keep textboxCount
                 textboxCount++;
                 return (
                     <input 
@@ -221,7 +220,6 @@ class ItemProvider extends Component {
                     />
                 )
             } else if (element.type === 'checkbox') {
-                // need to keep checkboxCount
                 checkboxCount++
                 return (
                     <input
