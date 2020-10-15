@@ -202,7 +202,24 @@ class ItemProvider extends Component {
     }
 
     displayForm = () => {
-        return <div><p>hello</p></div>
+        let {id, contents: {columns, elements, rows}} = this.state.selectedForm;
+
+        return (
+            <>
+                <div>
+                    {id}
+                </div>
+                <div>
+                    {columns}
+                </div>
+                <div>
+                    {`${elements}`}
+                </div>
+                <div>
+                    {rows}
+                </div>
+            </>
+        )
     };
 
     render() {
