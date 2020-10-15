@@ -216,8 +216,8 @@ class ItemProvider extends Component {
                         id={'textbox' + `${textboxCount}`}
                         type="text"
                         name="textbox"
-                        value={this.state.value} // might cause issues, since 'this'
-                        onChange={this.handleChange} // might cause issues, since 'this'
+                        value={this.state.value}
+                        onChange={this.handleChange}
                     />
                 )
             } else if (element.type === 'checkbox') {
