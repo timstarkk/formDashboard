@@ -1,5 +1,6 @@
 import GridLayout from 'react-grid-layout';
 import React, { Component } from 'react';
+import './MyFirstGrid.css';
  
 export default class MyFirstGrid extends Component {
   render() {
