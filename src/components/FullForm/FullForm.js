@@ -55,6 +55,7 @@ export default class FullForm extends Component {
                                 <p>'please select a form'</p> :
                                 <>
                                     {/* {displayForm()} */}
+                                    <MyFirstGrid />
                                 </>
                         }
                         {/* <input
