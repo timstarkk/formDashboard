@@ -14,6 +14,9 @@ import Navbar from './components/Navbar/Navbar';
 import AboutPage from './pages/AboutPage';
 import ConfirmPage from './pages/Confirm';
 
+import '../node_modules/react-grid-layout/css/styles.css';
+import '../node_modules/react-resizable/css/styles.css';
+
 Amplify.configure(config);
 function App() {
   return (

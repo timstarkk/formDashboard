@@ -202,38 +202,41 @@ class ItemProvider extends Component {
     }
 
     displayForm = () => {
-        let {id, contents: {columns, elements, rows}} = this.state.selectedForm;
-        let textboxCount = 0;
-        let checkboxCount = 0;
+        // let {id, contents: {columns, elements, rows}} = this.state.selectedForm;
+        // let textboxCount = 0;
+        // let checkboxCount = 0;
 
-        // map through elements (id, type, name, value=this.state.value, onChange={this.handleChange})
-        let displayELements = elements.map(element => {
-            if (element.type === 'textbox') {
-                textboxCount++;
-                return (
-                    <input 
-                        id={'textbox' + `${textboxCount}`}
-                        type="text"
-                        name="textbox"
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    />
-                )
-            } else if (element.type === 'checkbox') {
-                checkboxCount++
-                return (
-                    <input
-                    type="checkbox"
-                    />
-                )
-            }
-        })
+        // // map through elements (id, type, name, value=this.state.value, onChange={this.handleChange})
+        // let displayELements = elements.map(element => {
+        //     console.log(element);
+        //     if (element.type === 'textbox') {
+        //         // need to keep textboxCount
+        //         textboxCount++;
+        //         return (
+        //             <input 
+        //                 id={'textbox' + `${textboxCount}`}
+        //                 type="text"
+        //                 name="textbox"
+        //                 value={this.state.value} // might cause issues, since 'this'
+        //                 onChange={this.handleChange} // might cause issues, since 'this'
+        //             />
+        //         )
+        //     } else if (element.type === 'checkbox') {
+        //         // need to keep checkboxCount
+        //         checkboxCount++
+        //         return (
+        //             <input
+        //             type="checkbox"
+        //             />
+        //         )
+        //     }
+        // })
 
-        return (
-            <>
-                {displayELements}
-            </>
-        )
+        // return (
+        //     <>
+        //         {displayELements}
+        //     </>
+        // )
     };
 
     render() {

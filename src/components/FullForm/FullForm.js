@@ -3,6 +3,8 @@ import { ItemContext } from '../../context';
 import { MdClose as CloseButton } from "react-icons/md";
 import './FullForm.css';
 
+import MyFirstGrid from '../MyFirstGrid/MyFirstGrid';
+
 export default class FullForm extends Component {
     static contextType = ItemContext;
     constructor(props) {
@@ -52,7 +54,8 @@ export default class FullForm extends Component {
                             formSelected == false ?
                                 <p>'please select a form'</p> :
                                 <>
-                                    {displayForm()}
+                                    {/* {displayForm()} */}
+                                    <MyFirstGrid />
                                 </>
                         }
                         {/* <input
