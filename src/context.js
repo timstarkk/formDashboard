@@ -25,7 +25,16 @@ class ItemProvider extends Component {
         isLoggedIn: false,
         forms: [],
         formSelected: false,
-        selectedForm: ''
+        selectedForm: '',
+        layouts: {
+            // default layouts object
+            lg: [
+                {i: 'a', x: 0, y: 0, w: 12, h: 4},
+                {i: 'b', x: 0, y: 1, w: 6, h: 4},
+                {i: 'c', x: 6, y: 1, w: 6, h: 4},
+                {i: 'd', x: 0, y: 2, w: 12, h: 4}
+                ];
+        }
     };
 
     async componentDidMount() {
