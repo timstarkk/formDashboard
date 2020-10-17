@@ -263,7 +263,8 @@ class ItemProvider extends Component {
                 addFormButton: this.addFormButton,
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
-                displayForm: this.displayForm
+                displayForm: this.displayForm,
+                updateLayouts: this.updateLayouts
             }}>
                 {this.props.children}
             </ItemContext.Provider>
