@@ -8,8 +8,8 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 export default class MyFirstGrid extends Component {
   static contextType = ItemContext;
   render() {
-    const { layouts } = this.context;
-    
+    const { layouts, updateLayouts } = this.context;
+
     return (
       <ResponsiveReactGridLayout 
       className="layout" 
