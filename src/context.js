@@ -248,6 +248,10 @@ class ItemProvider extends Component {
         // )
     };
 
+    updateLayouts = () => {
+        console.log('updating layouts.......');
+    }
+
     render() {
         return (
             <ItemContext.Provider value={{
