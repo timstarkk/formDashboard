@@ -8,16 +8,8 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 export default class MyFirstGrid extends Component {
   static contextType = ItemContext;
   render() {
-    // layout is an array of objects, see the demo for more complete usage
-    const layouts = {
-        lg: [
-            {i: 'a', x: 0, y: 0, w: 12, h: 4},
-            {i: 'b', x: 0, y: 1, w: 6, h: 4},
-            {i: 'c', x: 6, y: 1, w: 6, h: 4},
-            {i: 'd', x: 0, y: 2, w: 12, h: 4}
-            ]
-    };
-
+    const { layouts } = this.context;
+    
     return (
       <ResponsiveReactGridLayout 
       className="layout" 
