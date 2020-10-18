@@ -18,7 +18,7 @@ export default class MyFirstGrid extends Component {
   }
 
   render() {
-    const { layouts, updateLayouts } = this.context;
+    const { layouts } = this.context;
 
     console.log(layouts);
     return (
