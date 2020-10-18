@@ -251,6 +251,12 @@ class ItemProvider extends Component {
     updateLayouts = (layout) => {
         console.log('updating layouts.......');
         console.log(layout);
+
+        this.setState({
+            layouts: {
+                lg: layout
+            }
+        })
     }
 
     render() {
