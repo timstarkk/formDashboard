@@ -9,6 +9,10 @@ export default class MyFirstGrid extends Component {
   static contextType = ItemContext;
   constructor(props) {
     super();
+    this.state = { 
+      updateLayouts: function () {}
+    };
+    
     this.onLayoutChange = this.onLayoutChange.bind(this);
   }
 
