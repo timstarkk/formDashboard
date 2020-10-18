@@ -12,8 +12,16 @@ export default class MyFirstGrid extends Component {
     this.state = { 
       updateLayouts: function () {}
     };
-    
+
     this.onLayoutChange = this.onLayoutChange.bind(this);
+  }
+
+  componentDidMount() {
+    const { updateLayouts } = this.context;
+
+    this.setState({
+      updateLayouts
+    });
   }
 
   onLayoutChange(layout, layouts) {
