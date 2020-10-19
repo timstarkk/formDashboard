@@ -94,7 +94,7 @@ export default class Dashboard extends Component {
         let forms = null;
 
         forms = this.context.forms;
-
+    
         return (
             <>
             {this.state.isLoggedIn
