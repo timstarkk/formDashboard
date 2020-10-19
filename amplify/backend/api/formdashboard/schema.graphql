@@ -17,7 +17,18 @@ type FormContents {
 }
 
 type FormElement {
-  type: String
-  start: Int
-  end: Int
+  w: Int
+  h: Int
+  x: Int
+  y: Int
+  i: String
+  isBounded: Boolean
+  isDraggable: Boolean
+  isResizable: Boolean
+  maxH: Int
+  maxW: Int
+  minH: Int
+  minW: Int
+  moved: Boolean
+  resizeHandles: [String]
 }
