@@ -133,15 +133,7 @@ class ItemProvider extends Component {
                     {
                         h: 4,
                         i: "a",
-                        isBounded: undefined,
-                        isDraggable: undefined,
-                        isResizable: undefined,
-                        maxH: undefined,
-                        maxW: undefined,
-                        minH: undefined,
-                        minW: undefined,
                         moved: false,
-                        resizeHandles: undefined,
                         static: false,
                         w: 9,
                         x: 0,
@@ -165,7 +157,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, isBounded, isDraggable, isResizable, maxH, maxW, minH, minW, moved, resizeHandles, static, w, x, y } } }
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y } } }
                 }
             }
         `
