@@ -31,4 +31,5 @@ type FormElement {
   minW: Int
   moved: Boolean
   resizeHandles: [String]
+  static: Boolean
 }
