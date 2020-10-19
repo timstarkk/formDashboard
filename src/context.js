@@ -129,11 +129,23 @@ class ItemProvider extends Component {
             contents: {
                 columns: 9,
                 rows: 9,
-                elements: [
+                layout: [
                     {
-                        type: "timbo",
-                        start: 9,
-                        end: 9
+                        h: 4,
+                        i: "a",
+                        isBounded: undefined,
+                        isDraggable: undefined,
+                        isResizable: undefined,
+                        maxH: undefined,
+                        maxW: undefined,
+                        minH: undefined,
+                        minW: undefined,
+                        moved: false,
+                        resizeHandles: undefined,
+                        static: false,
+                        w: 9,
+                        x: 0,
+                        y: 4,
                     }
                 ]
             }
@@ -153,7 +165,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, elements { type, start, end } } }
+                    id forms { id, contents { columns, rows, layout { h, i, isBounded, isDraggable, isResizable, maxH, maxW, minH, minW, moved, resizeHandles, static, w, x, y } } }
                 }
             }
         `
@@ -179,10 +191,22 @@ class ItemProvider extends Component {
                     contents {
                         columns
                         rows
-                        elements {
-                            type
-                            start
-                            end
+                        layout {
+                            h
+                            i
+                            isBounded
+                            isDraggable
+                            isResizable
+                            maxH
+                            maxW
+                            minH
+                            minW
+                            moved
+                            resizeHandles
+                            static
+                            w
+                            x
+                            y
                         }
                     }
                 }
