@@ -268,6 +268,18 @@ class ItemProvider extends Component {
         console.log('updating layouts.......');
         console.log(layout);
 
+        // get form uuid from state. (make sure it's added);
+        // const updateForm = `
+        //     mutation {
+        //         updateUser(input: {
+        //             id: "${userId}",
+        //             forms: ${unquotedItems}
+        //         }) {
+        //             id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y } } }
+        //         }
+        //     }
+        // `
+
         this.setState({
             layouts: {
                 lg: layout
