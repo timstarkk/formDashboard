@@ -13,10 +13,10 @@ type Form {
 type FormContents {
   columns: Int
   rows: Int
-  elements: [FormElement!]
+  layout: [Layout!]
 }
 
-type FormElement {
+type Layout {
   w: Int
   h: Int
   x: Int
