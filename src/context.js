@@ -43,7 +43,6 @@ class ItemProvider extends Component {
                 let tempItems = data.data.listStoreItems.items;
 
                 for (let i = 0; i < tempItems.length; i++) {
-                    console.log(i);
                     if (items.length === 0) {
                         items.push(tempItems[i]);
                     } else {
@@ -89,7 +88,6 @@ class ItemProvider extends Component {
         const value = target.value;
         const name = event.target.name;
 
-        console.log('handling event');
         this.setState({
             [name]: value
         })
@@ -203,15 +201,12 @@ class ItemProvider extends Component {
         }
         `
 
-        let forms = await API.graphql(graphqlOperation(getForms)).then(res => {console.log(res); return res.data.getUser.forms}).catch(error => console.log(error.message));
-        console.log(forms);
+        let forms = await API.graphql(graphqlOperation(getForms)).then(res => {return res.data.getUser.forms}).catch(error => console.log(error.message));
+        
 
         this.setState({
             forms
         }, () => {
-            console.log('**********************');
-            console.log(forms);
-            console.log('**********************');
         })
         return forms;
     };
