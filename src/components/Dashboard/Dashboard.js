@@ -21,9 +21,7 @@ export default class Dashboard extends Component {
     }
 
     async componentDidMount() {
-        console.log('componentDidMount mount mount mount')
         this._isMounted = true;
-        console.log(this);
         let that = this;
         // check if user is logged in, and set state accordingly
         this.checkLoginGetForms(that);
@@ -36,9 +34,6 @@ export default class Dashboard extends Component {
     async checkLoginGetForms(that) {
         await Auth.currentSession()
             .then(async data => {
-                console.log(data);
-                console.log('user logged in');
-
                 this.formGetter(that);
 
                 that.setState({
@@ -60,11 +55,9 @@ export default class Dashboard extends Component {
     }
 
     async handleAddFormAsync(that) {
-        console.log('handleAddForm');
         const { addFormButton } =   that.context;
         await addFormButton(); 
         await that.formGetter(that);
-        console.log(that.state);
         let forms = that.state.forms;
         that.setState({
             forms
@@ -75,7 +68,6 @@ export default class Dashboard extends Component {
         const { getForms } = this.context;
 
         let forms = await getForms();
-        console.log(forms);
         that.setState({
             forms
         })
@@ -89,7 +81,6 @@ export default class Dashboard extends Component {
     };
 
     render() {
-        console.log("renderingggggggggg");
         // let { loading, addFormButton } = this.context;
         let forms = null;
 
