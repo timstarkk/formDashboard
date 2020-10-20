@@ -260,6 +260,12 @@ class ItemProvider extends Component {
         let that = this;
         let formId = this.state.selectedForm.id
         // let formId = this.selectedForm.id
+        
+        this.setState({
+            layouts: {
+                lg: layout
+            }
+        })
         this.updateLayoutsAsync(that, layout, formId);
     };
 
@@ -300,12 +306,6 @@ class ItemProvider extends Component {
         //         }
         //     }
         // `
-
-        this.setState({
-            layouts: {
-                lg: layout
-            }
-        })
     }
 
     render() {
