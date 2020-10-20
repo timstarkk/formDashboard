@@ -265,6 +265,10 @@ class ItemProvider extends Component {
     };
 
     updateLayouts = (layout) => {
+    };
+
+    async updateLayoutsAsync(that) {
+        
         console.log('updating layouts.......');
         console.log(layout);
         const userId = this.state.currentUser.sub
@@ -286,10 +290,6 @@ class ItemProvider extends Component {
                 lg: layout
             }
         })
-    };
-
-    async updateLayoutsAsync(that) {
-        
     }
 
     render() {
