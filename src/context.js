@@ -279,23 +279,29 @@ class ItemProvider extends Component {
             }
         };
 
-        console.log(updatedForm);
+        let updatedForms = forms.map(form => {
+            if (form.id === formId) {
+                console.log(form.id);
+                return updatedForm;
+            } else {
+                return form;
+            }
+        })
 
-        // need to capture the location of selectedform in forms array.
-        // once updatedForm is actually correct, need to plug into array.
-        // might need to pluck correct id from array first.
+        let stringifiedItems = JSON.stringify(updatedForms);
+        let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
 
-        // get form uuid from state. (make sure it's added);
-        // const updateForm = `
-        //     mutation {
-        //         updateUser(input: {
-        //             id: "${userId}",
-        //             forms: ${unquotedItems}
-        //         }) {
-        //             id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y } } }
-        //         }
-        //     }
-        // `
+        const updateForm = `
+            mutation {
+                updateUser(input: {
+                    id: "${userId}",
+                    forms: ${unquotedItems}
+                }) {
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y } } }
+                }
+            }
+        `
+        API.graphql(graphqlOperation(updateForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     }
 
     render() {
