@@ -25,6 +25,16 @@ export default class MyFirstGrid extends Component {
   }
 
   onLayoutChange(layout, layouts) {
+    console.log(layout);
+    layout.map(i => {
+      i.isResizable = true;
+      i.isDraggable = true;
+      i.isBounded = false;
+      i.maxH = Infinity;
+      i.maxW = Infinity;
+      i.minH = 0;
+      i.minW = 0;
+    })
     this.state.updateLayouts(layout);
   }
 
