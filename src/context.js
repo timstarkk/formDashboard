@@ -270,8 +270,6 @@ class ItemProvider extends Component {
     };
 
     async updateLayoutsAsync(that, layout) {
-        console.log('updating layouts.......');
-        console.log(layout);
         const userId = this.state.currentUser.sub
 
         // get form uuid from state. (make sure it's added);
