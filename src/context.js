@@ -127,15 +127,10 @@ class ItemProvider extends Component {
                 columns: 9,
                 rows: 9,
                 layout: [
-                    {
-                        h: 4,
-                        i: "a",
-                        moved: false,
-                        static: false,
-                        w: 9,
-                        x: 0,
-                        y: 4,
-                    }
+                    {i: 'a', x: 0, y: 0, w: 12, h: 4},
+                    {i: 'b', x: 0, y: 1, w: 6, h: 4},
+                    {i: 'c', x: 6, y: 1, w: 6, h: 4},
+                    {i: 'd', x: 0, y: 2, w: 12, h: 4}
                 ]
             }
         };
