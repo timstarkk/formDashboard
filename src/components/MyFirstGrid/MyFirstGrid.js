@@ -25,9 +25,6 @@ export default class MyFirstGrid extends Component {
   }
 
   onLayoutChange(layout, layouts) {
-    console.log(layout);
-    console.log(layouts);
-
     this.state.updateLayouts(layout);
   }
 
