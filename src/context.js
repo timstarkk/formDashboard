@@ -279,7 +279,6 @@ class ItemProvider extends Component {
 
         let updatedForms = forms.map(form => {
             if (form.id === formId) {
-                console.log(form.id);
                 return updatedForm;
             } else {
                 return form;
