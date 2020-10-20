@@ -266,6 +266,24 @@ class ItemProvider extends Component {
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
         let forms = await that.getForms();
+        let updatedForm = {
+            id: formId,
+            contents: {
+                columns: 0,
+                rows: 0,
+                layout: [
+                    {
+                        h: 0,
+                        i: "0",
+                        moved: false,
+                        static: false,
+                        w: 0,
+                        x: 0,
+                        y: 0,
+                    }
+                ]
+            }
+        };
         // get form uuid from state. (make sure it's added);
         // const updateForm = `
         //     mutation {
