@@ -25,7 +25,6 @@ export default class MyFirstGrid extends Component {
   }
 
   onLayoutChange(layout, layouts) {
-    console.log(layout);
     layout.map(i => {
       i.isResizable = true;
       i.isDraggable = true;
@@ -40,7 +39,6 @@ export default class MyFirstGrid extends Component {
 
   render() {
     const { layouts } = this.context;
-    console.log(layouts);
     return (
       <ResponsiveReactGridLayout 
       className="layout" 
