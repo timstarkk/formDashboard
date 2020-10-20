@@ -284,7 +284,11 @@ class ItemProvider extends Component {
                 ]
             }
         };
-        
+
+        // need to capture the location of selectedform in forms array.
+        // once updatedForm is actually correct, need to plug into array.
+        // might need to pluck correct id from array first.
+
         // get form uuid from state. (make sure it's added);
         // const updateForm = `
         //     mutation {
