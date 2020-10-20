@@ -32,3 +32,5 @@ To explore the project, visit: https://master.d1buvo1t3dd1m7.amplifyapp.com/
 ## Authors
 
 * **Tim Stark** - *Entire Application* - [timstarkk](https://github.com/timstarkk) -->
+
+in progress - by Tim Stark.
