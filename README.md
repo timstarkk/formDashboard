@@ -1,4 +1,4 @@
-![demoGif](https://github.com/timstarkk/ShoeStore/blob/master/src/images/shoestore.gif)
+<!-- ![demoGif](https://github.com/timstarkk/ShoeStore/blob/master/src/images/shoestore.gif)
 
 # E-commerce Site
 
@@ -31,4 +31,4 @@ To explore the project, visit: https://master.d1buvo1t3dd1m7.amplifyapp.com/
 
 ## Authors
 
-* **Tim Stark** - *Entire Application* - [timstarkk](https://github.com/timstarkk)
+* **Tim Stark** - *Entire Application* - [timstarkk](https://github.com/timstarkk) -->
