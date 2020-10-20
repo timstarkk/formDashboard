@@ -144,12 +144,9 @@ class ItemProvider extends Component {
         };
 
         forms.push(newForm);
-        console.log(forms);
         
         let stringifiedItems = JSON.stringify(forms);
-        console.log(stringifiedItems);
         let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-        console.log(unquotedItems);
 
         const addForm = `
             mutation {
@@ -273,6 +270,7 @@ class ItemProvider extends Component {
         const userId = this.state.currentUser.sub
         let forms = await that.getForms();
 
+        console.log(forms);
         // get form uuid from state. (make sure it's added);
         // const updateForm = `
         //     mutation {
