@@ -17,6 +17,7 @@ type FormContents {
 }
 
 type Layout @model {
+  id: ID!
   w: Int
   h: Int
   x: Int
