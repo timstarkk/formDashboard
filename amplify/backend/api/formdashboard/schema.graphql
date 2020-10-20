@@ -16,8 +16,7 @@ type FormContents {
   layout: [Layout!]
 }
 
-type Layout @model {
-  id: ID!
+type Layout {
   w: Int
   h: Int
   x: Int
