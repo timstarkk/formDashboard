@@ -259,14 +259,12 @@ class ItemProvider extends Component {
     updateLayouts = (layout) => {
         let that = this;
         let formId = this.state.selectedForm.id
-        // let formId = this.selectedForm.id
-        
+
         this.setState({
             layouts: {
                 lg: layout
             }
-        })
-        this.updateLayoutsAsync(that, layout, formId);
+        }, () => {this.updateLayoutsAsync(that, layout, formId)})
     };
 
     async updateLayoutsAsync(that, layout, formId) {
@@ -290,6 +288,8 @@ class ItemProvider extends Component {
                 ]
             }
         };
+
+        console.log(updatedForm);
 
         // need to capture the location of selectedform in forms array.
         // once updatedForm is actually correct, need to plug into array.
