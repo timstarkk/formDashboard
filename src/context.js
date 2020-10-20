@@ -286,6 +286,10 @@ class ItemProvider extends Component {
                 lg: layout
             }
         })
+    };
+
+    async updateLayoutsAsync(that) {
+        
     }
 
     render() {
