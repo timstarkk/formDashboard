@@ -40,7 +40,6 @@ export default class MyFirstGrid extends Component {
 
   render() {
     const { layouts } = this.context;
-
     console.log(layouts);
     return (
       <ResponsiveReactGridLayout 
