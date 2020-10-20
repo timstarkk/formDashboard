@@ -275,17 +275,7 @@ class ItemProvider extends Component {
             contents: {
                 columns: 0,
                 rows: 0,
-                layout: [
-                    {
-                        h: 0,
-                        i: "0",
-                        moved: false,
-                        static: false,
-                        w: 0,
-                        x: 0,
-                        y: 0,
-                    }
-                ]
+                layout: [layout]
             }
         };
 
