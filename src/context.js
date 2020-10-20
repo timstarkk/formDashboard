@@ -265,10 +265,11 @@ class ItemProvider extends Component {
     };
 
     updateLayouts = (layout) => {
+        let that = this;
+        this.updateLayoutsAsync(that, layout);
     };
 
-    async updateLayoutsAsync(that) {
-        
+    async updateLayoutsAsync(that, layout) {
         console.log('updating layouts.......');
         console.log(layout);
         const userId = this.state.currentUser.sub
