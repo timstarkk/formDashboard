@@ -275,7 +275,7 @@ class ItemProvider extends Component {
             contents: {
                 columns: 0,
                 rows: 0,
-                layout: [layout]
+                layout: layout
             }
         };
 
@@ -291,7 +291,7 @@ class ItemProvider extends Component {
         let stringifiedItems = JSON.stringify(updatedForms);
         let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
 
-        const updateForm = `
+        const updateLayout = `
             mutation {
                 updateUser(input: {
                     id: "${userId}",
@@ -301,7 +301,7 @@ class ItemProvider extends Component {
                 }
             }
         `
-        API.graphql(graphqlOperation(updateForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+        API.graphql(graphqlOperation(updateLayout)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     }
 
     render() {
