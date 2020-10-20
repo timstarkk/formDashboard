@@ -267,7 +267,7 @@ class ItemProvider extends Component {
     updateLayouts = (layout) => {
         console.log('updating layouts.......');
         console.log(layout);
-        const userId = that.state.currentUser.sub
+        const userId = this.state.currentUser.sub
 
         // get form uuid from state. (make sure it's added);
         // const updateForm = `
