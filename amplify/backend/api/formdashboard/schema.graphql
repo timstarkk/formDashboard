@@ -33,6 +33,7 @@ type Layout {
   moved: Boolean
   resizeHandles: [String]
   static: Boolean
+  type: String
 }
 
 type element {
