@@ -6,7 +6,7 @@ import validator from 'email-validator';
 
 export default class SignUpForm extends Component {
     constructor(props) {
-        super(props);
+        super();
 
         this.state = {
             username: '',

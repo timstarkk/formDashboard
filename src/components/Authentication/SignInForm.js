@@ -7,7 +7,7 @@ import { ItemContext } from '../../context';
 export default class SignInForm extends Component {
     static contextType = ItemContext;
     constructor(props) {
-        super(props);
+        super();
 
         this.state = {
             username: '',

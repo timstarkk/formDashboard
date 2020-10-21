@@ -5,7 +5,7 @@ import './Authentication.css';
 
 export default class ConfirmForm extends Component {
     constructor(props) {
-        super(props);
+        super();
 
         this.state = {
             username: '',
