@@ -261,9 +261,6 @@ class ItemProvider extends Component {
         //         {displayELements}
         //     </>
         // )
-        console.log('hello');
-        console.log(this.state.layouts.lg)
-
         const items = []
 
         for (const i of this.state.layouts.lg) {
