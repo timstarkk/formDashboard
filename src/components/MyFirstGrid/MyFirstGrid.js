@@ -10,22 +10,27 @@ export default class MyFirstGrid extends Component {
   constructor(props) {
     super();
     this.state = { 
-      updateLayouts: function () {}
+      updateLayouts: function () {},
+      layouts: {}
     };
 
     this.onLayoutChange = this.onLayoutChange.bind(this);
   }
 
   componentDidMount() {
-    const { updateLayouts } = this.context;
+    const { updateLayouts, layouts } = this.context;
 
+    console.log(layouts);
     this.setState({
-      updateLayouts
+      updateLayouts,
+      layouts
     });
   }
 
   onLayoutChange(layout, layouts) {
-    layout.map(i => {
+    const { types } = this.context;
+    layout.map((i, index) => {
+      console.log(index);
       i.isResizable = true;
       i.isDraggable = true;
       i.isBounded = false;
@@ -33,12 +38,14 @@ export default class MyFirstGrid extends Component {
       i.maxW = Infinity;
       i.minH = 0;
       i.minW = 0;
+      i.type = types[index]
     })
     this.state.updateLayouts(layout);
   }
 
   render() {
     const { layouts } = this.context;
+    console.log(this.state.layouts);
     return (
       <ResponsiveReactGridLayout 
       className="layout" 
