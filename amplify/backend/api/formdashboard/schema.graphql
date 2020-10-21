@@ -14,6 +14,7 @@ type FormContents {
   columns: Int
   rows: Int
   layout: [Layout!]
+  elements: [element!]
 }
 
 type Layout {
@@ -32,4 +33,8 @@ type Layout {
   moved: Boolean
   resizeHandles: [String]
   static: Boolean
+}
+
+type element {
+  type: String!
 }
