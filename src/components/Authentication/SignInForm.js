@@ -49,9 +49,9 @@ export default class SignInForm extends Component {
             })
 
 
-        await Auth.confirmSignIn(username)
-            .then(() => console.log('confirmed sign up'))
-            .catch(error => {console.log('this is the error line 54');console.log(error)})
+        // await Auth.confirmSignIn(username)
+        //     .then(() => console.log('confirmed sign up'))
+        //     .catch(error => {console.log('this is the error line 54');console.log(error)})
 
         await Auth.currentSession()
             .then(data => {
