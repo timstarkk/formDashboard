@@ -129,8 +129,8 @@ class ItemProvider extends Component {
                 rows: 9,
                 layout: [
                     {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text"},
-                    {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "text"},
-                    {i: 'c', x: 6, y: 1, w: 6, h: 4, type: "text"},
+                    {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio"},
+                    {i: 'c', x: 6, y: 1, w: 6, h: 4, type: "radio"},
                     {i: 'd', x: 0, y: 2, w: 12, h: 4, type: "text"}
                 ]
             }
@@ -210,12 +210,18 @@ class ItemProvider extends Component {
     handleSelectForm = (form) => {
         let layout = form.contents.layout;
         console.log(layout);
+        let types = [];
+        for(const i of layout) {
+            types.push(i.type);
+        };
+        console.log(types);
         this.setState({
             selectedForm: form,
             formSelected: true,
             layouts: {
                 lg: layout
-            }
+            },
+            types
         })
     }
 
