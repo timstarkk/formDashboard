@@ -30,7 +30,6 @@ export default class MyFirstGrid extends Component {
   onLayoutChange(layout, layouts) {
     const { types } = this.context;
     layout.map((i, index) => {
-      console.log(index);
       i.isResizable = true;
       i.isDraggable = true;
       i.isBounded = false;
@@ -47,7 +46,6 @@ export default class MyFirstGrid extends Component {
     const { layouts, displayForm } = this.context;
     return (
       <>
-        {displayForm()}
         <ResponsiveReactGridLayout 
         className="layout" 
         layouts={layouts}
@@ -56,10 +54,7 @@ export default class MyFirstGrid extends Component {
         cols={{lg: 12, md: 12, sm: 12, xs: 12, xxs: 12}}
         rowHeight={30}>
           {/* have these grid items populate based on database object.*/}
-          <div className="grid-item" key="a">a</div>
-          <div className="grid-item" key="b">b</div>
-          <div className="grid-item" key="c">c</div>
-          <div className="grid-item" key="d">d</div>
+          {displayForm()}
         </ResponsiveReactGridLayout>
       </>
     );
