@@ -262,6 +262,17 @@ class ItemProvider extends Component {
         //     </>
         // )
         console.log('hello');
+        console.log(this.state.layouts.lg)
+
+        const items = []
+
+        for (const i of this.state.layouts.lg) {
+          items.push(<div className="grid-item" key={i.i}><input type={i.type} /></div>)
+        }
+
+        return(
+            [items]
+        )
     };
 
     updateLayouts = (layout) => {
