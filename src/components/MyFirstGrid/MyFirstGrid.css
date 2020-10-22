@@ -8,5 +8,6 @@
     position: absolute;
     top: 0px;
     right: 0px;
+    border-radius: 100px;
     border: 2px solid darkgreen;
 }
