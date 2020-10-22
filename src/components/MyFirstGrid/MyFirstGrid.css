@@ -5,5 +5,8 @@
 .item-settings-button {
     height: 20px;
     width: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     border: 2px solid darkgreen;
 }
