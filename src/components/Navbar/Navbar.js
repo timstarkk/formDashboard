@@ -163,14 +163,14 @@ class Navbar extends Component {
                                     })
                                 }}><AccountIcon id="account-link" /></Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a onClick={() => {
                                     toggleToolbox()
                                     this.setState({
                                         isOpen: false
                                     })
                                 }}><CartIcon id="cart-icon" /></a>
-                            </li>
+                            </li> */}
                         </ul>
                     </div >
                 </nav >
