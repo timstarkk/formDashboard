@@ -113,6 +113,10 @@ class ItemProvider extends Component {
         });
     };
 
+    toggleToolbox = () => {
+        console.log('hello from toggle toolbox');
+    };
+
     addFormButton = () => {
         let that = this;
         this.addFormFunction(that);
@@ -292,6 +296,7 @@ class ItemProvider extends Component {
                 setCurrentUser: this.setCurrentUser,
                 handleChange: this.handleChange,
                 toggleForm: this.toggleForm,
+                toggleToolbox: this.toggleToolbox,
                 afterSignOut: this.afterSignOut,
                 addFormButton: this.addFormButton,
                 getForms: this.getForms,
