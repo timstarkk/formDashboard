@@ -19,7 +19,7 @@ class ItemProvider extends Component {
         currentUser: {},
         addAmount: 1,
         amount: 0,
-        hideToolbox: true,
+        hideFormsList: true,
         cartItemsData: [],
         cartId: '',
         isLoggedIn: false,
@@ -109,7 +109,7 @@ class ItemProvider extends Component {
 
     toggleForm = () => {
         this.setState({
-            hideToolbox: !this.state.hideToolbox
+            hideFormsList: !this.state.hideFormsList
         });
     };
 
