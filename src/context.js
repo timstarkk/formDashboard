@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import query from './data';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import config from './aws-exports';
@@ -11,33 +11,41 @@ const ItemContext = React.createContext();
 let items = [];
 
 class ItemProvider extends Component {
-    state = {
-        loading: true,
-        type: 'all',
-        price: 0,
-        minPrice: 0,
-        maxPrice: 0,
-        currentUser: {},
-        addAmount: 1,
-        amount: 0,
-        hideFormsList: true,
-        toolboxVisible: false,
-        cartItemsData: [],
-        cartId: '',
-        isLoggedIn: false,
-        forms: [],
-        formSelected: false,
-        selectedForm: '',
-        layouts: {
-            lg: [
-                {i: 'a', x: 0, y: 0, w: 12, h: 4},
-                {i: 'b', x: 0, y: 1, w: 6, h: 4},
-                {i: 'c', x: 6, y: 1, w: 6, h: 4},
-                {i: 'd', x: 0, y: 2, w: 12, h: 4}
-                ]
-        },
-        types: []
-    };
+    constructor(props) {
+        super();
+        this.state = {
+            loading: true,
+            type: 'all',
+            price: 0,
+            minPrice: 0,
+            maxPrice: 0,
+            currentUser: {},
+            addAmount: 1,
+            amount: 0,
+            hideFormsList: true,
+            toolboxVisible: false,
+            cartItemsData: [],
+            cartId: '',
+            isLoggedIn: false,
+            forms: [],
+            formSelected: false,
+            selectedForm: '',
+            isHovered: false,
+            layouts: {
+                lg: [
+                    {i: 'a', x: 0, y: 0, w: 12, h: 4},
+                    {i: 'b', x: 0, y: 1, w: 6, h: 4},
+                    {i: 'c', x: 6, y: 1, w: 6, h: 4},
+                    {i: 'd', x: 0, y: 2, w: 12, h: 4}
+                    ]
+            },
+            types: []
+        };
+
+        this.boxRef = createRef();
+    }
+
+    
 
     async componentDidMount() {
         await API.graphql(graphqlOperation(query))
@@ -234,22 +242,29 @@ class ItemProvider extends Component {
         })
     }
 
-    handleMouseOver = () => {
-        console.log('you moused over brah');
+    handleHover = () => {
+        console.log(this.boxRef);
+        console.log(this.boxRef.current.children[1].classList);
+        this.boxRef.current.children[1].classList.add('show')
+        this.setState({
+            isHovered: !this.state.isHovered
+        });
     }
 
     displayForm = () => {
-        const items = []
+        const items = [];
+        const hoverClass = this.state.isHovered ? "showSetting" : "";
 
         for (const i of this.state.layouts.lg) {
           items.push(
-            <div className="grid-item" key={i.i}>
+            <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} ref={this.boxRef} className={`grid-item`} key={i.i}>
                 <input type={i.type} />
-                    <a className="item-settings-button" onClick={() => {
-                        this.toggleToolbox();
-                    }}>
-                        <SettingsIcon id="settings-icon" />
-                    </a>
+
+                <a className={`item-settings-button`} onClick={() => {
+                    this.toggleToolbox();
+                }}>
+                    <SettingsIcon id="settings-icon" />
+                </a>
             </div>
         )
         }
@@ -320,8 +335,7 @@ class ItemProvider extends Component {
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
                 displayForm: this.displayForm,
-                updateLayouts: this.updateLayouts,
-                handleMouseOver: this.handleMouseOver
+                updateLayouts: this.updateLayouts
             }}>
                 {this.props.children}
             </ItemContext.Provider>
