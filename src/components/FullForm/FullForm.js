@@ -30,12 +30,12 @@ export default class FullForm extends Component {
     };
 
     render() {
-        let { hideToolbox, forms, formSelected, displayForm } = this.context;
+        let { hideFormsList, forms, formSelected, displayForm } = this.context;
         let visibility = "hide";
         
-        // can transform hideToolbox into another variable
+        // can transform hideFormsList into another variable
         // for opening and closing the dashboard toolbox
-        if (hideToolbox) {
+        if (hideFormsList) {
             if (document.getElementById('full-form-container') !== null) {
                 visibility = 'show';
                 document.getElementById('full-form-container').classList.add('show');

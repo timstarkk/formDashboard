@@ -115,7 +115,7 @@ class Navbar extends Component {
     }
 
     render() {
-        const { toggleCart } = this.context;
+        const { toggleToolbox } = this.context;
         return (
             <>
                 <nav className={"navbar " + (this.state.scrolled ? "nav-scrolled" : "") + (this.getLocation() !== '/' ? " nav-white" : "")}>
@@ -165,7 +165,7 @@ class Navbar extends Component {
                             </li>
                             <li>
                                 <a onClick={() => {
-                                    toggleCart()
+                                    toggleToolbox()
                                     this.setState({
                                         isOpen: false
                                     })

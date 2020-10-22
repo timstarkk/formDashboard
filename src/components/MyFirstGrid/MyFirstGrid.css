@@ -1,3 +1,32 @@
 .grid-item {
     border: 2px solid grey;
 }
+
+.item-settings-button {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    color: var(--mainWhite);
+    font-size: 20px;
+    background-color: #d32d27;
+}
+
+.item-settings-button:hover {
+    cursor: pointer;
+}
+
+.item-settings-button.show {
+    background-color: blue;
+}
+
+.grid-item-contents-container {
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+}
