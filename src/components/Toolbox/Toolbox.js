@@ -16,7 +16,7 @@ export default class Toolbox extends Component {
     };
 
     render() {
-        let { toggleCart, cartVisible, cartItemsData } = this.context;
+        let { toggleToolbox, toolboxVisible, cartItemsData } = this.context;
         let visibility = "hide";
         let subtotal = 0;
 
@@ -24,7 +24,7 @@ export default class Toolbox extends Component {
             subtotal += item.price * item.amount
         };
 
-        if (cartVisible) {
+        if (toolboxVisible) {
             visibility = 'show';
             document.getElementById('app-container').classList.add('show');
             document.body.classList.add('show');
@@ -38,10 +38,10 @@ export default class Toolbox extends Component {
         };
         return (
             <>
-                <div id="menu-background" className={visibility} onClick={() => toggleCart()} />
+                <div id="menu-background" className={visibility} onClick={() => toggleToolbox()} />
                 <div id="flyout-menu" className={visibility}>
                     <div className="top-area">
-                        <CloseButton id="close-button" onClick={() => toggleCart()} />
+                        <CloseButton id="close-button" onClick={() => toggleToolbox()} />
                         <h3 id="your-cart">Toolbox</h3>
                         <div className="outer-line" />
                     </div>
