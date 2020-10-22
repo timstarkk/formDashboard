@@ -47,7 +47,10 @@ export default class Toolbox extends Component {
                     </div>
                     <div id="cart-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
-                        <div id="test-btn" className="btn btn-secondary" onClick={() => this.myFunction()}>hello</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Text Box</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Radio</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Checkbox</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Drop down</div>
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
