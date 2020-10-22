@@ -238,7 +238,16 @@ class ItemProvider extends Component {
         const items = []
 
         for (const i of this.state.layouts.lg) {
-          items.push(<div className="grid-item" key={i.i}><input type={i.type} /><div className="item-settings-button" /></div>)
+          items.push(
+            <div className="grid-item" key={i.i}>
+                <input type={i.type} />
+                    <a className="item-settings-button" onClick={() => {
+                        console.log('whats up bro from settings');
+                    }}>
+                        <SettingsIcon id="settings-icon" />
+                    </a>
+            </div>
+        )
         }
 
         return(
