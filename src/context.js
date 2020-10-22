@@ -242,7 +242,7 @@ class ItemProvider extends Component {
             <div className="grid-item" key={i.i}>
                 <input type={i.type} />
                     <a className="item-settings-button" onClick={() => {
-                        console.log('whats up bro from settings');
+                        this.toggleToolbox();
                     }}>
                         <SettingsIcon id="settings-icon" />
                     </a>
