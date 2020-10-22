@@ -234,6 +234,10 @@ class ItemProvider extends Component {
         })
     }
 
+    handleMouseOver = () => {
+        console.log('you moused over brah');
+    }
+
     displayForm = () => {
         const items = []
 
