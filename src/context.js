@@ -320,7 +320,8 @@ class ItemProvider extends Component {
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
                 displayForm: this.displayForm,
-                updateLayouts: this.updateLayouts
+                updateLayouts: this.updateLayouts,
+                handleMouseOver: this.handleMouseOver
             }}>
                 {this.props.children}
             </ItemContext.Provider>
