@@ -116,6 +116,9 @@ class ItemProvider extends Component {
 
     toggleToolbox = () => {
         console.log('hello from toggle toolbox');
+        this.setState({
+            toolboxVisible: !this.state.toolboxVisible
+        });
     };
 
     addFormButton = () => {
