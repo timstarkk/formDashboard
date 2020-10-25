@@ -116,7 +116,7 @@ class ItemProvider extends Component {
         });
     };
 
-    toggleToolbox = (e) => {
+    toggleToolbox = (idNumber) => {
         let settingsButtons = document.getElementsByClassName('item-settings-button');
 
         for (const i of settingsButtons) {
@@ -279,7 +279,7 @@ class ItemProvider extends Component {
                 <a id={`item-settings-button-${i.i}`} 
                 className={`item-settings-button`} 
                 onClick={() => {
-                    this.toggleToolbox();
+                    this.toggleToolbox(i.i);
                 }}>
                     <SettingsIcon id="settings-icon" />
                 </a>
