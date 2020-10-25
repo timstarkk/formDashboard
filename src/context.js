@@ -333,13 +333,13 @@ class ItemProvider extends Component {
     }
 
     chooseType = () => {
+        console.log('choosing type');
         // need to assign/ reassign a type to the box whos settings we just opened.
         // for this we will need to store the chosen grid-item's id in context state.
         // also will need to access um the um database thing (the specific layout);
 
         // will be updateUser mutation so need user ID and form ID (already should have in state above)
-
-        console.log('choosing type');
+        let formId = this.state.selectedForm.id;
     };
 
 
