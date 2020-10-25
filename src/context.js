@@ -333,6 +333,11 @@ class ItemProvider extends Component {
         API.graphql(graphqlOperation(updateLayout)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     }
 
+    chooseType = () => {
+        console.log('choosing type');
+    };
+
+
     render() {
         return (
             <ItemContext.Provider value={{
