@@ -117,8 +117,8 @@ class ItemProvider extends Component {
         });
     };
 
-    toggleToolbox = (idNumber) => {
-        console.log(idNumber);
+    toggleToolbox = (gridItem) => {
+        console.log(gridItem);
         let settingsButtons = document.getElementsByClassName('item-settings-button');
 
         for (const i of settingsButtons) {
