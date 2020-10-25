@@ -237,16 +237,13 @@ class ItemProvider extends Component {
     }
 
     handleHover = (e) => {
-        // console.log(e.target.id);
         let settingsButton = e.target.querySelector('a');
-        // console.log(this.state.isHovered);
-
         if (!settingsButton.classList.contains('show')) {
             settingsButton.classList.add('show');
         } else {
             settingsButton.classList.remove('show');
         }
-        
+
         this.setState({
             isHovered: !this.state.isHovered
         });
@@ -258,7 +255,7 @@ class ItemProvider extends Component {
 
         for (const i of this.state.layouts.lg) {
           items.push(
-            <div id={`grid-item-${i.i}`}onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className={`grid-item`} key={i.i}>
+            <div id={`grid-item-${i.i}`}onMouseEnter={this.handleHover} className={`grid-item`} key={i.i}>
                 <input type={i.type} />
 
                 <a id={`item-settings-button-${i.i}`} className={`item-settings-button`} onClick={() => {
