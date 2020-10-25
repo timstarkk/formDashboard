@@ -29,6 +29,7 @@ class ItemProvider extends Component {
         forms: [],
         formSelected: false,
         selectedForm: '',
+        selectedGridItem: '',
         layouts: {
             lg: [
                 {i: 'a', x: 0, y: 0, w: 12, h: 4},
@@ -117,6 +118,7 @@ class ItemProvider extends Component {
     };
 
     toggleToolbox = (idNumber) => {
+        console.log(idNumber);
         let settingsButtons = document.getElementsByClassName('item-settings-button');
 
         for (const i of settingsButtons) {
