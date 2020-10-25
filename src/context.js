@@ -117,8 +117,14 @@ class ItemProvider extends Component {
     };
 
     toggleToolbox = (e) => {
-        console.log(e);
-        console.log('hello from toggle toolbox');
+        let settingsButtons = document.getElementsByClassName('item-settings-button');
+
+        for (const i of settingsButtons) {
+            if(i.classList.contains('show')) {
+                i.classList.remove('show');
+            }
+        }
+
         this.setState({
             toolboxVisible: !this.state.toolboxVisible
         });
@@ -246,7 +252,7 @@ class ItemProvider extends Component {
                 } else {
                     e.target.classList.remove('show');
                 }
-            } else {
+            } else if (e.target.classList.contains('grid-item')) {
                 let settingsButton = e.target.querySelector('a');
                 if (!settingsButton.classList.contains('show')) {
                     settingsButton.classList.add('show');
@@ -262,7 +268,7 @@ class ItemProvider extends Component {
 
         for (const i of this.state.layouts.lg) {
           items.push(
-            <div id={`grid-item-${i.i}`}onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className={`grid-item`} key={i.i}>
+            <div id={`grid-item-${i.i}`} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className={`grid-item`} key={i.i}>
                 <input type={i.type} />
 
                 <a id={`item-settings-button-${i.i}`} className={`item-settings-button`} onClick={() => {
