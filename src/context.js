@@ -128,7 +128,8 @@ class ItemProvider extends Component {
         }
 
         this.setState({
-            toolboxVisible: !this.state.toolboxVisible
+            toolboxVisible: !this.state.toolboxVisible,
+            selectedGridItem
         });
     };
 
