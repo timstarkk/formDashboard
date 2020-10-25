@@ -29,7 +29,6 @@ class ItemProvider extends Component {
         forms: [],
         formSelected: false,
         selectedForm: '',
-        isHovered: false,
         layouts: {
             lg: [
                 {i: 'a', x: 0, y: 0, w: 12, h: 4},
@@ -256,15 +255,10 @@ class ItemProvider extends Component {
                 }
             }
         }
-
-        this.setState({
-            isHovered: !this.state.isHovered
-        });
     }
 
     displayForm = () => {
         const items = [];
-        const hoverClass = this.state.isHovered ? "showSetting" : "";
 
         for (const i of this.state.layouts.lg) {
           items.push(
