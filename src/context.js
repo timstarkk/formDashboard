@@ -117,7 +117,8 @@ class ItemProvider extends Component {
         });
     };
 
-    toggleToolbox = () => {
+    toggleToolbox = (e) => {
+        console.log(e);
         console.log('hello from toggle toolbox');
         this.setState({
             toolboxVisible: !this.state.toolboxVisible
@@ -237,11 +238,23 @@ class ItemProvider extends Component {
     }
 
     handleHover = (e) => {
-        let settingsButton = e.target.querySelector('a');
-        if (!settingsButton.classList.contains('show')) {
-            settingsButton.classList.add('show');
-        } else {
-            settingsButton.classList.remove('show');
+        if (e.target !== null) {
+            // check if e.target is the settingsButton already.
+            if (e.target.classList.contains('item-settings-button')){
+                // the target is already an <a>
+                if (!e.target.classList.contains('show')){
+                    e.target.classList.add('show');
+                } else {
+                    e.target.classList.remove('show');
+                }
+            } else {
+                let settingsButton = e.target.querySelector('a');
+                if (!settingsButton.classList.contains('show')) {
+                    settingsButton.classList.add('show');
+                } else {
+                    settingsButton.classList.remove('show');
+                }
+            }
         }
 
         this.setState({
