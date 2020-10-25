@@ -11,10 +11,6 @@ export default class Toolbox extends Component {
         super();
     }
 
-    myFunction = () => {
-        console.log('hello dude');
-    };
-
     render() {
         let { toggleToolbox, toolboxVisible, cartItemsData } = this.context;
         let visibility = "hide";
@@ -36,6 +32,7 @@ export default class Toolbox extends Component {
                 document.getElementsByTagName( 'html' )[0].classList.remove('show');
             }
         };
+
         return (
             <>
                 <div id="menu-background" className={visibility} onClick={() => toggleToolbox()} />
@@ -47,10 +44,10 @@ export default class Toolbox extends Component {
                     </div>
                     <div id="cart-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
-                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Text Box</div>
-                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Radio</div>
-                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Checkbox</div>
-                        <div className="btn btn-secondary element-btn" onClick={() => this.myFunction()}>Drop down</div>
+                        <div className="btn btn-secondary element-btn" onClick={}>Text Box</div>
+                        <div className="btn btn-secondary element-btn" onClick={}>Radio</div>
+                        <div className="btn btn-secondary element-btn" onClick={}>Checkbox</div>
+                        <div className="btn btn-secondary element-btn" onClick={}>Drop down</div>
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
