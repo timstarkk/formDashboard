@@ -351,7 +351,8 @@ class ItemProvider extends Component {
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
                 displayForm: this.displayForm,
-                updateLayouts: this.updateLayouts
+                updateLayouts: this.updateLayouts,
+                chooseType: this.chooseType
             }}>
                 {this.props.children}
             </ItemContext.Provider>
