@@ -11,41 +11,35 @@ const ItemContext = React.createContext();
 let items = [];
 
 class ItemProvider extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-            loading: true,
-            type: 'all',
-            price: 0,
-            minPrice: 0,
-            maxPrice: 0,
-            currentUser: {},
-            addAmount: 1,
-            amount: 0,
-            hideFormsList: true,
-            toolboxVisible: false,
-            cartItemsData: [],
-            cartId: '',
-            isLoggedIn: false,
-            forms: [],
-            formSelected: false,
-            selectedForm: '',
-            isHovered: false,
-            layouts: {
-                lg: [
-                    {i: 'a', x: 0, y: 0, w: 12, h: 4},
-                    {i: 'b', x: 0, y: 1, w: 6, h: 4},
-                    {i: 'c', x: 6, y: 1, w: 6, h: 4},
-                    {i: 'd', x: 0, y: 2, w: 12, h: 4}
-                    ]
-            },
-            types: []
-        };
 
-        this.boxRef = createRef();
-    }
-
-    
+    state = {
+        loading: true,
+        type: 'all',
+        price: 0,
+        minPrice: 0,
+        maxPrice: 0,
+        currentUser: {},
+        addAmount: 1,
+        amount: 0,
+        hideFormsList: true,
+        toolboxVisible: false,
+        cartItemsData: [],
+        cartId: '',
+        isLoggedIn: false,
+        forms: [],
+        formSelected: false,
+        selectedForm: '',
+        isHovered: false,
+        layouts: {
+            lg: [
+                {i: 'a', x: 0, y: 0, w: 12, h: 4},
+                {i: 'b', x: 0, y: 1, w: 6, h: 4},
+                {i: 'c', x: 6, y: 1, w: 6, h: 4},
+                {i: 'd', x: 0, y: 2, w: 12, h: 4}
+                ]
+        },
+        types: []
+    };
 
     async componentDidMount() {
         await API.graphql(graphqlOperation(query))
@@ -242,10 +236,17 @@ class ItemProvider extends Component {
         })
     }
 
-    handleHover = () => {
-        console.log(this.boxRef);
-        console.log(this.boxRef.current.children[1].classList);
-        this.boxRef.current.children[1].classList.add('show')
+    handleHover = (e) => {
+        // console.log(e.target.id);
+        let settingsButton = e.target.querySelector('a');
+        // console.log(this.state.isHovered);
+
+        if (!settingsButton.classList.contains('show')) {
+            settingsButton.classList.add('show');
+        } else {
+            settingsButton.classList.remove('show');
+        }
+        
         this.setState({
             isHovered: !this.state.isHovered
         });
@@ -257,10 +258,10 @@ class ItemProvider extends Component {
 
         for (const i of this.state.layouts.lg) {
           items.push(
-            <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} ref={this.boxRef} className={`grid-item`} key={i.i}>
+            <div id={`grid-item-${i.i}`}onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className={`grid-item`} key={i.i}>
                 <input type={i.type} />
 
-                <a className={`item-settings-button`} onClick={() => {
+                <a id={`item-settings-button-${i.i}`} className={`item-settings-button`} onClick={() => {
                     this.toggleToolbox();
                 }}>
                     <SettingsIcon id="settings-icon" />
