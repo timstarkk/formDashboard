@@ -28,7 +28,7 @@ export default class MyFirstGrid extends Component {
   }
 
   onLayoutChange(layout, layouts) {
-    const { types } = this.context;
+    const { types, labels } = this.context;
     layout.map((i, index) => {
       i.isResizable = true;
       i.isDraggable = true;
