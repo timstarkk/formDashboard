@@ -44,10 +44,10 @@ export default class Toolbox extends Component {
                     </div>
                     <div id="cart-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
-                        <div className="btn btn-secondary element-btn" onClick={chooseType}>Text Box</div>
-                        <div className="btn btn-secondary element-btn" onClick={chooseType}>Radio</div>
-                        <div className="btn btn-secondary element-btn" onClick={chooseType}>Checkbox</div>
-                        <div className="btn btn-secondary element-btn" onClick={chooseType}>Drop down</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => chooseType('text')}>Text Box</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => chooseType('radio')}>Radio</div>
+                        <div className="btn btn-secondary element-btn" onClick={() => chooseType('checkbox')}>Checkbox</div>
+                        {/* <div className="btn btn-secondary element-btn" onClick={chooseType('dropdown')}>Drop down</div> */}
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
