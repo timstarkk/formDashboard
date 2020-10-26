@@ -245,22 +245,31 @@ class ItemProvider extends Component {
         })
     }
 
-    handleHover = (e) => {
-        if (e.target !== null) {
-            // check if e.target is the settingsButton already.
-            if (e.target.classList.contains('item-settings-button')){
-                // the target is already an <a>
-                if (!e.target.classList.contains('show')){
-                    e.target.classList.add('show');
-                } else {
-                    e.target.classList.remove('show');
+    handleHover = (e, left) => {
+        if (left) {
+            let settingsButtons = document.getElementsByClassName('item-settings-button');
+            for (const i of settingsButtons) {
+                if(i.classList.contains('show')) {
+                    i.classList.remove('show');
                 }
-            } else if (e.target.classList.contains('grid-item')) {
-                let settingsButton = e.target.querySelector('a');
-                if (!settingsButton.classList.contains('show')) {
-                    settingsButton.classList.add('show');
-                } else {
-                    settingsButton.classList.remove('show');
+            }
+        } else {
+            if (e.target !== null) {
+                // check if e.target is the settingsButton already.
+                if (e.target.classList.contains('item-settings-button')){
+                    // the target is already an <a>
+                    if (!e.target.classList.contains('show')){
+                        e.target.classList.add('show');
+                    } else {
+                        e.target.classList.remove('show');
+                    }
+                } else if (e.target.classList.contains('grid-item')) {
+                    let settingsButton = e.target.querySelector('a');
+                    if (!settingsButton.classList.contains('show')) {
+                        settingsButton.classList.add('show');
+                    } else {
+                        settingsButton.classList.remove('show');
+                    }
                 }
             }
         }
@@ -272,8 +281,8 @@ class ItemProvider extends Component {
         for (const i of this.state.layouts.lg) {
           items.push(
             <div id={`grid-item-${i.i}`} 
-            onMouseEnter={this.handleHover} 
-            onMouseLeave={this.handleHover} 
+            onMouseEnter={e => this.handleHover(e, false)} 
+            onMouseLeave={e => this.handleHover(e, true)} 
             className={`grid-item`} 
             key={i.i}>
 
