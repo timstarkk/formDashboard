@@ -37,7 +37,9 @@ export default class MyFirstGrid extends Component {
       i.maxW = Infinity;
       i.minH = 0;
       i.minW = 0;
-      i.type = types[index]
+      i.type = types[index];
+      i.isLabel = labels[index].isLabel;
+      i.labelFor = labels[index].labelsFor
     })
     this.state.updateLayouts(layout);
   }
