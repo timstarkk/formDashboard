@@ -246,9 +246,8 @@ class ItemProvider extends Component {
             layouts: {
                 lg: layout
             },
-            types
+            types,
             labels
-            // need to put labels here
         })
     }
 
