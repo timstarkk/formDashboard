@@ -237,7 +237,7 @@ class ItemProvider extends Component {
         let labels = [];
         for(const i of layout) {
             types.push(i.type);
-            label.push({isLabel: i.isLabel, labelFor: i.labelFor})
+            labels.push({isLabel: i.isLabel, labelFor: i.labelFor})
         };
         console.log(types);
         this.setState({
