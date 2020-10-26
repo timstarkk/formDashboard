@@ -38,7 +38,8 @@ class ItemProvider extends Component {
                 {i: 'd', x: 0, y: 2, w: 12, h: 4}
                 ]
         },
-        types: []
+        types: [],
+        labels: []
     };
 
     async componentDidMount() {
@@ -147,10 +148,10 @@ class ItemProvider extends Component {
                 columns: 9,
                 rows: 9,
                 layout: [
-                    {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text"},
-                    {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio"},
-                    {i: 'c', x: 6, y: 1, w: 6, h: 4, type: "radio"},
-                    {i: 'd', x: 0, y: 2, w: 12, h: 4, type: "text"}
+                    {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text", isLabel: false},
+                    {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
+                    {i: 'c', x: 6, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
+                    {i: 'd', x: 0, y: 2, w: 12, h: 4, type: "text", isLabel: false}
                 ]
             }
         };
@@ -166,12 +167,12 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y } } }
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
                 }
             }
         `
 
-        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('form add successful!'); await this.getForms()}).catch(err => console.log(err));
     };
 
     getForms = () => {
@@ -209,6 +210,8 @@ class ItemProvider extends Component {
                             x
                             y
                             type
+                            isLabel
+                            labelFor
                         }
                     }
                 }
@@ -231,8 +234,10 @@ class ItemProvider extends Component {
         let layout = form.contents.layout;
         console.log(layout);
         let types = [];
+        let labels = [];
         for(const i of layout) {
             types.push(i.type);
+            label.push({isLabel: i.isLabel, labelFor: i.labelFor})
         };
         console.log(types);
         this.setState({
@@ -242,6 +247,8 @@ class ItemProvider extends Component {
                 lg: layout
             },
             types
+            labels
+            // need to put labels here
         })
     }
 
