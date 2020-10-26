@@ -118,7 +118,6 @@ class ItemProvider extends Component {
     };
 
     toggleToolbox = (selectedGridItem) => {
-        console.log(selectedGridItem);
         let settingsButtons = document.getElementsByClassName('item-settings-button');
 
         for (const i of settingsButtons) {
@@ -228,6 +227,7 @@ class ItemProvider extends Component {
     };
 
     handleSelectForm = (form) => {
+        console.log(form);
         let layout = form.contents.layout;
         console.log(layout);
         let types = [];
@@ -296,6 +296,7 @@ class ItemProvider extends Component {
     };
 
     updateLayouts = (layout) => {
+        console.log(layout);
         let that = this;
         let formId = this.state.selectedForm.id
 
@@ -342,14 +343,22 @@ class ItemProvider extends Component {
         API.graphql(graphqlOperation(updateLayout)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
     }
 
-    chooseType = () => {
-        console.log('choosing type');
-        // need to assign/ reassign a type to the box whos settings we just opened.
-        // for this we will need to store the chosen grid-item's id in context state.
-        // also will need to access um the um database thing (the specific layout);
+    chooseType = (newType) => {
+        let gridItemLetter = this.state.selectedGridItem;
+        let layout = this.state.layouts.lg.map(i => {
+            if (i.i === gridItemLetter) {
+                i.type = newType
+            }
 
-        // will be updateUser mutation so need user ID and form ID (already should have in state above)
-        let formId = this.state.selectedForm.id;
+            return i;
+        });
+        
+        this.setState({
+            layouts: {
+                lg: layout
+            }
+        }, () => {this.updateLayouts(layout)})
+        ;
     };
 
 
