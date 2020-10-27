@@ -379,8 +379,8 @@ class ItemProvider extends Component {
         ;
     };
 
-    addNewGridItem = () => {
-        console.log('hello from add new grid item');
+    addGridItem = () => {
+        console.log('hello from add grid item');
     };
 
 
@@ -398,7 +398,8 @@ class ItemProvider extends Component {
                 handleSelectForm: this.handleSelectForm,
                 displayForm: this.displayForm,
                 updateLayouts: this.updateLayouts,
-                chooseType: this.chooseType
+                chooseType: this.chooseType,
+                add
             }}>
                 {this.props.children}
             </ItemContext.Provider>
