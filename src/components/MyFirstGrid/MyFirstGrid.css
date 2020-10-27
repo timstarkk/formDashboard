@@ -15,6 +15,7 @@
     color: var(--mainWhite);
     font-size: 20px;
     background-color: #d32d27;
+    visibility: hidden;
 }
 
 .item-settings-button:hover {
@@ -22,7 +23,7 @@
 }
 
 .item-settings-button.show {
-    background-color: blue;
+    visibility: visible;
 }
 
 .grid-item-contents-container {
