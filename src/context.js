@@ -379,6 +379,10 @@ class ItemProvider extends Component {
         ;
     };
 
+    addNewGridItem = () => {
+        console.log('hello from add new grid item');
+    };
+
 
     render() {
         return (
