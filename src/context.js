@@ -399,7 +399,7 @@ class ItemProvider extends Component {
                 displayForm: this.displayForm,
                 updateLayouts: this.updateLayouts,
                 chooseType: this.chooseType,
-                add
+                addGridItem: this.addGridItem
             }}>
                 {this.props.children}
             </ItemContext.Provider>
