@@ -375,12 +375,47 @@ class ItemProvider extends Component {
                 lg: layout
             },
             types
-        }, () => {this.updateLayouts(layout)})
-        ;
+        }, () => {this.updateLayouts(layout)});
     };
 
     addGridItem = () => {
         console.log('hello from add grid item');
+        let uuid = uuidv4();
+        let layout = this.state.layouts.lg;
+        let types = this.state.types;
+        let labels = this.state.labels;
+        let blankItem = {
+            h: 4,
+            i: `${uuid}`,
+            isBounded: false,
+            isDraggable: true,
+            isLabel: false,
+            isResizable: true,
+            labelFor: undefined,
+            maxH: Infinity,
+            maxW: Infinity,
+            minH: 0,
+            minW: 0,
+            moved: false,
+            resizeHandles: null,
+            static: false,
+            type: "text",
+            w: 12,
+            x: 0,
+            y: 99,
+        };
+        types.push("text");
+        layout.push(blankItem);
+        labels.push({isLabel: false, labelFor: undefined})
+        
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            types
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
+        // edit the layout
+        // send the layout to this.updateLayouts(*in here*)
     };
 
 
