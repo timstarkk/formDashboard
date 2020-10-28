@@ -4,7 +4,7 @@ import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
-import { FiSettings as SettingsIcon, FiXCircle as xIcon } from "react-icons/fi";
+import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -253,8 +253,8 @@ class ItemProvider extends Component {
 
     handleHover = (e, left) => {
         if (left) {
-            let settingsButtons = document.getElementsByClassName('item-settings-button');
-            for (const i of settingsButtons) {
+            let hoverButtons = document.getElementsByClassName('item-hover-button');
+            for (const i of hoverButtons) {
                 if(i.classList.contains('show')) {
                     i.classList.remove('show');
                 }
@@ -262,7 +262,7 @@ class ItemProvider extends Component {
         } else {
             if (e.target !== null) {
                 // check if e.target is the settingsButton already.
-                if (e.target.classList.contains('item-settings-button')){
+                if (e.target.classList.contains('item-hover-button')){
                     // the target is already an <a>
                     if (!e.target.classList.contains('show')){
                         e.target.classList.add('show');
@@ -270,11 +270,13 @@ class ItemProvider extends Component {
                         e.target.classList.remove('show');
                     }
                 } else if (e.target.classList.contains('grid-item')) {
-                    let settingsButton = e.target.querySelector('a');
-                    if (!settingsButton.classList.contains('show')) {
-                        settingsButton.classList.add('show');
-                    } else {
-                        settingsButton.classList.remove('show');
+                    let hoverButtons = e.target.querySelectorAll('a');
+                    for (const i of hoverButtons) {
+                        if (!i.classList.contains('show')) {
+                            i.classList.add('show');
+                        } else {
+                            i.classList.remove('show');
+                        }
                     }
                 }
             }
@@ -295,7 +297,7 @@ class ItemProvider extends Component {
                 <input type={i.type} />
 
                 <a id={`item-settings-button-${i.i}`} 
-                className={`item-settings-button`} 
+                className={`item-hover-button item-settings-button`} 
                 onClick={() => {
                     this.toggleToolbox(i.i);
                 }}>
@@ -303,11 +305,11 @@ class ItemProvider extends Component {
                 </a>
 
                 <a id={`item-delete-button-${i.i}`} 
-                className={`delete-button`} 
+                className={`item-hover-button item-delete-button`} 
                 onClick={() => {
-                    console.log('delete boiii');
+                    this.deleteGridItem();
                 }}>
-                    <xIcon id="delete-icon" />
+                    <XIcon id="delete-icon" />
                 </a>
             </div>
         )
