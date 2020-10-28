@@ -418,6 +418,10 @@ class ItemProvider extends Component {
         // send the layout to this.updateLayouts(*in here*)
     };
 
+    deleteGridItem = () => {
+        console.log('hello from delete grid item');
+    };
+
 
     render() {
         return (
