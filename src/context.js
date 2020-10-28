@@ -422,7 +422,6 @@ class ItemProvider extends Component {
         console.log('hello from delete grid item');
     };
 
-
     render() {
         return (
             <ItemContext.Provider value={{
@@ -438,7 +437,8 @@ class ItemProvider extends Component {
                 displayForm: this.displayForm,
                 updateLayouts: this.updateLayouts,
                 chooseType: this.chooseType,
-                addGridItem: this.addGridItem
+                addGridItem: this.addGridItem,
+                deleteGridItem: this.deleteGridItem
             }}>
                 {this.props.children}
             </ItemContext.Provider>
