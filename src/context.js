@@ -4,7 +4,7 @@ import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
-import { FiSettings as SettingsIcon } from "react-icons/fi";
+import { FiSettings as SettingsIcon, FiXCircle as xIcon } from "react-icons/fi";
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -300,6 +300,14 @@ class ItemProvider extends Component {
                     this.toggleToolbox(i.i);
                 }}>
                     <SettingsIcon id="settings-icon" />
+                </a>
+
+                <a id={`item-delete-button-${i.i}`} 
+                className={`item-settings-button`} 
+                onClick={() => {
+                    console.log('delete boiii');
+                }}>
+                    <xIcon id="delete-icon" />
                 </a>
             </div>
         )
