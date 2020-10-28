@@ -43,7 +43,7 @@
     display: flex;
 }
 
-#add-button {
+.plus-button {
     border-radius: .2rem;
     font-size: 80px;
     padding: 0px;
@@ -52,7 +52,7 @@
     background-color: var(--lightDarkGrey);
 }
 
-#add-button > p {
+.plus-button > p {
     height: 60px;
     width: 60px;
     position: relative;
@@ -61,7 +61,7 @@
     color: var(--mainGrey);
 }
 
-#add-button:hover {
+.plus-button:hover {
     background-color: var(--mainDarkGrey);
 }
 
