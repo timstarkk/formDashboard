@@ -58,6 +58,9 @@ export default class FullForm extends Component {
                                 <p>'please select a form'</p> :
                                 <>
                                     <MyFirstGrid />
+                                    <div className="btn btn-primary" id="form-submit-btn">
+                                        submit
+                                    </div>
                                 </>
                         }
                     </div>
