@@ -81,8 +81,8 @@ export default class Dashboard extends Component {
     };
 
     render() {
-        // let { loading, addFormButton } = this.context;
         let forms = null;
+        let { addGridItem } = this.context;
 
         forms = this.context.forms;
     
@@ -113,8 +113,11 @@ export default class Dashboard extends Component {
                                 forms.map(form => {return <FormThumbnail key={form.id} form={form}/>})
                                 }
                             </div>
-                            <div className='btn btn-primary' id='add-button' onClick={() => {this.handleAddForm()}}>
+                            <div className='btn btn-primary plus-button' onClick={() => {this.handleAddForm()}}>
                                 <p>+</p>
+                            </div>
+                            <div className='btn btn-primary plus-button' onClick={addGridItem}>
+                                <p>g</p>
                             </div>
                         </div>
                         <FullForm />
