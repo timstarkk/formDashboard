@@ -303,7 +303,7 @@ class ItemProvider extends Component {
                 </a>
 
                 <a id={`item-delete-button-${i.i}`} 
-                className={`item-settings-button`} 
+                className={`delete-button`} 
                 onClick={() => {
                     console.log('delete boiii');
                 }}>
