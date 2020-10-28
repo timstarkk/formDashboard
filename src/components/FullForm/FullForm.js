@@ -64,33 +64,3 @@ export default class FullForm extends Component {
         )
     }
 }
-
-
-// const form = {
-//     // rows and columns translate to amount of "auto" within grid-template-X: 
-//     columns: 2,
-//     rows: 3,
-//     // elements are mapped into jsx one by one with appropriate names and id's etc.
-//     elements: [
-//         {
-//             type: "text",
-//             start: 1,
-//             end: "end"
-//         },
-//         {
-//             type: "checkbox",
-//             start: 0,
-//             end: false
-//         },
-//         {
-//             type: "checkbox",
-//             start: 0,
-//             end: false
-//         },
-//         {
-//             type: "text",
-//             start: 1,
-//             end: "end"
-//         }
-//     ]
-// }
