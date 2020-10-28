@@ -430,6 +430,15 @@ class ItemProvider extends Component {
 
     deleteGridItem = () => {
         console.log('hello from delete grid item');
+
+        // get layout..
+        let layout = this.state.layouts.lg;
+        console.log(layout);
+        // find current grid item.
+
+        // remove grid item from layout
+
+        // set the new layout in state and call updateLayouts
     };
 
     render() {
