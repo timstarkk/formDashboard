@@ -3,6 +3,8 @@ import { ItemContext } from '../../context';
 import { MdClose as CloseButton } from "react-icons/md";
 import './FullForm.css';
 
+import html2canvas from 'html2canvas';
+
 import MyFirstGrid from '../MyFirstGrid/MyFirstGrid';
 
 export default class FullForm extends Component {
