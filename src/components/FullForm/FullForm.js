@@ -58,22 +58,6 @@ export default class FullForm extends Component {
                                     <MyFirstGrid />
                                 </>
                         }
-                        {/* <input
-                            id="textbox1"
-                            type="text"
-                            name="textbox"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        />
-                        <input type="checkbox" />
-                        <input type="checkbox" />
-                        <input
-                            id="textbox2"
-                            type="text"
-                            name="textbox2"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        /> */}
                     </div>
                 </div>
             </>
