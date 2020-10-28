@@ -4,7 +4,7 @@ import { MdClose as CloseButton } from "react-icons/md";
 import './FullForm.css';
 
 import html2canvas from 'html2canvas';
-import jspdf from 'jspdf';
+import jsPDF from 'jspdf';
 
 import MyFirstGrid from '../MyFirstGrid/MyFirstGrid';
 
