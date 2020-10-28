@@ -307,7 +307,7 @@ class ItemProvider extends Component {
                 <a id={`item-delete-button-${i.i}`} 
                 className={`item-hover-button item-delete-button`} 
                 onClick={() => {
-                    this.deleteGridItem();
+                    this.deleteGridItem(i.i);
                 }}>
                     <XIcon id="delete-icon" />
                 </a>
@@ -428,17 +428,34 @@ class ItemProvider extends Component {
         // send the layout to this.updateLayouts(*in here*)
     };
 
-    deleteGridItem = () => {
-        console.log('hello from delete grid item');
+    deleteGridItem = (gridItem) => {
+        let types = [];
+        let labels = [];
 
-        // get layout..
-        let layout = this.state.layouts.lg;
-        console.log(layout);
-        // find current grid item.
+        let layout = this.state.layouts.lg.filter((i, index) => {
+            console.log(i);
+            console.log(index);
+            if (i.i === gridItem) {
+                // do nothing
+                console.log('do nothing, found it');
+            } else {
+                types.push(i.type);
+                labels.push({isLabel: i.isLabel, labelFor: i.labelFor})
+                return i;
+            }
+        });
 
-        // remove grid item from layout
+        console.log(types);
+        console.log(labels);
 
         // set the new layout in state and call updateLayouts
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            types,
+            labels
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
     render() {
