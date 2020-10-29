@@ -288,32 +288,63 @@ class ItemProvider extends Component {
         const items = [];
 
         for (const i of this.state.layouts.lg) {
-          items.push(
-            <div id={`grid-item-${i.i}`} 
-            onMouseEnter={e => this.handleHover(e, false)} 
-            onMouseLeave={e => this.handleHover(e, true)} 
-            className={`grid-item`} 
-            key={i.i}>
+            // check if item has a defined type //
+            if(!i.type){
+                // item has no type
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    onMouseEnter={e => this.handleHover(e, false)} 
+                    onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
 
-                <input type={i.type} />
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
 
-                <a id={`item-settings-button-${i.i}`} 
-                className={`item-hover-button item-settings-button`} 
-                onClick={() => {
-                    this.toggleToolbox(i.i);
-                }}>
-                    <SettingsIcon id="settings-icon" />
-                </a>
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+                        
+                    </div>
+                )
+            } else {
+                // item has a type
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    onMouseEnter={e => this.handleHover(e, false)} 
+                    onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
 
-                <a id={`item-delete-button-${i.i}`} 
-                className={`item-hover-button item-delete-button`} 
-                onClick={() => {
-                    this.deleteGridItem(i.i);
-                }}>
-                    <XIcon id="delete-icon" />
-                </a>
-            </div>
-        )
+                        <input type={i.type} />
+
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
+
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+                    </div>
+                )
+            }
         }
 
         return(
@@ -410,7 +441,7 @@ class ItemProvider extends Component {
             moved: false,
             resizeHandles: null,
             static: false,
-            type: "text",
+            type: undefined,
             w: 12,
             x: 0,
             y: 99,
