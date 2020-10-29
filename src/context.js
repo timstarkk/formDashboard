@@ -212,6 +212,7 @@ class ItemProvider extends Component {
                             type
                             isLabel
                             labelFor
+                            labelText
                         }
                     }
                 }
@@ -237,7 +238,7 @@ class ItemProvider extends Component {
         let labels = [];
         for(const i of layout) {
             types.push(i.type);
-            labels.push({isLabel: i.isLabel, labelFor: i.labelFor})
+            labels.push({isLabel: i.isLabel, labelFor: i.labelFor, labelText: i.labelText})
         };
         console.log(types);
         this.setState({
@@ -401,6 +402,7 @@ class ItemProvider extends Component {
             isLabel: false,
             isResizable: true,
             labelFor: undefined,
+            labelText: undefined,
             maxH: Infinity,
             maxW: Infinity,
             minH: 0,
@@ -415,7 +417,7 @@ class ItemProvider extends Component {
         };
         types.push("text");
         layout.push(blankItem);
-        labels.push({isLabel: false, labelFor: undefined})
+        labels.push({isLabel: false, labelFor: undefined, labelText: undefined})
         
         this.setState({
             layouts: {
@@ -437,7 +439,7 @@ class ItemProvider extends Component {
                 console.log('do nothing, found it');
             } else {
                 types.push(i.type);
-                labels.push({isLabel: i.isLabel, labelFor: i.labelFor})
+                labels.push({isLabel: i.isLabel, labelFor: i.labelFor, labelText: i.labelText})
                 return i;
             }
         });
@@ -463,6 +465,7 @@ class ItemProvider extends Component {
         let labels = this.state.labels;
 
         let labelFor = this.state.selectedGridItem;
+        let labelText = ''
         let blankItem = {
             h: 4,
             i: `${uuid}`,
@@ -471,6 +474,7 @@ class ItemProvider extends Component {
             isLabel: false,
             isResizable: true,
             labelFor: undefined,
+            labelText,
             maxH: Infinity,
             maxW: Infinity,
             minH: 0,
@@ -490,7 +494,7 @@ class ItemProvider extends Component {
         types.push("text");
         layout.push(blankItem);
         // where says labelFor: undefined.... the value needs to be uuid of box clicked
-        labels.push({isLabel: true, labelFor})
+        labels.push({isLabel: true, labelFor, labelText})
         
         // this.setState({
         //     layouts: {
