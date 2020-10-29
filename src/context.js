@@ -389,7 +389,6 @@ class ItemProvider extends Component {
     };
 
     addGridItem = () => {
-        console.log('hello from add grid item');
         let uuid = uuidv4();
         let layout = this.state.layouts.lg;
         let types = this.state.types;
