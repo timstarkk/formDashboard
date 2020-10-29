@@ -313,7 +313,7 @@ class ItemProvider extends Component {
                         }}>
                             <XIcon id="delete-icon" />
                         </a>
-                        
+
                     </div>
                 )
             } else {
@@ -446,7 +446,7 @@ class ItemProvider extends Component {
             x: 0,
             y: 99,
         };
-        types.push("text");
+        types.push(undefined);
         layout.push(blankItem);
         labels.push({isLabel: false, labelFor: undefined, labelText: undefined})
         
