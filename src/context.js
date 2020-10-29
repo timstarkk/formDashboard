@@ -458,6 +458,10 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
+    addLabel = () => {
+        console.log('hello from addLabel');
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
