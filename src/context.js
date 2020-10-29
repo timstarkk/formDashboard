@@ -424,8 +424,6 @@ class ItemProvider extends Component {
             },
             types
         }, () => {console.log('state changed');this.updateLayouts(layout)});
-        // edit the layout
-        // send the layout to this.updateLayouts(*in here*)
     };
 
     deleteGridItem = (gridItem) => {
