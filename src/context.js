@@ -478,7 +478,8 @@ class ItemProvider extends Component {
                 updateLayouts: this.updateLayouts,
                 chooseType: this.chooseType,
                 addGridItem: this.addGridItem,
-                deleteGridItem: this.deleteGridItem
+                deleteGridItem: this.deleteGridItem,
+                addLabel: this.addLabel
             }}>
                 {this.props.children}
             </ItemContext.Provider>
