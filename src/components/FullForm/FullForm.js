@@ -3,9 +3,6 @@ import { ItemContext } from '../../context';
 import { MdClose as CloseButton } from "react-icons/md";
 import './FullForm.css';
 
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-
 import MyFirstGrid from '../MyFirstGrid/MyFirstGrid';
 
 export default class FullForm extends Component {
@@ -58,9 +55,6 @@ export default class FullForm extends Component {
                                 <p>'please select a form'</p> :
                                 <>
                                     <MyFirstGrid />
-                                    <div className="btn btn-primary" id="form-submit-btn">
-                                        submit
-                                    </div>
                                 </>
                         }
                     </div>
