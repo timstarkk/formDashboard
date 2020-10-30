@@ -568,21 +568,18 @@ class ItemProvider extends Component {
                 return (
                     <>
                         <p>text settings:</p>
-                        {selectedType}
                     </>
                 )
             } else if (selectedType === 'radio') {
                 return (
                     <>
                         <p>radio settings:</p>
-                        {selectedType}
                     </>
                 )
             } else if (selectedType === 'checkbox') {
                 return (
                     <>
                         <p>checkbox settings:</p>
-                        {selectedType}
                     </>
                 )
             };
