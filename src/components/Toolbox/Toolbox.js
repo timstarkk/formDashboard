@@ -42,7 +42,7 @@ export default class Toolbox extends Component {
                         <h3 id="your-cart">Toolbox</h3>
                         <div className="outer-line" />
                     </div>
-                    <div id="cart-items-area">
+                    <div id="toolbox-items-area">
                         {/* <CartList cartItems={cartItemsData} /> */}
                         <div className="btn btn-secondary element-btn" onClick={() => chooseType('text')}>Text Input</div>
                         <div className="btn btn-secondary element-btn" onClick={() => chooseType('radio')}>Radio</div>

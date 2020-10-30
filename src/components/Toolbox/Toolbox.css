@@ -91,7 +91,7 @@
   background: var(--primaryColor);
 }
 
-#cart-items-area {
+#toolbox-items-area {
   flex: 2;
   overflow: scroll;
   -ms-overflow-style: none;
@@ -103,7 +103,7 @@
   align-items: center;
 }
 
-#cart-items-area::-webkit-scrollbar {
+#toolbox-items-area::-webkit-scrollbar {
   display: none;
 }
 
