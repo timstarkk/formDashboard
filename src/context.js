@@ -538,6 +538,12 @@ class ItemProvider extends Component {
 
     renderToolbox = () => {
         return <p>hello from render toolbox</p>
+        {/* <CartList cartItems={cartItemsData} /> */}
+        {/* <div className="btn btn-secondary element-btn" onClick={() => chooseType('text')}>Text Input</div>
+        <div className="btn btn-secondary element-btn" onClick={() => chooseType('radio')}>Radio</div>
+        <div className="btn btn-secondary element-btn" onClick={() => chooseType('checkbox')}>Checkbox</div> */}
+        {/* <div className="btn btn-secondary element-btn" onClick={chooseType('dropdown')}>Drop down</div> */}
+        {/* <div className="btn btn-secondary element-btn" onClick={addLabel}>Text Label</div> */}
     };
 
     render() {
