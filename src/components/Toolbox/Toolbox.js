@@ -12,7 +12,7 @@ export default class Toolbox extends Component {
     }
 
     render() {
-        let { toggleToolbox, toolboxVisible, cartItemsData, chooseType, addLabel } = this.context;
+        let { toggleToolbox, toolboxVisible, cartItemsData, chooseType, renderToolbox } = this.context;
         let visibility = "hide";
         let subtotal = 0;
 
