@@ -7,9 +7,6 @@ import CartList from '../CartList/CartList';
 
 export default class Toolbox extends Component {
     static contextType = ItemContext;
-    constructor() {
-        super();
-    }
 
     render() {
         let { toggleToolbox, toolboxVisible, cartItemsData, chooseType, renderToolbox } = this.context;
@@ -43,7 +40,7 @@ export default class Toolbox extends Component {
                         <div className="outer-line" />
                     </div>
                     <div id="toolbox-items-area">
-                        {renderToolbox}
+                        {renderToolbox()}
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
