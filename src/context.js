@@ -564,7 +564,6 @@ class ItemProvider extends Component {
                 </>
             )
         } else if (selectedType !== 'none') {
-
             if (selectedType === 'text') {
                 return (
                     <>
@@ -587,7 +586,6 @@ class ItemProvider extends Component {
                     </>
                 )
             };
-
         } else {
             return <p></p>
         };
