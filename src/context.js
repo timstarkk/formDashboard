@@ -289,7 +289,7 @@ class ItemProvider extends Component {
 
         for (const i of this.state.layouts.lg) {
             // check if item has a defined type //
-            if(!i.type){
+            if(i.type === 'none'){
                 // item has no type
                 items.push(
                     <div id={`grid-item-${i.i}`} 
@@ -441,12 +441,12 @@ class ItemProvider extends Component {
             moved: false,
             resizeHandles: null,
             static: false,
-            type: undefined,
+            type: 'none',
             w: 12,
             x: 0,
             y: 99,
         };
-        types.push(undefined);
+        types.push('none');
         layout.push(blankItem);
         labels.push({isLabel: false, labelFor: undefined, labelText: undefined})
         
@@ -535,15 +535,62 @@ class ItemProvider extends Component {
         // }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
-
     renderToolbox = () => {
-        return <p>hello from render toolbox</p>
-        {/* <CartList cartItems={cartItemsData} /> */}
-        {/* <div className="btn btn-secondary element-btn" onClick={() => chooseType('text')}>Text Input</div>
-        <div className="btn btn-secondary element-btn" onClick={() => chooseType('radio')}>Radio</div>
-        <div className="btn btn-secondary element-btn" onClick={() => chooseType('checkbox')}>Checkbox</div> */}
-        {/* <div className="btn btn-secondary element-btn" onClick={chooseType('dropdown')}>Drop down</div> */}
-        {/* <div className="btn btn-secondary element-btn" onClick={addLabel}>Text Label</div> */}
+        console.log('hello from render toolbox');
+
+        // conditional statement that checks if the selected box has an assigned type or not
+
+        // get selectedItem and console.log
+
+        let selectedGridItem = this.state.selectedGridItem;
+        let selectedType = '';
+
+
+        // grab selected item type
+        for (const i of this.state.layouts.lg) {
+            if (i.i === selectedGridItem) {
+                selectedType = i.type;
+            }
+        }
+
+
+        if (selectedType === 'none') {
+            return (
+                <>
+                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('text')}>Text Input</div>
+                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('radio')}>Radio</div>
+                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('checkbox')}>Checkbox</div> 
+                    <div className="btn btn-secondary element-btn" onClick={this.addLabel}>Text Label</div>
+                </>
+            )
+        } else if (selectedType !== 'none') {
+
+            if (selectedType === 'text') {
+                return (
+                    <>
+                        <p>text settings:</p>
+                        {selectedType}
+                    </>
+                )
+            } else if (selectedType === 'radio') {
+                return (
+                    <>
+                        <p>radio settings:</p>
+                        {selectedType}
+                    </>
+                )
+            } else if (selectedType === 'checkbox') {
+                return (
+                    <>
+                        <p>checkbox settings:</p>
+                        {selectedType}
+                    </>
+                )
+            };
+
+        } else {
+            return <p></p>
+        };
     };
 
     render() {
