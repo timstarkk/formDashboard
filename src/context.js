@@ -535,6 +535,11 @@ class ItemProvider extends Component {
         // }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
+
+    renderToolbox = () => {
+        return <p>hello from render toolbox</p>
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
