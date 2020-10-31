@@ -15,11 +15,21 @@ export default class Toolbox extends Component {
         }
     }
 
+    componentDidMount = () => {
+        const { renderToolbox } = this.context;
+
+        this.setState({
+            renderToolbox
+        });
+    };
+
     handleRenderToolbox = () => {
+        this.state.renderToolbox()
+        // save the return as a variable. and then return from here the <Properties> object
     };
 
     render() {
-        let { toggleToolbox, toolboxVisible, cartItemsData, chooseType, renderToolbox } = this.context;
+        let { toggleToolbox, toolboxVisible, cartItemsData, chooseType } = this.context;
         let visibility = "hide";
         let subtotal = 0;
 
@@ -50,7 +60,7 @@ export default class Toolbox extends Component {
                         <div className="outer-line" />
                     </div>
                     <div id="toolbox-items-area">
-                        {renderToolbox()}
+                        {this.handleRenderToolbox()}
                     </div>
                     <div className="bottom-area">
                         <div className="outer-line" />
