@@ -24,7 +24,9 @@ export default class Toolbox extends Component {
     };
 
     handleRenderToolbox = () => {
-        this.state.renderToolbox()
+        let variable = this.state.renderToolbox();
+
+        console.log(variable);
         // save the return as a variable. and then return from here the <Properties> object
     };
 
