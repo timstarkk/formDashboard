@@ -316,6 +316,33 @@ class ItemProvider extends Component {
 
                     </div>
                 )
+            } else if (i.type === 'textbox') {
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    onMouseEnter={e => this.handleHover(e, false)} 
+                    onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
+
+                        <p>item is a text item</p>
+
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
+
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+                    </div>
+                )
             } else {
                 // item has a type
                 items.push(
