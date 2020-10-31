@@ -536,7 +536,7 @@ class ItemProvider extends Component {
         if (selectedType) {
             return selectedType;
         } else {
-            return '';
+            return undefined;
         };
     };
 
