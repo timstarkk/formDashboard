@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { IoIosReturnRight } from 'react-icons/io';
 import { ItemContext } from '../../context';
+import TextBoxProperties from './../TextBoxProperties/TextBoxProperties';
+
+
+
 export default class Properties extends Component {
 
     constructor(props) {
