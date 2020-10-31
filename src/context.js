@@ -325,7 +325,7 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <p>{textValue}</p>
+                        <p>{textValue ? textValue : 'text'}</p>
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
