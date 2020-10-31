@@ -36,7 +36,7 @@ type Layout {
   type: String
   isLabel: Boolean
   labelFor: String
-  labelText: String
+  textValue: String
 }
 
 type element {
