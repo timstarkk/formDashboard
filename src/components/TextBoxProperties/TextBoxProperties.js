@@ -3,8 +3,14 @@ import './TextBoxProperties.css';
 
 export default class TextBoxProperties extends Component {
 
-    state = {
-        value: 'enter text: '
+    constructor(props) {
+        super();
+        this.state = {
+            value: 'enter text: '
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
