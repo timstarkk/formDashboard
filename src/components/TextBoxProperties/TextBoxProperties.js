@@ -6,7 +6,8 @@ export default class TextBoxProperties extends Component {
     constructor(props) {
         super();
         this.state = {
-            value: ''
+            value: '',
+            updateTextValue: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
