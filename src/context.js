@@ -562,6 +562,13 @@ class ItemProvider extends Component {
                         <p>checkbox settings:</p>
                     </>
                 )
+            } else if (selectedType === 'textbox') {
+                return (
+                    <>
+                        <p>text item settings:</p>
+                        <input type="text" placeholder="enter text: " />
+                    </>
+                )
             };
         } else {
             return <p></p>
