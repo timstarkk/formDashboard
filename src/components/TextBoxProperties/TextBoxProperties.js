@@ -16,10 +16,10 @@ export default class TextBoxProperties extends Component {
     render() {
         return (
             <>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Desired Text:
-                        <input type="text" name="name" />
+                        <input type="text" name="name" value={this.state.value}/>
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
