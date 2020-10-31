@@ -213,7 +213,7 @@ class ItemProvider extends Component {
                             type
                             isLabel
                             labelFor
-                            labelText
+                            textValue
                         }
                     }
                 }
@@ -239,7 +239,7 @@ class ItemProvider extends Component {
         let labels = [];
         for(const i of layout) {
             types.push(i.type);
-            labels.push({isLabel: i.isLabel, labelFor: i.labelFor, labelText: i.labelText})
+            labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue})
         };
         console.log(types);
         this.setState({
@@ -461,7 +461,7 @@ class ItemProvider extends Component {
             isLabel: false,
             isResizable: true,
             labelFor: undefined,
-            labelText: undefined,
+            textValue: undefined,
             maxH: Infinity,
             maxW: Infinity,
             minH: 0,
@@ -476,7 +476,7 @@ class ItemProvider extends Component {
         };
         types.push('none');
         layout.push(blankItem);
-        labels.push({isLabel: false, labelFor: undefined, labelText: undefined})
+        labels.push({isLabel: false, labelFor: undefined, textValue: undefined})
         
         this.setState({
             layouts: {
@@ -498,7 +498,7 @@ class ItemProvider extends Component {
                 console.log('do nothing, found it');
             } else {
                 types.push(i.type);
-                labels.push({isLabel: i.isLabel, labelFor: i.labelFor, labelText: i.labelText})
+                labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue})
                 return i;
             }
         });
