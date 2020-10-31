@@ -10,7 +10,7 @@ export default class TextBoxProperties extends Component {
     handleChange(event) {
         this.setState({value: event.target.value});
     }
-    
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -23,7 +23,7 @@ export default class TextBoxProperties extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Desired Text:
-                        <input type="text" name="name" value={this.state.value}/>
+                        <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
