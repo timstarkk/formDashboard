@@ -29,8 +29,9 @@ export default class TextBoxProperties extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        const {updateTextValue} = this.context;
 
-        console.log('submitted: ' + this.state.value)
+        this.state.updateTextValue(this.state.value);
     };
 
     render() {
