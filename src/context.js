@@ -576,6 +576,10 @@ class ItemProvider extends Component {
         };
     };
 
+    updateTextValue = () => {
+        console.log('hello from updateTextValue');
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
