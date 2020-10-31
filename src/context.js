@@ -5,7 +5,6 @@ import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
-import TextBoxProperties from './components/TextBoxProperties/TextBoxProperties';
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -567,7 +566,6 @@ class ItemProvider extends Component {
                 return (
                     <>
                         <h3>text item properties:</h3>
-                        <TextBoxProperties />
                     </>
                 )
             };
