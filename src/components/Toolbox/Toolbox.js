@@ -7,6 +7,16 @@ import CartList from '../CartList/CartList';
 
 export default class Toolbox extends Component {
     static contextType = ItemContext;
+    constructor(props) {
+        super();
+
+        this.state = {
+            renderToolbox: function() {}
+        }
+    }
+
+    handleRenderToolbox = () => {
+    };
 
     render() {
         let { toggleToolbox, toolboxVisible, cartItemsData, chooseType, renderToolbox } = this.context;
