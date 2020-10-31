@@ -5,7 +5,6 @@ import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
-import Properties from './components/Properties/Properties';
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
@@ -536,18 +535,19 @@ class ItemProvider extends Component {
 
 
         if (selectedType === 'none') {
-            return (
-                <>
-                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('text')}>Text Input</div>
-                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('radio')}>Radio</div>
-                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('checkbox')}>Checkbox</div> 
-                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('textbox')}>Text Label</div>
-                </>
-            )
+            return 'none';
+            // return (
+            //     <>
+            //         <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('text')}>Text Input</div>
+            //         <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('radio')}>Radio</div>
+            //         <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('checkbox')}>Checkbox</div> 
+            //         <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('textbox')}>Text Label</div>
+            //     </>
+            // )
         } else if (selectedType !== 'none') {
-            <Properties />
+            return selectedType;
         } else {
-            return <p></p>
+            return '';
         };
     };
 
