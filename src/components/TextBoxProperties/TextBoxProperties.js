@@ -4,9 +4,15 @@ import './TextBoxProperties.css';
 export default class TextBoxProperties extends Component {
     render() {
         return (
-            <div>
-                hello from TextBoxProperties
-            </div>
+            <>
+                <form>
+                    <label>
+                        Desired Text:
+                        <input type="text" name="name" />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            </>
         )
     }
 }
