@@ -4,6 +4,7 @@ import { MdClose as CloseButton } from "react-icons/md";
 import { IoIosArrowRoundForward as Arrow } from "react-icons/io";
 import './Toolbox.css';
 import CartList from '../CartList/CartList';
+import Properties from '../Properties/Properties';
 
 export default class Toolbox extends Component {
     static contextType = ItemContext;
