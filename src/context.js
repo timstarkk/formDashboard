@@ -317,6 +317,7 @@ class ItemProvider extends Component {
                     </div>
                 )
             } else if (i.type === 'textbox') {
+                let textValue = i.textValue;
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     onMouseEnter={e => this.handleHover(e, false)} 
@@ -324,7 +325,7 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <p>item is a text item</p>
+                        <p>{textValue}</p>
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
