@@ -380,7 +380,6 @@ class ItemProvider extends Component {
     };
 
     updateLayouts = (layout) => {
-        console.log(layout);
         let that = this;
         let formId = this.state.selectedForm.id
 
@@ -502,9 +501,6 @@ class ItemProvider extends Component {
             }
         });
 
-        console.log(types);
-        console.log(labels);
-
         // set the new layout in state and call updateLayouts
         this.setState({
             layouts: {
@@ -516,15 +512,9 @@ class ItemProvider extends Component {
     };
 
     renderToolbox = () => {
-        console.log('hello from render toolbox');
-
         // conditional statement that checks if the selected box has an assigned type or not
-
-        // get selectedItem and console.log
-
         let selectedGridItem = this.state.selectedGridItem;
         let selectedType = '';
-
 
         // grab selected item type
         for (const i of this.state.layouts.lg) {
