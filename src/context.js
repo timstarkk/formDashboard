@@ -513,7 +513,7 @@ class ItemProvider extends Component {
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('text')}>Text Input</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('radio')}>Radio</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('checkbox')}>Checkbox</div> 
-                    <div className="btn btn-secondary element-btn">Text Label</div>
+                    <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('textbox')}>Text Label</div>
                 </>
             )
         } else if (selectedType !== 'none') {
