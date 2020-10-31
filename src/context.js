@@ -567,6 +567,7 @@ class ItemProvider extends Component {
                 return (
                     <>
                         <h3>text item properties:</h3>
+                        <TextBoxProperties />
                     </>
                 )
             };
