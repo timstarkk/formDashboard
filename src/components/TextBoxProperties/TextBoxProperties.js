@@ -6,7 +6,13 @@ export default class TextBoxProperties extends Component {
     state = {
         value: 'enter text: '
     }
-    
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        console.log('submitted: ' + this.state.value)
+    };
+
     render() {
         return (
             <>
