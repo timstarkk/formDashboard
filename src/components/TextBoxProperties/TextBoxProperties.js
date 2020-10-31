@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TextBoxProperties.css';
+import { ItemContext } from '../../context';
 
 export default class TextBoxProperties extends Component {
 
