@@ -12,15 +12,17 @@ export default class Toolbox extends Component {
         super();
 
         this.state = {
-            renderToolbox: function() {}
+            renderToolbox: function() {},
+            chooseType: function() {}
         }
     }
 
     componentDidMount = () => {
-        const { renderToolbox } = this.context;
+        const { renderToolbox, chooseType } = this.context;
 
         this.setState({
-            renderToolbox
+            renderToolbox,
+            chooseType
         });
     };
 
