@@ -38,7 +38,7 @@ export default class Toolbox extends Component {
             )
         } else if (selectedType !== 'none') {
             // return from here the <Properties> object
-            <Properties type={selectedType} />
+            return <Properties type={selectedType} />
         } else {
             return <p></p>;
         }
