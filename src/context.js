@@ -566,6 +566,7 @@ class ItemProvider extends Component {
                 return (
                     <>
                         <h3>text item settings:</h3>
+                        <p>define text for textbox:</p>
                         <input type="text" placeholder="enter text: " />
                         <div className="btn btn-primary">enter</div>
                     </>
