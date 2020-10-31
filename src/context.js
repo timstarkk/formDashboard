@@ -490,49 +490,6 @@ class ItemProvider extends Component {
 
     addLabel = () => {
         console.log('hello from addLabel');
-        let uuid = uuidv4();
-        let layout = this.state.layouts.lg;
-        let types = this.state.types;
-        let labels = this.state.labels;
-
-        let labelFor = this.state.selectedGridItem;
-        let labelText = ''
-        let blankItem = {
-            h: 4,
-            i: `${uuid}`,
-            isBounded: false,
-            isDraggable: true,
-            isLabel: false,
-            isResizable: true,
-            labelFor: undefined,
-            labelText,
-            maxH: Infinity,
-            maxW: Infinity,
-            minH: 0,
-            minW: 0,
-            moved: false,
-            resizeHandles: null,
-            static: false,
-            type: "text",
-            w: 12,
-            x: 0,
-            y: 99,
-        };
-        // need this to be a <p>
-        // not type text or whatever.
-        // ^^^ for this, I might need a conditional statement inside displayForm,
-        // which checks if the item is a LABEL or not.
-        types.push("text");
-        layout.push(blankItem);
-        // where says labelFor: undefined.... the value needs to be uuid of box clicked
-        labels.push({isLabel: true, labelFor, labelText})
-        
-        // this.setState({
-        //     layouts: {
-        //         lg: layout
-        //     },
-        //     types
-        // }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
     renderToolbox = () => {
