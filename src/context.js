@@ -576,8 +576,8 @@ class ItemProvider extends Component {
         };
     };
 
-    updateTextValue = () => {
-        console.log('hello from updateTextValue');
+    updateTextValue = (value) => {
+        console.log('updateTextValue: ' + value);
     };
 
     render() {
