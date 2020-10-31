@@ -7,6 +7,10 @@ export default class TextBoxProperties extends Component {
         value: 'enter text: '
     }
 
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+    
     handleSubmit(event) {
         event.preventDefault();
 
