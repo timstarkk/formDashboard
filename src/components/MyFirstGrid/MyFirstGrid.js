@@ -39,7 +39,7 @@ export default class MyFirstGrid extends Component {
       i.type = types[index];
       i.isLabel = labels[index].isLabel;
       i.labelFor = labels[index].labelsFor;
-      i.labelText = labels[index].labelText;
+      i.textValue = labels[index].textValue;
     })
     this.state.updateLayouts(layout);
   }
