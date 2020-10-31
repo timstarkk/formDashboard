@@ -547,25 +547,25 @@ class ItemProvider extends Component {
             if (selectedType === 'text') {
                 return (
                     <>
-                        <p>text settings:</p>
+                        <p>text properties:</p>
                     </>
                 )
             } else if (selectedType === 'radio') {
                 return (
                     <>
-                        <p>radio settings:</p>
+                        <p>radio properties:</p>
                     </>
                 )
             } else if (selectedType === 'checkbox') {
                 return (
                     <>
-                        <p>checkbox settings:</p>
+                        <p>checkbox properties:</p>
                     </>
                 )
             } else if (selectedType === 'textbox') {
                 return (
                     <>
-                        <h3>text item settings:</h3>
+                        <h3>text item properties:</h3>
                         <form>
                             <label>
                                 Desired Text:
