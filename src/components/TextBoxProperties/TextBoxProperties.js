@@ -17,6 +17,10 @@ export default class TextBoxProperties extends Component {
 
     componentDidMount() {
         const { updateTextValue } = this.context;
+
+        this.setState({
+            updateTextValue
+        })
     };
 
     handleChange(event) {
