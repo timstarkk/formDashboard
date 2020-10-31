@@ -38,6 +38,7 @@ export default class Properties extends Component {
             return (
                 <>
                     <h3>text item properties:</h3>
+                    <TextBoxProperties />
                 </>
             )
         } else {
