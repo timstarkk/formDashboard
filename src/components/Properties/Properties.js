@@ -1,31 +1,46 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { IoIosReturnRight } from 'react-icons/io';
+import { ItemContext } from '../../context';
 export default class Properties extends Component {
+
+    constructor(props) {
+        super();
+        this.state = {
+        };
+    };
+
     render() {
-        {if (selectedType === 'text') {
+        let { type } = this.props;
+
+        if (type === 'text') {
             return (
                 <>
                     <p>text properties:</p>
                 </>
             )
-        } else if (selectedType === 'radio') {
+        } else if (type === 'radio') {
             return (
                 <>
                     <p>radio properties:</p>
                 </>
             )
-        } else if (selectedType === 'checkbox') {
+        } else if (type === 'checkbox') {
             return (
                 <>
                     <p>checkbox properties:</p>
                 </>
             )
-        } else if (selectedType === 'textbox') {
+        } else if (type === 'textbox') {
             return (
                 <>
                     <h3>text item properties:</h3>
                 </>
             )
-        };}
+        } else {
+            return (
+                <>
+                </>
+            )
+        }
     }
 }
