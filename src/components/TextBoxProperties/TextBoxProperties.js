@@ -15,9 +15,13 @@ export default class TextBoxProperties extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        const { updateTextValue } = this.context;
+    };
+
     handleChange(event) {
         this.setState({value: event.target.value});
-    }
+    };
 
     handleSubmit(event) {
         event.preventDefault();
