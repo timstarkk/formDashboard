@@ -3,7 +3,7 @@ import './TextBoxProperties.css';
 import { ItemContext } from '../../context';
 
 export default class TextBoxProperties extends Component {
-
+    static contextType = ItemContext;
     constructor(props) {
         super();
         this.state = {
