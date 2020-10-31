@@ -531,7 +531,25 @@ class ItemProvider extends Component {
     };
 
     updateTextValue = (value) => {
-        console.log('updateTextValue: ' + value);
+        let labels = this.state.labels;
+        let layout = this.state.layouts.lg;
+        // need selected item.
+        let selectedGridItem = this.state.selectedGridItem;
+
+        // loop through layouts until i.i === selectedGridItem;
+        for (const [index, i] of layout.entries()) {
+            if (i.i === selectedGridItem) {
+                i.textValue = value;
+                labels[index].textValue = value;
+            };
+        };
+
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            labels
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
     render() {
