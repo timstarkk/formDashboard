@@ -488,8 +488,8 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
-    addLabel = () => {
-        console.log('hello from addLabel');
+    addTextItem = () => {
+        console.log('hello from addTextItem');
     };
 
     renderToolbox = () => {
@@ -517,7 +517,7 @@ class ItemProvider extends Component {
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('text')}>Text Input</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('radio')}>Radio</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.chooseType('checkbox')}>Checkbox</div> 
-                    <div className="btn btn-secondary element-btn" onClick={this.addLabel}>Text Label</div>
+                    <div className="btn btn-secondary element-btn" onClick={this.addTextItem}>Text Label</div>
                 </>
             )
         } else if (selectedType !== 'none') {
@@ -562,7 +562,7 @@ class ItemProvider extends Component {
                 chooseType: this.chooseType,
                 addGridItem: this.addGridItem,
                 deleteGridItem: this.deleteGridItem,
-                addLabel: this.addLabel,
+                addTextItem: this.addTextItem,
                 renderToolbox: this.renderToolbox
             }}>
                 {this.props.children}
