@@ -565,7 +565,7 @@ class ItemProvider extends Component {
             } else if (selectedType === 'textbox') {
                 return (
                     <>
-                        <p>text item settings:</p>
+                        <h3>text item settings:</h3>
                         <input type="text" placeholder="enter text: " />
                         <div className="btn btn-primary">enter</div>
                     </>
