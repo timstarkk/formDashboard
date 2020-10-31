@@ -597,7 +597,8 @@ class ItemProvider extends Component {
                 chooseType: this.chooseType,
                 addGridItem: this.addGridItem,
                 deleteGridItem: this.deleteGridItem,
-                renderToolbox: this.renderToolbox
+                renderToolbox: this.renderToolbox,
+                updateTextValue: this.updateTextValue
             }}>
                 {this.props.children}
             </ItemContext.Provider>
