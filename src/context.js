@@ -5,6 +5,7 @@ import config from './aws-exports';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
+import Properties from './components/Properties/Properties';
 
 Amplify.configure(config);
 const ItemContext = React.createContext();
