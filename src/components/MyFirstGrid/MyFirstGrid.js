@@ -20,7 +20,6 @@ export default class MyFirstGrid extends Component {
   componentDidMount() {
     const { updateLayouts, layouts } = this.context;
 
-    console.log(layouts);
     this.setState({
       updateLayouts,
       layouts
