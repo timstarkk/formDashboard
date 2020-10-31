@@ -581,10 +581,6 @@ class ItemProvider extends Component {
         };
     };
 
-    handleTextboxSubmit = () => {
-        console.log('hello from handleTextBoxSubmit');
-    };
-
     render() {
         return (
             <ItemContext.Provider value={{
