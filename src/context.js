@@ -566,13 +566,6 @@ class ItemProvider extends Component {
                 return (
                     <>
                         <h3>text item properties:</h3>
-                        <form>
-                            <label>
-                                Desired Text:
-                                <input type="text" name="name" />
-                            </label>
-                            <input type="submit" value="Submit" />
-                        </form>
                     </>
                 )
             };
