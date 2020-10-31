@@ -6,7 +6,7 @@ export default class TextBoxProperties extends Component {
     constructor(props) {
         super();
         this.state = {
-            value: 'enter text: '
+            value: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -29,7 +29,7 @@ export default class TextBoxProperties extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Desired Text:
-                        <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" name="name" placeholder="enter text: " value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
