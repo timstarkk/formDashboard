@@ -553,8 +553,53 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
-    handleFormSubmit = () => {
-        console.log('hello from form submit');
+    handleFormSubmit = (event) => {
+        let formContents = [];
+        let layout = this.state.layouts.lg;
+        let counter = 0;
+
+        // need to grab all the grid items with a document.queryselectorall('grid-item')
+        let gridItems =  document.getElementsByClassName('grid-item');
+
+        // this looks for inputs and p in each grid item, pushing to array even when not found
+        for (const i of gridItems) {
+            let tempArray = [];
+
+            tempArray.push({
+                input: i.querySelectorAll('input'),
+                i: layout[counter].i,
+                x: layout[counter].x,
+                y: layout[counter].y
+            });
+            tempArray.push({
+                p: i.querySelectorAll('p'),
+                i: layout[counter].i,
+                x: layout[counter].x,
+                y: layout[counter].y
+            });
+            
+            counter ++;
+
+            // this grabs only those inputs and p's which actually exist (might add condition to above loop instead)
+            if (tempArray[0].input.length > 0) {
+                formContents.push(tempArray[0]);
+            } else if (tempArray[1].p.length > 0) {
+                formContents.push(tempArray[1]);
+            };
+        };
+
+
+        // sort formContents array according to position on screen (based on y, and x position)
+        let organizedFormContents = formContents.sort((a, b) => {
+            if (a.y < b.y) return -1;
+            if (a.y > b.y) return 1;
+
+            if (a.x < b.x) return -1;
+            if (a.x > b.x) return 1;
+        });
+
+        console.log(organizedFormContents);
+        
     };
 
     render() {
