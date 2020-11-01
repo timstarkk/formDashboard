@@ -68,7 +68,7 @@ export default class FullForm extends Component {
                         }
                         {/* will need the text displayed in button to be pulled from */}
                         <div>
-                            <div className="btn btn-primary">Submit</div>
+                            <div className="btn btn-primary" onClick={this.state.handleFormSubmit}>Submit</div>
                         </div>
                     </div>
                 </div>
