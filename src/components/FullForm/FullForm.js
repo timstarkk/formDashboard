@@ -65,11 +65,11 @@ export default class FullForm extends Component {
                                 <>
                                     <MyFirstGrid />
                                     <div>
+                                        {/* will need the text displayed in button to be pulled from layout in context */}
                                         <div className="btn btn-primary" onClick={this.state.handleFormSubmit}>Submit</div>
                                     </div>
                                 </>
                         }
-                        {/* will need the text displayed in button to be pulled from */}
                     </div>
                 </div>
             </>
