@@ -602,16 +602,11 @@ class ItemProvider extends Component {
                 let inputType = i.input[0].type;
 
                 if (inputType === 'text') {
-                    console.log('its a textbox');
                     console.log(i.input[0].value);
                 } else if (inputType === 'radio') {
-                    console.log('its a radio');
-                    // find out how to determine if radio is filled or not
-                    // console.log here below
+                    console.log(i.input[0].checked);
                 } else if (inputType === 'checkbox') {
-                    console.log('its a checkbox');
-                    // find out how to determine if checked or not.
-                    // console.log here below
+                    console.log(i.input[0].checked);
                 };
             } else if (i.hasOwnProperty('p')) {
                 // grabs inner text of <p> element
