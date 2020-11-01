@@ -57,6 +57,10 @@ export default class FullForm extends Component {
                                     <MyFirstGrid />
                                 </>
                         }
+                        {/* will need the text displayed in button to be pulled from */}
+                        <div>
+                            <div className="btn btn-primary">Submit</div>
+                        </div>
                     </div>
                 </div>
             </>
