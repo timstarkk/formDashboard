@@ -13,10 +13,11 @@ export default class FullForm extends Component {
 
         this.state = {
             textbox: "",
-            textbox2: ""
+            textbox2: "",
+            handleFormSubmit: function() {}
         }
     }
-
+    
     myFunction = () => {
         console.log('hello dude');
     };
