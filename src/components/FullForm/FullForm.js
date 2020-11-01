@@ -64,12 +64,12 @@ export default class FullForm extends Component {
                                 <p>'please select a form'</p> :
                                 <>
                                     <MyFirstGrid />
+                                    <div>
+                                        <div className="btn btn-primary" onClick={this.state.handleFormSubmit}>Submit</div>
+                                    </div>
                                 </>
                         }
                         {/* will need the text displayed in button to be pulled from */}
-                        <div>
-                            <div className="btn btn-primary" onClick={this.state.handleFormSubmit}>Submit</div>
-                        </div>
                     </div>
                 </div>
             </>
