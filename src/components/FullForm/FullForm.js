@@ -15,9 +15,17 @@ export default class FullForm extends Component {
             textbox: "",
             textbox2: "",
             handleFormSubmit: function() {}
-        }
-    }
-    
+        };
+    };
+
+    componentDidMount = () => {
+        const { handleFormSubmit } = this.context;
+
+        this.setState({
+            handleFormSubmit
+        });
+    };
+
     myFunction = () => {
         console.log('hello dude');
     };
