@@ -553,6 +553,10 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
+    handleFormSubmit = () => {
+        console.log('hello from form submit');
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
