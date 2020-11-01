@@ -588,7 +588,6 @@ class ItemProvider extends Component {
             };
         };
 
-
         // sort formContents array according to position on screen (based on y, and x position)
         let organizedFormContents = formContents.sort((a, b) => {
             if (a.y < b.y) return -1;
@@ -598,8 +597,27 @@ class ItemProvider extends Component {
             if (a.x > b.x) return 1;
         });
 
-        console.log(organizedFormContents);
-        
+        for(const i of organizedFormContents) {
+            if (i.hasOwnProperty('input')) {
+                let inputType = i.input[0].type;
+
+                if (inputType === 'text') {
+                    console.log('its a textbox');
+                    console.log(i.input[0].value);
+                } else if (inputType === 'radio') {
+                    console.log('its a radio');
+                    // find out how to determine if radio is filled or not
+                    // console.log here below
+                } else if (inputType === 'checkbox') {
+                    console.log('its a checkbox');
+                    // find out how to determine if checked or not.
+                    // console.log here below
+                };
+            } else if (i.hasOwnProperty('p')) {
+                // grabs inner text of <p> element
+                console.log(i.p[0].innerText);
+            }
+        };
     };
 
     render() {
