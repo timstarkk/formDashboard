@@ -6,6 +6,10 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
 
+import aws from 'aws-sdk';
+const ses = new aws.SES();
+
+
 Amplify.configure(config);
 const ItemContext = React.createContext();
 let items = [];
