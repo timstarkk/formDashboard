@@ -613,6 +613,9 @@ class ItemProvider extends Component {
                 console.log(i.p[0].innerText);
             }
         };
+
+        // need to convert to a string?
+        // am i sending HTML in the email?
     };
 
     render() {
