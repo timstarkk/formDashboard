@@ -115,7 +115,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-formdashboard-dev-154210-deployment",
-          "S3Key": "amplify-builds/formDashboardAddEmailCLI-756866616c372f4e3933-build.zip"
+          "S3Key": "amplify-builds/formDashboardAddEmailCLI-325132637a3464677438-build.zip"
         }
       }
     },
