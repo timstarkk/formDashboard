@@ -42,3 +42,7 @@ type Layout {
 type element {
   type: String!
 }
+
+type Mutation {
+    nameOfMutation(somevar: String!, othervar: String!): String @function(name: "formDashboardAddEmailCLI-${env}")
+}
