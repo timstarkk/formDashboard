@@ -25,28 +25,5 @@
       }
     }
   },
-  "function": {
-    "formDashboardAddEmailCLI": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "formdashboard",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "formdashboard0f0e94dd",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ]
-    }
-  }
+  "function": {}
 }
