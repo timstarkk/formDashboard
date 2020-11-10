@@ -621,15 +621,15 @@ class ItemProvider extends Component {
         // am i sending HTML in the email?
 
         // try and call lambda function via mutation:
-        // const response = this.callLambda();
+        this.callLambda();
         // console.log(mutations);
-        console.log(nameOfMutation);
+        // console.log(nameOfMutation);
 
     };
 
     async callLambda() {
-        // return await API.graphql({ query: mutations.nameOfMutation, variables: {soemVar: 'foo', otherVar: 'bar'}});
-
+        await API.graphql({ query: nameOfMutation, variables: {someVar: 'foo', otherVar: 'bar'}})
+        .then(res => { console.log(res) });
     }
 
     render() {
