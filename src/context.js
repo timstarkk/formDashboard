@@ -6,6 +6,9 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 import { FiSettings as SettingsIcon, FiXCircle as XIcon } from "react-icons/fi";
 
+// import mutations from graphql
+import * as mutations from './graphql/mutations';
+
 Amplify.configure(config);
 const ItemContext = React.createContext();
 let items = [];
@@ -616,7 +619,16 @@ class ItemProvider extends Component {
 
         // need to convert to a string?
         // am i sending HTML in the email?
+
+        // try and call lambda function via mutation:
+        const response = this.callLambda();
+
     };
+
+    async callLambda() {
+        return await API.graphql({ query: mutations.nameOfMutation, variables: {soemvar: 'foo', othervar: 'bar'}});
+
+    }
 
     render() {
         return (
