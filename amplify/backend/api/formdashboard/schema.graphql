@@ -44,5 +44,5 @@ type element {
 }
 
 type Mutation {
-  nameOfMutation(somevar: String!, othervar: String!): String @function(name: "formDashboardAddEmailCLI-${env}")
+  nameOfMutation(someVar: String!, otherVar: String!): String @function(name: "formDashboardAddEmailCLI-${env}")
 }

@@ -5,11 +5,17 @@ export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -17,11 +23,17 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -29,11 +41,17 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;

@@ -1,6 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const nameOfMutation = /* GraphQL */ `
+  mutation NameOfMutation($someVar: String!, $otherVar: String!) {
+    nameOfMutation(someVar: $someVar, otherVar: $otherVar)
+  }
+`;
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -8,11 +13,17 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -23,11 +34,17 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -38,11 +55,17 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
-      userSub
+      email
+      confirmedDate
       forms {
         id
-        contentsArray
+        contents {
+          columns
+          rows
+        }
       }
+      createdAt
+      updatedAt
     }
   }
 `;
