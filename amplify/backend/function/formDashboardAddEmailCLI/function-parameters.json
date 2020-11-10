@@ -1,0 +1,25 @@
+{
+    "permissions": {
+        "auth": {
+            "formdashboard0f0e94dd": [
+                "create",
+                "read",
+                "update"
+            ]
+        },
+        "api": {
+            "formdashboard": [
+                "create",
+                "read",
+                "update"
+            ]
+        },
+        "storage": {
+            "User:@model(appsync)": [
+                "create",
+                "read",
+                "update"
+            ]
+        }
+    }
+}
