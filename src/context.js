@@ -562,7 +562,8 @@ class ItemProvider extends Component {
         let counter = 0;
 
         // need to grab all the grid items with a document.queryselectorall('grid-item')
-        let gridItems =  document.getElementsByClassName('grid-item');
+        let gridItems = document.getElementsByClassName('grid-item');
+        let fullForm = document.getElementById('full-form-container');
 
         // this looks for inputs and p in each grid item, pushing to array even when not found
         for (const i of gridItems) {
@@ -620,10 +621,8 @@ class ItemProvider extends Component {
         // need to convert to a string?
         // am i sending HTML in the email?
 
-        // try and call lambda function via mutation:
-        this.callLambda();
-        // console.log(mutations);
-        // console.log(nameOfMutation);
+        // call async that calls lambda function
+        // this.callLambda();
 
     };
 
