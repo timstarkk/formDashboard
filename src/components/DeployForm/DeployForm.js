@@ -57,7 +57,10 @@ export default function DeployForm(props) {
         // this way i can query any form directly with the formId.
 
         // This change might require that i rewrite the query and mutations
-        // that live in context.
+        // that live in context. (in context, instead of using userId to find the form,
+        // I can use userId to verify that the current logged in user is the owner of /// the form before allowing the mutations.)
+        // will need to store the userId into each form under variable 'owner' like so:
+        // owner: userId
     }
 
     if (formId == 'false') {
