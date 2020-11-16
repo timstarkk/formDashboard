@@ -4,10 +4,10 @@ import DeployForm from '../components/DeployForm/DeployForm';
 
 export default function SignIn(props) {
     let formId = props.match.params.slug;
-    
+
     return (
         <>
-            <DeployForm />
+            <DeployForm formId={formId}/>
             <Footer />
         </>
     )
