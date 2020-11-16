@@ -6,6 +6,10 @@ export default function DeployForm(props) {
 
     const findInDatabase = async () => {
         // await return of database query
+
+        // need to consider what the page will render
+        // while this functjion is running.
+        // need to display a loading icon during that time.
     }
 
     if (formId == 'false') {
