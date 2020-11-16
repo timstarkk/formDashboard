@@ -4,7 +4,7 @@ import './DeployForm.css';
 export default function DeployForm(props) {
     let formId = props.formId;
 
-    findInDatabase = async () => {
+    const findInDatabase = async () => {
         // await return of database query
     }
 
