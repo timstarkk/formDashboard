@@ -6,6 +6,7 @@ export default function SignIn() {
     return (
         <>
             hello from ShowForm page
+            <DeployForm />
             <Footer />
         </>
     )
