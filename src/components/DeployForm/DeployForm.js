@@ -48,6 +48,16 @@ export default function DeployForm(props) {
         //     }
         // }
         // `
+
+        // as you can see, the above query requires a ${userId};
+        // since this component will render on random visitors browsers,
+        // there will be no logged in user to pull userId from.
+        //
+        // for this reason, i need all forms to live top level in dynamoDB
+        // this way i can query any form directly with the formId.
+
+        // This change might require that i rewrite the query and mutations
+        // that live in context.
     }
 
     if (formId == 'false') {
