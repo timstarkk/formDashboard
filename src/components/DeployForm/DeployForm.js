@@ -13,6 +13,41 @@ export default function DeployForm(props) {
         // need to display a loading icon during that time.
 
         //comment to test commit 
+
+        // const getForms = `
+        // query {
+        //     getUser(id: "${userId}") {
+        //         forms {
+        //             id
+        //             contents {
+        //                 columns
+        //                 rows
+        //                 layout {
+        //                     h
+        //                     i
+        //                     isBounded
+        //                     isDraggable
+        //                     isResizable
+        //                     maxH
+        //                     maxW
+        //                     minH
+        //                     minW
+        //                     moved
+        //                     resizeHandles
+        //                     static
+        //                     w
+        //                     x
+        //                     y
+        //                     type
+        //                     isLabel
+        //                     labelFor
+        //                     textValue
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // `
     }
 
     if (formId == 'false') {
