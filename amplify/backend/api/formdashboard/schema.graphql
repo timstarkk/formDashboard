@@ -14,7 +14,6 @@ type FormContents {
   columns: Int
   rows: Int
   layout: [Layout!]
-  elements: [element!]
 }
 
 type Layout {
@@ -37,10 +36,6 @@ type Layout {
   isLabel: Boolean
   labelFor: String
   textValue: String
-}
-
-type element {
-  type: String!
 }
 
 type Mutation {
