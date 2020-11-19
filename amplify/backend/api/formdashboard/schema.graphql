@@ -14,6 +14,7 @@ type FormContents {
   columns: Int
   rows: Int
   layout: [Layout!]
+  userId: String!
 }
 
 type Layout {
