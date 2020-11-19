@@ -12,6 +12,7 @@ export const getUser = /* GraphQL */ `
         contents {
           columns
           rows
+          userId
         }
       }
       createdAt

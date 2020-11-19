@@ -12,6 +12,7 @@ export const onCreateUser = /* GraphQL */ `
         contents {
           columns
           rows
+          userId
         }
       }
       createdAt
@@ -30,6 +31,7 @@ export const onUpdateUser = /* GraphQL */ `
         contents {
           columns
           rows
+          userId
         }
       }
       createdAt
@@ -48,6 +50,7 @@ export const onDeleteUser = /* GraphQL */ `
         contents {
           columns
           rows
+          userId
         }
       }
       createdAt
