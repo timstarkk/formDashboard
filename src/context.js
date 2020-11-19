@@ -150,7 +150,7 @@ class ItemProvider extends Component {
             contents: {
                 columns: 9,
                 rows: 9,
-                userId,
+                userId: `${userId}`,
                 layout: [
                     {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text", isLabel: false},
                     {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
@@ -171,7 +171,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                    id forms { id, contents, userId { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
                 }
             }
         `
