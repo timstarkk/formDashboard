@@ -425,7 +425,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents, userId { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
                 }
             }
         `
