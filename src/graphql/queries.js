@@ -12,8 +12,8 @@ export const getUser = /* GraphQL */ `
         contents {
           columns
           rows
-          userId
         }
+        userId
       }
       createdAt
       updatedAt
@@ -33,6 +33,7 @@ export const listUsers = /* GraphQL */ `
         confirmedDate
         forms {
           id
+          userId
         }
         createdAt
         updatedAt

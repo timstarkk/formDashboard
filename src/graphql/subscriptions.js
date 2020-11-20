@@ -12,8 +12,8 @@ export const onCreateUser = /* GraphQL */ `
         contents {
           columns
           rows
-          userId
         }
+        userId
       }
       createdAt
       updatedAt
@@ -31,8 +31,8 @@ export const onUpdateUser = /* GraphQL */ `
         contents {
           columns
           rows
-          userId
         }
+        userId
       }
       createdAt
       updatedAt
@@ -50,8 +50,8 @@ export const onDeleteUser = /* GraphQL */ `
         contents {
           columns
           rows
-          userId
         }
+        userId
       }
       createdAt
       updatedAt
