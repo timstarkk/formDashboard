@@ -8,13 +8,13 @@ type User @model {
 type Form {
   id: ID!
   contents: FormContents!
+  userId: String!
 } 
 
 type FormContents {
   columns: Int
   rows: Int
   layout: [Layout!]
-  userId: String!
 }
 
 type Layout {
