@@ -147,10 +147,10 @@ class ItemProvider extends Component {
         let forms = await that.getForms();
         let newForm = {
             id: uuid,
+            userId: `${userId}`,
             contents: {
                 columns: 9,
                 rows: 9,
-                userId: `${userId}`,
                 layout: [
                     {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text", isLabel: false},
                     {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
@@ -171,7 +171,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents, userId { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                    id forms { id, userId, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
                 }
             }
         `
@@ -194,8 +194,8 @@ class ItemProvider extends Component {
             getUser(id: "${userId}") {
                 forms {
                     id
+                    userId
                     contents {
-                        userId
                         columns
                         rows
                         layout {
@@ -399,8 +399,10 @@ class ItemProvider extends Component {
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
         let forms = await that.getForms();
+        console.log(forms);
         let updatedForm = {
             id: formId,
+            userId: `${userId}`,
             contents: {
                 columns: 0,
                 rows: 0,
@@ -425,7 +427,7 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
+                    id forms { id, userId, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
                 }
             }
         `
