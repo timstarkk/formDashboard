@@ -17,6 +17,12 @@ type FormContents {
   layout: [Layout!]
 }
 
+type Forms @model {
+  id: ID!
+  contents: FormContents!
+  userId: String!
+}
+
 type Layout {
   w: Int
   h: Int
