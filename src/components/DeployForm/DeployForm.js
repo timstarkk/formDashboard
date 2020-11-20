@@ -12,8 +12,6 @@ export default function DeployForm(props) {
         // while this functjion is running.
         // need to display a loading icon during that time.
 
-        //comment to test commit 
-
         // const getForms = `
         // query {
         //     getUser(id: "${userId}") {
@@ -61,6 +59,10 @@ export default function DeployForm(props) {
         // I can use userId to verify that the current logged in user is the owner of /// the form before allowing the mutations.)
         // will need to store the userId into each form under variable 'owner' like so:
         // owner: userId
+
+
+
+        // form might need to be its own
     }
 
     if (formId == 'false') {
