@@ -42,3 +42,59 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
+export const getForms = /* GraphQL */ `
+  query GetForms($id: ID!) {
+    getForms(id: $id) {
+      id
+      contents {
+        columns
+        rows
+        layout {
+          w
+          h
+          x
+          y
+          i
+          isBounded
+          isDraggable
+          isResizable
+          maxH
+          maxW
+          minH
+          minW
+          moved
+          resizeHandles
+          static
+          type
+          isLabel
+          labelFor
+          textValue
+        }
+      }
+      userId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listFormss = /* GraphQL */ `
+  query ListFormss(
+    $filter: ModelFormsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFormss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        contents {
+          columns
+          rows
+        }
+        userId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

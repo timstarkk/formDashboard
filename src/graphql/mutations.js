@@ -72,3 +72,117 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
+export const createForms = /* GraphQL */ `
+  mutation CreateForms(
+    $input: CreateFormsInput!
+    $condition: ModelFormsConditionInput
+  ) {
+    createForms(input: $input, condition: $condition) {
+      id
+      contents {
+        columns
+        rows
+        layout {
+          w
+          h
+          x
+          y
+          i
+          isBounded
+          isDraggable
+          isResizable
+          maxH
+          maxW
+          minH
+          minW
+          moved
+          resizeHandles
+          static
+          type
+          isLabel
+          labelFor
+          textValue
+        }
+      }
+      userId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateForms = /* GraphQL */ `
+  mutation UpdateForms(
+    $input: UpdateFormsInput!
+    $condition: ModelFormsConditionInput
+  ) {
+    updateForms(input: $input, condition: $condition) {
+      id
+      contents {
+        columns
+        rows
+        layout {
+          w
+          h
+          x
+          y
+          i
+          isBounded
+          isDraggable
+          isResizable
+          maxH
+          maxW
+          minH
+          minW
+          moved
+          resizeHandles
+          static
+          type
+          isLabel
+          labelFor
+          textValue
+        }
+      }
+      userId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteForms = /* GraphQL */ `
+  mutation DeleteForms(
+    $input: DeleteFormsInput!
+    $condition: ModelFormsConditionInput
+  ) {
+    deleteForms(input: $input, condition: $condition) {
+      id
+      contents {
+        columns
+        rows
+        layout {
+          w
+          h
+          x
+          y
+          i
+          isBounded
+          isDraggable
+          isResizable
+          maxH
+          maxW
+          minH
+          minW
+          moved
+          resizeHandles
+          static
+          type
+          isLabel
+          labelFor
+          textValue
+        }
+      }
+      userId
+      createdAt
+      updatedAt
+    }
+  }
+`;
