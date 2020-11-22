@@ -5,6 +5,7 @@ import './DeployForm.css';
 
 export default function DeployForm(props) {
     let formId = props.formId;
+    const { handleDeployForm }  = useContext(ItemContext);
 
     const findInDatabase = async () => {
         // await return of database query
@@ -64,6 +65,8 @@ export default function DeployForm(props) {
 
 
         // form might need to be its own
+        let forms = await handleDeployForm();
+        console.log(forms)
     }
 
     if (formId == 'false') {
@@ -80,8 +83,8 @@ export default function DeployForm(props) {
         )
     } else {
         return (
-            <div>
-                hello from DeployForm component
+            <div style={{"margin-top": "4rem"}}>
+                <button value="click me" onClick={() => findInDatabase()} >hello</button>
             </div>
         )
     }
