@@ -658,7 +658,8 @@ class ItemProvider extends Component {
                 deleteGridItem: this.deleteGridItem,
                 renderToolbox: this.renderToolbox,
                 updateTextValue: this.updateTextValue,
-                handleFormSubmit: this.handleFormSubmit
+                handleFormSubmit: this.handleFormSubmit,
+                deployForm: this.deployForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>
