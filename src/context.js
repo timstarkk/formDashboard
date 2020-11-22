@@ -630,8 +630,8 @@ class ItemProvider extends Component {
 
     };
 
-    deployForm = () => {
-        console.log('hello from deployForm')
+    handleDeployForm = () => {
+        console.log('hello from handleDeployForm')
     };
 
     async callLambda() {
@@ -659,7 +659,7 @@ class ItemProvider extends Component {
                 renderToolbox: this.renderToolbox,
                 updateTextValue: this.updateTextValue,
                 handleFormSubmit: this.handleFormSubmit,
-                deployForm: this.deployForm
+                handleDeployForm: this.handleDeployForm
             }}>
                 {this.props.children}
             </ItemContext.Provider>
