@@ -630,6 +630,10 @@ class ItemProvider extends Component {
 
     };
 
+    deployForm = () => {
+        console.log('hello from deployForm')
+    };
+
     async callLambda() {
         await API.graphql({ query: nameOfMutation, variables: {someVar: 'foo', otherVar: 'bar'}})
         .then(res => { console.log(res) });
