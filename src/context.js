@@ -45,39 +45,39 @@ class ItemProvider extends Component {
         labels: []
     };
 
-    async componentDidMount() {
-        await API.graphql(graphqlOperation(query))
-            .then(data => {
-                let tempItems = data.data.listStoreItems.items;
+    // async componentDidMount() {
+    //     await API.graphql(graphqlOperation(query))
+    //         .then(data => {
+    //             let tempItems = data.data.listStoreItems.items;
 
-                for (let i = 0; i < tempItems.length; i++) {
-                    if (items.length === 0) {
-                        items.push(tempItems[i]);
-                    } else {
-                        for (let j = 0; j < items.length; j++) {
-                            if (tempItems[i].fields.price < items[j].fields.price) {
-                                items.splice(j, 0, tempItems[i]);
-                                break;
-                            } else if (tempItems[i].fields.price > items[j].fields.price && j === (items.length - 1)) {
-                                items.push(tempItems[i])
-                            }
-                        }
-                    }
-                }
-            })
+    //             for (let i = 0; i < tempItems.length; i++) {
+    //                 if (items.length === 0) {
+    //                     items.push(tempItems[i]);
+    //                 } else {
+    //                     for (let j = 0; j < items.length; j++) {
+    //                         if (tempItems[i].fields.price < items[j].fields.price) {
+    //                             items.splice(j, 0, tempItems[i]);
+    //                             break;
+    //                         } else if (tempItems[i].fields.price > items[j].fields.price && j === (items.length - 1)) {
+    //                             items.push(tempItems[i])
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         })
 
-        let shopItems = this.formatData(items);
-        let featuredItems = shopItems.filter(item => item.featured === true)
-        let maxPrice = Math.max(...shopItems.map(item => item.price));
-        this.setState({
-            shopItems,
-            featuredItems,
-            sortedItems: shopItems,
-            loading: false,
-            price: maxPrice,
-            maxPrice
-        })
-    };
+    //     let shopItems = this.formatData(items);
+    //     let featuredItems = shopItems.filter(item => item.featured === true)
+    //     let maxPrice = Math.max(...shopItems.map(item => item.price));
+    //     this.setState({
+    //         shopItems,
+    //         featuredItems,
+    //         sortedItems: shopItems,
+    //         loading: false,
+    //         price: maxPrice,
+    //         maxPrice
+    //     })
+    // };
 
     formatData(items) {
         let tempItems = items.map(item => {
