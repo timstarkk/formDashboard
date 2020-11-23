@@ -5,7 +5,7 @@ import './DeployForm.css';
 
 export default function DeployForm(props) {
     let formId = props.formId;
-    const { handleDeployForm }  = useContext(ItemContext);
+    // const { handleDeployForm }  = useContext(ItemContext);
 
     const findInDatabase = async () => {
         // await return of database query
@@ -65,8 +65,9 @@ export default function DeployForm(props) {
 
 
         // form might need to be its own
-        let forms = await handleDeployForm();
-        console.log(forms)
+        // let forms = await handleDeployForm();
+        // console.log(forms)
+        console.log('this is tim')
     }
 
     if (formId == 'false') {
