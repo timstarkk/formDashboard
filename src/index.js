@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 import { ItemProvider } from './context';
 import Toolbox from './components/Toolbox/Toolbox';
 
