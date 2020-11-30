@@ -6,10 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ItemProvider } from './context';
 import Toolbox from './components/Toolbox/Toolbox';
+import { createBrowserHistory } from 'history'
 
 ReactDOM.render(
     <ItemProvider>
-        <Router>
+        <Router history={createBrowserHistory}>
             <Toolbox />
             <div id="app-container">
                 <App />
