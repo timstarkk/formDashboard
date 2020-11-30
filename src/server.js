@@ -5,8 +5,10 @@ import express from 'express';
 
 const server = express();
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.resolve("./", "index.html"));
+app.use(express.static("public"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("./public", "index.html"));
 });
 
 server.listen(3000); 
