@@ -10,7 +10,7 @@ import Toolbox from './components/Toolbox/Toolbox';
 
 ReactDOM.render(
     <ItemProvider>
-        <Router>
+        <Router history={browserHistory}>
             <Toolbox />
             <div id="app-container">
                 <App />
