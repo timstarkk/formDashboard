@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/account/signin" component={SignIn} />
           <Route exact path="/account/confirm" component={ConfirmPage} />
           <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/showform" component={ShowForm} />
+          <Route exact path="/showform/:slug" component={ShowForm} />
         </Switch>
       </ScrollToTop>
     </>
