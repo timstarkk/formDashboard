@@ -71,7 +71,6 @@ export const getForms = /* GraphQL */ `
           textValue
         }
       }
-      userId
       createdAt
       updatedAt
     }
@@ -90,7 +89,6 @@ export const listFormss = /* GraphQL */ `
           columns
           rows
         }
-        userId
         createdAt
         updatedAt
       }

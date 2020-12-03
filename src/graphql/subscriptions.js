@@ -87,7 +87,6 @@ export const onCreateForms = /* GraphQL */ `
           textValue
         }
       }
-      userId
       createdAt
       updatedAt
     }
@@ -122,7 +121,6 @@ export const onUpdateForms = /* GraphQL */ `
           textValue
         }
       }
-      userId
       createdAt
       updatedAt
     }
@@ -157,7 +155,6 @@ export const onDeleteForms = /* GraphQL */ `
           textValue
         }
       }
-      userId
       createdAt
       updatedAt
     }
