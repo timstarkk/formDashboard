@@ -44,29 +44,11 @@ export const getForms = /* GraphQL */ `
   query GetForms($id: ID!) {
     getForms(id: $id) {
       id
-      contents {
-        columns
-        rows
-        layout {
-          w
-          h
-          x
-          y
-          i
-          isBounded
-          isDraggable
-          isResizable
-          maxH
-          maxW
-          minH
-          minW
-          moved
-          resizeHandles
-          static
-          type
-          isLabel
-          labelFor
-          textValue
+      form {
+        id
+        contents {
+          columns
+          rows
         }
       }
       createdAt
@@ -83,9 +65,8 @@ export const listFormss = /* GraphQL */ `
     listFormss(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        contents {
-          columns
-          rows
+        form {
+          id
         }
         createdAt
         updatedAt

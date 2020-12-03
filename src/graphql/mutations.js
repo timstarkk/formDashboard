@@ -76,29 +76,11 @@ export const createForms = /* GraphQL */ `
   ) {
     createForms(input: $input, condition: $condition) {
       id
-      contents {
-        columns
-        rows
-        layout {
-          w
-          h
-          x
-          y
-          i
-          isBounded
-          isDraggable
-          isResizable
-          maxH
-          maxW
-          minH
-          minW
-          moved
-          resizeHandles
-          static
-          type
-          isLabel
-          labelFor
-          textValue
+      form {
+        id
+        contents {
+          columns
+          rows
         }
       }
       createdAt
@@ -113,29 +95,11 @@ export const updateForms = /* GraphQL */ `
   ) {
     updateForms(input: $input, condition: $condition) {
       id
-      contents {
-        columns
-        rows
-        layout {
-          w
-          h
-          x
-          y
-          i
-          isBounded
-          isDraggable
-          isResizable
-          maxH
-          maxW
-          minH
-          minW
-          moved
-          resizeHandles
-          static
-          type
-          isLabel
-          labelFor
-          textValue
+      form {
+        id
+        contents {
+          columns
+          rows
         }
       }
       createdAt
@@ -150,29 +114,11 @@ export const deleteForms = /* GraphQL */ `
   ) {
     deleteForms(input: $input, condition: $condition) {
       id
-      contents {
-        columns
-        rows
-        layout {
-          w
-          h
-          x
-          y
-          i
-          isBounded
-          isDraggable
-          isResizable
-          maxH
-          maxW
-          minH
-          minW
-          moved
-          resizeHandles
-          static
-          type
-          isLabel
-          labelFor
-          textValue
+      form {
+        id
+        contents {
+          columns
+          rows
         }
       }
       createdAt
