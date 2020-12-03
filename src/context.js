@@ -632,45 +632,6 @@ class ItemProvider extends Component {
 
     handleDeployForm = async () => {
         console.log('hello from handleDeployForm')
-        const getForms = `
-        query {
-            getUser(id: "8e8c388b-e18a-48a3-8704-540466ae58de") {
-                forms {
-                    id
-                    userId
-                    contents {
-                        columns
-                        rows
-                        layout {
-                            h
-                            i
-                            isBounded
-                            isDraggable
-                            isResizable
-                            maxH
-                            maxW
-                            minH
-                            minW
-                            moved
-                            resizeHandles
-                            static
-                            w
-                            x
-                            y
-                            type
-                            isLabel
-                            labelFor
-                            textValue
-                        }
-                    }
-                }
-            }
-        }
-        `
-
-        let forms = await API.graphql(graphqlOperation(getForms)).then(res => {return res.data.getUser.forms}).catch(error => console.log(error.message));
-
-        return forms
 
     };
 
