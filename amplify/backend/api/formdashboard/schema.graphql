@@ -20,7 +20,6 @@ type FormContents {
 type Forms @model {
   id: ID!
   contents: FormContents!
-  userId: String!
 }
 
 type Layout {
