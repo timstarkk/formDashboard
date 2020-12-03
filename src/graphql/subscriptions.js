@@ -13,7 +13,6 @@ export const onCreateUser = /* GraphQL */ `
           columns
           rows
         }
-        userId
       }
       createdAt
       updatedAt
@@ -32,7 +31,6 @@ export const onUpdateUser = /* GraphQL */ `
           columns
           rows
         }
-        userId
       }
       createdAt
       updatedAt
@@ -51,7 +49,6 @@ export const onDeleteUser = /* GraphQL */ `
           columns
           rows
         }
-        userId
       }
       createdAt
       updatedAt
