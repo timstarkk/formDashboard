@@ -174,20 +174,23 @@ class ItemProvider extends Component {
                 }
             }
         `
-
+        
+        // mutation for Form model
         const addFormForm = `
             mutation {
-                updateUser(input: {
+                createForms(input: {
                     id: "${uuid}",
-                    contents: "",   
-                    forms: ${unquotedItems}
+                    form: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                    id form { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
                 }
             }
         `
 
-        API.graphql(graphqlOperation(addForm)).then(async res => {console.log('form add successful!'); await this.getForms()}).catch(err => console.log(err));
+        API.graphql(graphqlOperation(addForm)).then(async res => {
+            console.log('form add successful!'); await this.getForms()
+            .then(async res => API.graphql(graphqlOperation(addFormForm)).then(res => console.log('formform add successful!')).catch(err => console.log(err)))   
+        }).catch(err => console.log(err));
         // add to forms
     };
 
@@ -441,7 +444,23 @@ class ItemProvider extends Component {
                 }
             }
         `
-        API.graphql(graphqlOperation(updateLayout)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+
+        // updates layout for Form model
+        const updateLayoutForm = `
+            mutation {
+                updateForms(input: {
+                    id: "${formId}",
+                    form: ${unquotedItems}
+                }) {
+                    id form { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
+                }
+            }
+        `
+
+        API.graphql(graphqlOperation(updateLayout)).then(async res => {
+            console.log('update layout successful!'); await this.getForms()
+            .then(async res => API.graphql(graphqlOperation(updateLayoutForm)).then(res => console.log('update layout in form model successful!')).catch(err => console.log(err)))   
+        }).catch(err => console.log(err));
         // add to forms
     }
 
