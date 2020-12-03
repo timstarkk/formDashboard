@@ -147,7 +147,6 @@ class ItemProvider extends Component {
         let forms = await that.getForms();
         let newForm = {
             id: uuid,
-            userId: `${userId}`,
             contents: {
                 columns: 9,
                 rows: 9,
@@ -171,12 +170,25 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, userId, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                }
+            }
+        `
+
+        const addFormForm = `
+            mutation {
+                updateUser(input: {
+                    id: "${uuid}",
+                    contents: "",   
+                    forms: ${unquotedItems}
+                }) {
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
                 }
             }
         `
 
         API.graphql(graphqlOperation(addForm)).then(async res => {console.log('form add successful!'); await this.getForms()}).catch(err => console.log(err));
+        // add to forms
     };
 
     getForms = () => {
@@ -194,7 +206,6 @@ class ItemProvider extends Component {
             getUser(id: "${userId}") {
                 forms {
                     id
-                    userId
                     contents {
                         columns
                         rows
@@ -402,7 +413,6 @@ class ItemProvider extends Component {
         console.log(forms);
         let updatedForm = {
             id: formId,
-            userId: `${userId}`,
             contents: {
                 columns: 0,
                 rows: 0,
@@ -427,11 +437,12 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, userId, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
+                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
                 }
             }
         `
         API.graphql(graphqlOperation(updateLayout)).then(async res => {console.log('update successful!'); await this.getForms()}).catch(err => console.log(err));
+        // add to forms
     }
 
     chooseType = (newType) => {
