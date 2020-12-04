@@ -32,7 +32,7 @@ export default function DeployForm(props) {
         )
     } else {
         return (
-            <div style={{"margin-top": "4rem"}}>
+            <div class="fullForm">
                 <button value="click me" onClick={() => findInDatabase()} >hello</button>
             </div>
         )
