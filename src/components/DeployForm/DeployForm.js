@@ -33,7 +33,6 @@ export default function DeployForm(props) {
     } else {
         return (
             <div class="fullForm">
-                <button value="click me" onClick={() => findInDatabase()} >hello</button>
             </div>
         )
     }
