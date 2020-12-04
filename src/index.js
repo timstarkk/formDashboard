@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ItemProvider } from './context';
 import Toolbox from './components/Toolbox/Toolbox';
+import ShowForm from './pages/ShowForm';
 
 ReactDOM.render(
     <ItemProvider>
