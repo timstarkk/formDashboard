@@ -6,7 +6,6 @@ export default function ShowForm(props) {
     return (
         <>
             <DeployForm formId={formId}/>
-            <p>hello from showform</p>
         </>
     )
 }
