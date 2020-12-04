@@ -1,42 +1,50 @@
-import React, {useContext} from 'react';
+import React, { Component } from 'react';
+import {Responsive, WidthProvider} from 'react-grid-layout';
 import { API, graphqlOperation } from 'aws-amplify';
 import { ItemContext } from '../../context';
 import './DeployForm.css';
 
-export default function DeployForm(props) {
-    let formId = props.formId;
-    const { handleDeployForm }  = useContext(ItemContext);
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-    const findInDatabase = async () => {
-        // await return of database query
+export default class DeployForm extends Component {
+    static contextType = ItemContext;
 
-        // need to consider what the page will render
-        // while this functjion is running.
-        // need to display a loading icon during that time.
+    state = {
+        formId: "",
+        form: []
+    }
+    
+    async componentDidMount() {
+        let formId = this.props.formId;
+        let { handleDeployForm } = this.context;
 
-        let form = await handleDeployForm(formId);
-        console.log(form)
+        console.log(handleDeployForm);
+        await handleDeployForm(formId);
+
+        this.setState({
+            formId
+        })
     }
 
-    if (formId == 'false') {
+    // findInDatabase = async () => {
+    //     // await return of database query
+
+    //     // need to consider what the page will render
+    //     // while this functjion is running.
+    //     // need to display a loading icon during that time.
+
+    //     await this.state.handleDeployForm(this.state.formId);
+    // }
+
+    render() {
+        const { layouts, displayForm } = this.context;
+
         return (
-            <div>
-                hello from false false
-            </div>
-        )
-    } else if (formId == 'true') {
-        return (
-            <div>
-                hello from true true true
-            </div>
-        )
-    } else {
-        return (
-            <div class="fullForm">
-            </div>
+            <>
+                <div class="fullForm">
+                    {/* {forms} */}
+                </div>
+            </>
         )
     }
 }
-
-
-// might need ReactDOM.render();
