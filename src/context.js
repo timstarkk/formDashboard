@@ -422,6 +422,9 @@ class ItemProvider extends Component {
                 layout: layout
             }
         };
+        
+        let stringifiedItemsSingle = JSON.stringify([updatedForm]);
+        let unquotedItemsSingle = stringifiedItemsSinglefs.replace(/"([^"]+)":/g, '$1:');
 
         let updatedForms = forms.map(form => {
             if (form.id === formId) {
@@ -450,7 +453,7 @@ class ItemProvider extends Component {
             mutation {
                 updateForms(input: {
                     id: "${formId}",
-                    form: ${unquotedItems}
+                    form: ${unquotedItemsSingle}
                 }) {
                     id form { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
                 }
@@ -660,9 +663,46 @@ class ItemProvider extends Component {
 
     };
 
-    handleDeployForm = async () => {
+    handleDeployForm = async (formId) => {
         console.log('hello from handleDeployForm')
 
+        const getForm = `
+            query {
+                getForms(id: "${formId}") {
+                    form {
+                        id
+                        contents {
+                            columns
+                            rows
+                            layout {
+                                h
+                                i
+                                isBounded
+                                isDraggable
+                                isResizable
+                                maxH
+                                maxW
+                                minH
+                                minW
+                                moved
+                                resizeHandles
+                                static
+                                w
+                                x
+                                y
+                                type
+                                isLabel
+                                labelFor
+                                textValue
+                            }
+                        }
+                    }
+                }
+            }
+        `
+
+        let form = await API.graphql(graphqlOperation(getForm)).then(res => {console.log('yes its in here');return res.data.getForms.form}).catch(error => console.log(error.message));
+        return form;
     };
 
     async callLambda() {
