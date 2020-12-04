@@ -424,7 +424,7 @@ class ItemProvider extends Component {
         };
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
-        let unquotedItemsSingle = stringifiedItemsSinglefs.replace(/"([^"]+)":/g, '$1:');
+        let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
 
         let updatedForms = forms.map(form => {
             if (form.id === formId) {
