@@ -38,7 +38,7 @@ export default class DeployForm extends Component {
 
     render() {
         const { layouts, displayDeployedForm, handleFormSubmit } = this.context;
-        
+
         // set isDraggable, and isResizable to false (NOTE: only for lg layout so far)
         layouts.lg.map(i => {
             i.isDraggable = false;
@@ -48,7 +48,6 @@ export default class DeployForm extends Component {
         return (
             <>
                 <div class="formWrapper">
-                    {/* <div class="formCover" /> */}
                     <div class="fullForm">
                         <ResponsiveReactGridLayout 
                         className="layout" 
