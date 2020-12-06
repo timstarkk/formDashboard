@@ -37,23 +37,32 @@ export default class DeployForm extends Component {
     // }
 
     render() {
-        const { layouts, displayForm, handleFormSubmit } = this.context;
+        const { layouts, displayDeployedForm, handleFormSubmit } = this.context;
+        
+        // set isDraggable, and isResizable to false (NOTE: only for lg layout so far)
+        layouts.lg.map(i => {
+            i.isDraggable = false;
+            i.isResizable = false;
+        })
 
         return (
             <>
-                <div class="fullForm">
-                    <ResponsiveReactGridLayout 
-                    className="layout" 
-                    layouts={layouts}
-                    onLayoutChange={this.onLayoutChange}
-                    breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-                    cols={{lg: 12, md: 12, sm: 12, xs: 12, xxs: 12}}
-                    rowHeight={30}>
-                    {/* have these grid items populate based on database object.*/}
-                    {displayForm()}
-                    </ResponsiveReactGridLayout>
-                    
-                    <div className="btn btn-primary" onClick={handleFormSubmit}>Submit</div>
+                <div class="formWrapper">
+                    {/* <div class="formCover" /> */}
+                    <div class="fullForm">
+                        <ResponsiveReactGridLayout 
+                        className="layout" 
+                        layouts={layouts}
+                        onLayoutChange={this.onLayoutChange}
+                        breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+                        cols={{lg: 12, md: 12, sm: 12, xs: 12, xxs: 12}}
+                        rowHeight={30}>
+                        {/* have these grid items populate based on database object.*/}
+                        {displayDeployedForm()}
+                        </ResponsiveReactGridLayout>
+                        
+                        <div className="btn btn-primary" onClick={handleFormSubmit}>Submit</div>
+                    </div>
                 </div>
             </>
         )
