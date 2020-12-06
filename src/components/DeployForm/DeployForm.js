@@ -37,7 +37,7 @@ export default class DeployForm extends Component {
     // }
 
     render() {
-        const { layouts, displayForm } = this.context;
+        const { layouts, displayForm, handleFormSubmit } = this.context;
 
         return (
             <>
@@ -52,6 +52,8 @@ export default class DeployForm extends Component {
                     {/* have these grid items populate based on database object.*/}
                     {displayForm()}
                     </ResponsiveReactGridLayout>
+                    
+                    <div className="btn btn-primary" onClick={handleFormSubmit}>Submit</div>
                 </div>
             </>
         )
