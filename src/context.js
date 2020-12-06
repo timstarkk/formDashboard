@@ -702,7 +702,12 @@ class ItemProvider extends Component {
         `
 
         let form = await API.graphql(graphqlOperation(getForm)).then(res => {console.log('yes its in here');return res.data.getForms.form}).catch(error => console.log(error.message));
-        return form;
+        this.setState({
+            forms: form,
+            layouts: {
+                lg: form[0].contents.layout
+            }
+        })
     };
 
     async callLambda() {
