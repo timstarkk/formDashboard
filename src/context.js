@@ -399,6 +399,102 @@ class ItemProvider extends Component {
         )
     };
 
+    displayDeployedForm = () => {
+        const items = [];
+
+        for (const i of this.state.layouts.lg) {
+            // check if item has a defined type //
+            if(i.type === 'none'){
+                // item has no type
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    // onMouseEnter={e => this.handleHover(e, false)} 
+                    // onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
+
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
+
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+
+                    </div>
+                )
+            } else if (i.type === 'textbox') {
+                let textValue = i.textValue;
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    // onMouseEnter={e => this.handleHover(e, false)} 
+                    // onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
+
+                        <p>{textValue ? textValue : 'text'}</p>
+
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
+
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+                    </div>
+                )
+            } else {
+                // item has a type
+                items.push(
+                    <div id={`grid-item-${i.i}`} 
+                    // onMouseEnter={e => this.handleHover(e, false)} 
+                    // onMouseLeave={e => this.handleHover(e, true)} 
+                    className={`grid-item`} 
+                    key={i.i}>
+
+                        <input type={i.type} />
+
+                        <a id={`item-settings-button-${i.i}`} 
+                        className={`item-hover-button item-settings-button`} 
+                        onClick={() => {
+                            this.toggleToolbox(i.i);
+                        }}>
+                            <SettingsIcon id="settings-icon" />
+                        </a>
+
+                        <a id={`item-delete-button-${i.i}`} 
+                        className={`item-hover-button item-delete-button`} 
+                        onClick={() => {
+                            this.deleteGridItem(i.i);
+                        }}>
+                            <XIcon id="delete-icon" />
+                        </a>
+                    </div>
+                )
+            }
+        }
+
+        return(
+            [items]
+        )
+    };
+
     updateLayouts = (layout) => {
         let that = this;
         let formId = this.state.selectedForm.id
@@ -728,6 +824,7 @@ class ItemProvider extends Component {
                 getForms: this.getForms,
                 handleSelectForm: this.handleSelectForm,
                 displayForm: this.displayForm,
+                displayDeployedForm: this.displayDeployedForm,
                 updateLayouts: this.updateLayouts,
                 chooseType: this.chooseType,
                 addGridItem: this.addGridItem,
