@@ -40,7 +40,18 @@ type Layout {
   type: String
   isLabel: Boolean
   labelFor: String
-  textValue: String
+  textValue: String,
+  placeholder: String,
+  height: String,
+  width: String,
+  defaultValue: String,
+  border-width: String,
+  border-color: String,
+  border-radius: String,
+  textboxColor: String,
+  textColor: String,
+  font-size: String,
+  font-family: String
 }
 
 type Mutation {
