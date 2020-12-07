@@ -45,13 +45,13 @@ type Layout {
   height: String,
   width: String,
   defaultValue: String,
-  border-width: String,
-  border-color: String,
-  border-radius: String,
+  borderWidth: String,
+  borderColor: String,
+  borderRadius: String,
   textboxColor: String,
   textColor: String,
-  font-size: String,
-  font-family: String
+  fontSize: String,
+  fontFamily: String
 }
 
 type Mutation {
