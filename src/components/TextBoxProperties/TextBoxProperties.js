@@ -7,7 +7,9 @@ export default class TextBoxProperties extends Component {
     constructor(props) {
         super();
         this.state = {
-            value: '',
+            placeholderValue: '',
+            heightValue: '',
+            widthValue: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {}
@@ -28,7 +30,15 @@ export default class TextBoxProperties extends Component {
     };
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        let name = event.target.name;
+        console.log(name);
+        if (name === "updatePlaceholder") {
+            this.setState({placeholderValue: event.target.value});
+        } else if (name === "updateHeight") {
+            this.setState({heightValue: event.target.value});
+        } else if (name === "updateWidth") {
+            this.setState({widthValue: event.target.value});
+        }
     };
 
     handleSubmit(event) {
@@ -52,7 +62,7 @@ export default class TextBoxProperties extends Component {
                 <form onSubmit={this.handleSubmit} name="updatePlaceholder">
                     <label>
                         placeholder:
-                        <input type="text" placeholder="enter placeholder text: " value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" placeholder="enter placeholder text: " name="updatePlaceholder" value={this.state.placeholderValue} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
@@ -61,7 +71,7 @@ export default class TextBoxProperties extends Component {
                 <form onSubmit={this.handleSubmit} name="updateHeight">
                     <label>
                         height:
-                        <input type="text" placeholder="enter height: " value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" placeholder="enter height: " name="updateHeight" value={this.state.heightValue} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
@@ -70,7 +80,7 @@ export default class TextBoxProperties extends Component {
                 <form onSubmit={this.handleSubmit} name="updateWidth">
                     <label>
                         width:
-                        <input type="text" placeholder="enter width: " value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" placeholder="enter width: " name="updateWidth" value={this.state.widthValue} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
