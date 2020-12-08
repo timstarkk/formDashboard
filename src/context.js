@@ -256,6 +256,7 @@ class ItemProvider extends Component {
         console.log(layout);
         let types = [];
         let labels = [];
+        let properties = [];
         for(const i of layout) {
             types.push(i.type);
             labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue})
