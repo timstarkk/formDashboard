@@ -251,6 +251,16 @@ class ItemProvider extends Component {
                             labelFor
                             textValue
                             placeholder
+                            height
+                            width
+                            defaultValue
+                            borderWidth
+                            borderColor
+                            borderRadius
+                            textboxColor
+                            textColor
+                            fontSize
+                            fontFamily
                         }
                     }
                 }
@@ -584,7 +594,18 @@ class ItemProvider extends Component {
                                 w,
                                 x,
                                 y,
-                                type
+                                type,
+                                placeholder,
+                                height,
+                                width,
+                                defaultValue,
+                                borderWidth,
+                                borderColor,
+                                borderRadius,
+                                textboxColor,
+                                textColor,
+                                fontSize,
+                                fontFamily
                             } 
                         } 
                     }
@@ -671,6 +692,7 @@ class ItemProvider extends Component {
         };
         types.push('none');
         layout.push(blankItem);
+        console.log(layout);
         labels.push({isLabel: false, labelFor: undefined, textValue: undefined});
         // set default properties
         properties.push({
