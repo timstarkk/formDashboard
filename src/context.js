@@ -626,7 +626,21 @@ class ItemProvider extends Component {
         };
         types.push('none');
         layout.push(blankItem);
-        labels.push({isLabel: false, labelFor: undefined, textValue: undefined})
+        labels.push({isLabel: false, labelFor: undefined, textValue: undefined});
+        // set default properties
+        properties.push({
+            placeholder: undefined,
+            height: undefined,
+            width: undefined,
+            defaultValue: undefined,
+            borderWidth: undefined,
+            borderColor: undefined,
+            borderRadius: undefined,
+            textboxColor: undefined,
+            textColor: undefined,
+            fontSize: undefined,
+            fontFamily: undefined
+        });
         
         this.setState({
             layouts: {
