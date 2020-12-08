@@ -8,7 +8,8 @@ export default class TextBoxProperties extends Component {
         super();
         this.state = {
             value: '',
-            updateTextBoxPlaceholder: function() {}
+            updateTextBoxPlaceholder: function() {},
+            updateTextBoxHeight: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -16,10 +17,11 @@ export default class TextBoxProperties extends Component {
     }
 
     componentDidMount() {
-        const { updateTextBoxPlaceholder } = this.context;
+        const { updateTextBoxPlaceholder, updateTextBoxHeight } = this.context;
 
         this.setState({
-            updateTextBoxPlaceholder
+            updateTextBoxPlaceholder,
+            updateTextBoxHeight
         })
     };
 
@@ -29,35 +31,46 @@ export default class TextBoxProperties extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const {updateTextBoxPlaceholder} = this.context;
+        let name = event.target.name;
 
-        this.state.updateTextBoxPlaceholder(this.state.value);
+        if (name === "updatePlaceholder") {
+            this.state.updateTextBoxPlaceholder(this.state.value);
+        } else if (name === "updateHeight") {
+            this.state.updateTextBoxHeight(this.state.value);
+        }
     };
 
 
     render() {
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
-                    <p>hello from textbox properties</p>
-                    
-                    {/* placeholder */}
+                {/* placeholder */}
+                <form onSubmit={this.handleSubmit} name="updatePlaceholder">
                     <label>
                         placeholder:
-                        <input type="text" name="name" placeholder="enter placeholder text: " value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" placeholder="enter placeholder text: " value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
-                    {/* height */}
-                    {/* width */}
-                    {/* defaultValue */}
-                    {/* borderWidth */}
-                    {/* borderColor */}
-                    {/* borderRadius */}
-                    {/* textboxColor */}
-                    {/* textColor */}
-                    {/* fontSize */}
-                    {/* fontFamily */}
                 </form>
+
+                {/* height */}
+                <form onSubmit={this.handleSubmit} name="updateHeight">
+                    <label>
+                        height:
+                        <input type="text" placeholder="enter height: " value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+                
+                {/* width */}
+                {/* defaultValue */}
+                {/* borderWidth */}
+                {/* borderColor */}
+                {/* borderRadius */}
+                {/* textboxColor */}
+                {/* textColor */}
+                {/* fontSize */}
+                {/* fontFamily */}
             </>
         )
     }
