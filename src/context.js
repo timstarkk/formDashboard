@@ -1036,6 +1036,7 @@ class ItemProvider extends Component {
                 updateTextBoxPlaceholder: this.updateTextBoxPlaceholder,
                 updateTextBoxHeight: this.updateTextBoxHeight,
                 updateTextBoxWidth: this.updateTextBoxWidth,
+                updateTextBoxDefaultValue: this.updateTextBoxDefaultValue,
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm
             }}>
