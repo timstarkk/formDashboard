@@ -171,7 +171,24 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type, isLabel } } }
+                    id forms {
+                        id,
+                        contents { 
+                            columns, 
+                            rows, 
+                            layout { 
+                                h,
+                                i,
+                                moved,
+                                static,
+                                w,
+                                x,
+                                y,
+                                type,
+                                isLabel 
+                            }
+                        } 
+                    }
                 }
             }
         `
@@ -233,6 +250,7 @@ class ItemProvider extends Component {
                             isLabel
                             labelFor
                             textValue
+                            placeholder
                         }
                     }
                 }
@@ -553,7 +571,23 @@ class ItemProvider extends Component {
                     id: "${userId}",
                     forms: ${unquotedItems}
                 }) {
-                    id forms { id, contents { columns, rows, layout { h, i, moved, static, w, x, y, type } } }
+                    id forms { 
+                        id,
+                        contents {
+                            columns,
+                            rows,
+                            layout { 
+                                h,
+                                i,
+                                moved,
+                                static,
+                                w,
+                                x,
+                                y,
+                                type
+                            } 
+                        } 
+                    }
                 }
             }
         `
