@@ -665,6 +665,7 @@ class ItemProvider extends Component {
     deleteGridItem = (gridItem) => {
         let types = [];
         let labels = [];
+        let properties = [];
 
         let layout = this.state.layouts.lg.filter((i, index) => {
             console.log(i);
@@ -674,7 +675,20 @@ class ItemProvider extends Component {
                 console.log('do nothing, found it');
             } else {
                 types.push(i.type);
-                labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue})
+                labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue});
+                properties.push({
+                    placeholder: i.placeholder,
+                    height: i.height,
+                    width: i.width,
+                    defaultValue: i.defaultValue,
+                    borderWidth: i.borderWidth,
+                    borderColor: i.borderColor,
+                    borderRadius: i.borderRadius,
+                    textboxColor: i.textboxColor,
+                    textColor: i.textColor,
+                    fontSize: i.fontSize,
+                    fontFamily: i.fontFamily
+                });
                 return i;
             }
         });
@@ -685,7 +699,8 @@ class ItemProvider extends Component {
                 lg: layout
             },
             types,
-            labels
+            labels,
+            properties
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
