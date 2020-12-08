@@ -602,6 +602,7 @@ class ItemProvider extends Component {
         let layout = this.state.layouts.lg;
         let types = this.state.types;
         let labels = this.state.labels;
+        let properties = this.state.properties;
         let blankItem = {
             h: 4,
             i: `${uuid}`,
