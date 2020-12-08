@@ -274,7 +274,6 @@ class ItemProvider extends Component {
                 fontFamily: i.fontFamily
             });
         };
-        console.log(types);
         this.setState({
             selectedForm: form,
             formSelected: true,
