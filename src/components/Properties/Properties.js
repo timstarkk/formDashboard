@@ -34,7 +34,7 @@ export default class Properties extends Component {
                     <p>checkbox properties:</p>
                 </>
             )
-        } else if (type === 'textbox') {
+        } else if (type === 'textlabel') {
             return (
                 <>
                     <h3>text item properties:</h3>
