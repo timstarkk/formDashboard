@@ -35,7 +35,7 @@ export default class Toolbox extends Component {
                     <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('text')}>Text Input</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('radio')}>Radio</div>
                     <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('checkbox')}>Checkbox</div> 
-                    <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('textbox')}>Text Label</div>
+                    <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('textlabel')}>Text Label</div>
                 </>
             )
         } else if (selectedType !== 'none') {
