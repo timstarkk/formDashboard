@@ -623,6 +623,17 @@ class ItemProvider extends Component {
             w: 12,
             x: 0,
             y: 99,
+            placeholder: undefined,
+            height: undefined,
+            width: undefined,
+            defaultValue: undefined,
+            borderWidth: undefined,
+            borderColor: undefined,
+            borderRadius: undefined,
+            textboxColor: undefined,
+            textColor: undefined,
+            fontSize: undefined,
+            fontFamily: undefined
         };
         types.push('none');
         layout.push(blankItem);
@@ -646,7 +657,8 @@ class ItemProvider extends Component {
             layouts: {
                 lg: layout
             },
-            types
+            types,
+            properties
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
