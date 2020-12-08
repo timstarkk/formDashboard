@@ -869,6 +869,28 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
+    updateTextBoxDefaultValue = (value) => {
+        let properties = this.state.properties;
+        let layout = this.state.layouts.lg;
+        // need selected item.
+        let selectedGridItem = this.state.selectedGridItem;
+
+        // loop through layouts until i.i === selectedGridItem;
+        for (const [index, i] of layout.entries()) {
+            if (i.i === selectedGridItem) {
+                i.defaultValue = value;
+                properties[index].defaultValue = value;
+            };
+        };
+
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            properties
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
+    };
+
     handleFormSubmit = (event) => {
         let formContents = [];
         let layout = this.state.layouts.lg;
