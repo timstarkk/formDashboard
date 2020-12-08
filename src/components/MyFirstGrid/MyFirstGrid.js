@@ -40,6 +40,17 @@ export default class MyFirstGrid extends Component {
       i.isLabel = labels[index].isLabel;
       i.labelFor = labels[index].labelsFor;
       i.textValue = labels[index].textValue;
+      i.placeholder = properties[index].placeholder;
+      i.height = properties[index].height;
+      i.width = properties[index].width;
+      i.defaultValue = properties[index].defaultValue;
+      i.borderWidth = properties[index].borderWidth;
+      i.borderColor = properties[index].borderColor;
+      i.borderRadius = properties[index].borderRadius;
+      i.textboxColor = properties[index].textboxColor;
+      i.textColor = properties[index].textColor;
+      i.fontSize = properties[index].fontSize;
+      i.fontFamily = properties[index].fontFamily;
     })
     this.state.updateLayouts(layout);
   }
