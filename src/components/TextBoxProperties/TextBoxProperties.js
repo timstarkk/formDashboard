@@ -9,7 +9,8 @@ export default class TextBoxProperties extends Component {
         this.state = {
             value: '',
             updateTextBoxPlaceholder: function() {},
-            updateTextBoxHeight: function() {}
+            updateTextBoxHeight: function() {},
+            updateTextBoxWidth: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -17,11 +18,12 @@ export default class TextBoxProperties extends Component {
     }
 
     componentDidMount() {
-        const { updateTextBoxPlaceholder, updateTextBoxHeight } = this.context;
+        const { updateTextBoxPlaceholder, updateTextBoxHeight, updateTextBoxWidth } = this.context;
 
         this.setState({
             updateTextBoxPlaceholder,
-            updateTextBoxHeight
+            updateTextBoxHeight,
+            updateTextBoxWidth
         })
     };
 
@@ -37,6 +39,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxPlaceholder(this.state.value);
         } else if (name === "updateHeight") {
             this.state.updateTextBoxHeight(this.state.value);
+        } else if (name === "updateWidth") {
+            this.state.updateTextBoxWidth(this.state.value);
         }
     };
 
@@ -61,8 +65,16 @@ export default class TextBoxProperties extends Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
-                
+
                 {/* width */}
+                <form onSubmit={this.handleSubmit} name="updateWidth">
+                    <label>
+                        width:
+                        <input type="text" placeholder="enter width: " value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 {/* defaultValue */}
                 {/* borderWidth */}
                 {/* borderColor */}
