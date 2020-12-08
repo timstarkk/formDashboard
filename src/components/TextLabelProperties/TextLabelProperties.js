@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './TextBoxProperties.css';
+import './TextLabelProperties.css';
 import { ItemContext } from '../../context';
 
-export default class TextBoxProperties extends Component {
+export default class TextLabelProperties extends Component {
     static contextType = ItemContext;
     constructor(props) {
         super();

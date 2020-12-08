@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IoIosReturnRight } from 'react-icons/io';
 import { ItemContext } from '../../context';
-import TextBoxProperties from './../TextBoxProperties/TextBoxProperties';
+import TextLabelProperties from '../TextLabelProperties/TextLabelProperties';
 
 
 
@@ -38,7 +38,7 @@ export default class Properties extends Component {
             return (
                 <>
                     <h3>text item properties:</h3>
-                    <TextBoxProperties />
+                    <TextLabelProperties />
                 </>
             )
         } else {
