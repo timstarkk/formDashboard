@@ -20,7 +20,8 @@ export default class Properties extends Component {
         if (type === 'text') {
             return (
                 <>
-                    <p>text properties:</p>
+                    <p>textbox properties:</p>
+                    <TextBoxProperties />
                 </>
             )
         } else if (type === 'radio') {
