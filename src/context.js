@@ -377,7 +377,7 @@ class ItemProvider extends Component {
 
                     </div>
                 )
-            } else if (i.type === 'textbox') {
+            } else if (i.type === 'textlabel') {
                 let textValue = i.textValue;
                 items.push(
                     <div id={`grid-item-${i.i}`} 
@@ -473,7 +473,7 @@ class ItemProvider extends Component {
 
                     </div>
                 )
-            } else if (i.type === 'textbox') {
+            } else if (i.type === 'textlabel') {
                 let textValue = i.textValue;
                 items.push(
                     <div id={`grid-item-${i.i}`} 
@@ -560,6 +560,8 @@ class ItemProvider extends Component {
                 layout: layout
             }
         };
+
+        console.log(updatedForm);
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
         let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
@@ -696,17 +698,17 @@ class ItemProvider extends Component {
         labels.push({isLabel: false, labelFor: undefined, textValue: undefined});
         // set default properties
         properties.push({
-            placeholder: undefined,
-            height: undefined,
-            width: undefined,
-            defaultValue: undefined,
-            borderWidth: undefined,
-            borderColor: undefined,
-            borderRadius: undefined,
-            textboxColor: undefined,
-            textColor: undefined,
-            fontSize: undefined,
-            fontFamily: undefined
+            placeholder: "undefined",
+            height: "undefined",
+            width: "undefined",
+            defaultValue: "undefined",
+            borderWidth: "undefined",
+            borderColor: "undefined",
+            borderRadius: "undefined",
+            textboxColor: "undefined",
+            textColor: "undefined",
+            fontSize: "undefined",
+            fontFamily: "undefined"
         });
         
         this.setState({
