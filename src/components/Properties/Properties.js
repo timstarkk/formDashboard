@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { IoIosReturnRight } from 'react-icons/io';
 import { ItemContext } from '../../context';
 import TextLabelProperties from '../TextLabelProperties/TextLabelProperties';
+import TextBoxProperties from '../TextBoxProperties/TextBoxProperties';
 
 
 
