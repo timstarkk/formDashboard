@@ -803,6 +803,50 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
+    updateTextBoxPlaceholder = (value) => {
+        let properties = this.state.properties;
+        let layout = this.state.layouts.lg;
+        // need selected item.
+        let selectedGridItem = this.state.selectedGridItem;
+
+        // loop through layouts until i.i === selectedGridItem;
+        for (const [index, i] of layout.entries()) {
+            if (i.i === selectedGridItem) {
+                i.placeholder = value;
+                properties[index].placeholder = value;
+            };
+        };
+
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            properties
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
+    };
+
+    updateTextBoxHeight = (value) => {
+        let properties = this.state.properties;
+        let layout = this.state.layouts.lg;
+        // need selected item.
+        let selectedGridItem = this.state.selectedGridItem;
+
+        // loop through layouts until i.i === selectedGridItem;
+        for (const [index, i] of layout.entries()) {
+            if (i.i === selectedGridItem) {
+                i.height = value;
+                properties[index].height = value;
+            };
+        };
+
+        this.setState({
+            layouts: {
+                lg: layout
+            },
+            properties
+        }, () => {console.log('state changed');this.updateLayouts(layout)});
+    };
+
     handleFormSubmit = (event) => {
         let formContents = [];
         let layout = this.state.layouts.lg;
@@ -945,6 +989,8 @@ class ItemProvider extends Component {
                 deleteGridItem: this.deleteGridItem,
                 renderToolbox: this.renderToolbox,
                 updateTextValue: this.updateTextValue,
+                updateTextBoxPlaceholder: this.updateTextBoxPlaceholder,
+                updateTextBoxHeight: this.updateTextBoxHeight,
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm
             }}>
