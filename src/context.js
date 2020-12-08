@@ -274,6 +274,7 @@ class ItemProvider extends Component {
                 fontFamily: i.fontFamily
             });
         };
+        
         this.setState({
             selectedForm: form,
             formSelected: true,
@@ -281,7 +282,8 @@ class ItemProvider extends Component {
                 lg: layout
             },
             types,
-            labels
+            labels,
+            properties
         })
     }
 
