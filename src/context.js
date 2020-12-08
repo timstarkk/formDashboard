@@ -259,7 +259,20 @@ class ItemProvider extends Component {
         let properties = [];
         for(const i of layout) {
             types.push(i.type);
-            labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue})
+            labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue});
+            properties.push({
+                placeholder: i.placeholder,
+                height: i.height,
+                width: i.width,
+                defaultValue: i.defaultValue,
+                borderWidth: i.borderWidth,
+                borderColor: i.borderColor,
+                borderRadius: i.borderRadius,
+                textboxColor: i.textboxColor,
+                textColor: i.textColor,
+                fontSize: i.fontSize,
+                fontFamily: i.fontFamily
+            });
         };
         console.log(types);
         this.setState({
