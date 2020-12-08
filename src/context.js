@@ -251,9 +251,7 @@ class ItemProvider extends Component {
     };
 
     handleSelectForm = (form) => {
-        console.log(form);
         let layout = form.contents.layout;
-        console.log(layout);
         let types = [];
         let labels = [];
         let properties = [];
