@@ -11,10 +11,12 @@ export default class TextBoxProperties extends Component {
             heightValue: '',
             widthValue: '',
             defaultValue: '',
+            borderWidth: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
-            updateTextBoxDefaultValue: function() {}
+            updateTextBoxDefaultValue: function() {},
+            updateTextBoxBorderWidth: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,14 +28,16 @@ export default class TextBoxProperties extends Component {
             updateTextBoxPlaceholder,
             updateTextBoxHeight,
             updateTextBoxWidth,
-            updateTextBoxDefaultValue
+            updateTextBoxDefaultValue,
+            updateTextBoxBorderWidth
         } = this.context;
 
         this.setState({
             updateTextBoxPlaceholder,
             updateTextBoxHeight,
             updateTextBoxWidth,
-            updateTextBoxDefaultValue
+            updateTextBoxDefaultValue,
+            updateTextBoxBorderWidth
         })
     };
 
@@ -48,6 +52,8 @@ export default class TextBoxProperties extends Component {
             this.setState({widthValue: event.target.value});
         } else if (name === "updateDefaultValue") {
             this.setState({defaultValue: event.target.value});
+        } else if (name === "updateBorderWidth") {
+            this.setState({borderWidth: event.target.value});
         }
     };
 
@@ -64,6 +70,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxWidth(this.state.widthValue);
         } else if (name === "updateDefaultValue") {
             this.state.updateTextBoxDefaultValue(this.state.defaultValue);
+        } else if (name === "updateBorderWidth") {
+            this.state.updateTextBoxBorderWidth(this.state.borderWidth);
         }
     };
 
@@ -108,6 +116,14 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* borderWidth */}
+                <form onSubmit={this.handleSubmit} name="updateBorderWidth">
+                    <label>
+                        Border Width:
+                        <input type="text" placeholder="enter border width: " name="updateBorderWidth" value={this.state.borderWidth} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 {/* borderColor */}
                 {/* borderRadius */}
                 {/* textboxColor */}
