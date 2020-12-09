@@ -13,12 +13,14 @@ export default class TextBoxProperties extends Component {
             defaultValue: '',
             borderWidth: '',
             borderColor: '',
+            borderRadius: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
             updateTextBoxDefaultValue: function() {},
             updateTextBoxBorderWidth: function() {},
-            updateTextBoxBorderColor: function() {}
+            updateTextBoxBorderColor: function() {},
+            updateTextBoxBorderRadius: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -32,7 +34,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxWidth,
             updateTextBoxDefaultValue,
             updateTextBoxBorderWidth,
-            updateTextBoxBorderColor
+            updateTextBoxBorderColor,
+            updateTextBoxBorderRadius
         } = this.context;
 
         this.setState({
@@ -41,7 +44,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxWidth,
             updateTextBoxDefaultValue,
             updateTextBoxBorderWidth,
-            updateTextBoxBorderColor
+            updateTextBoxBorderColor,
+            updateTextBoxBorderRadius
         })
     };
 
@@ -60,6 +64,8 @@ export default class TextBoxProperties extends Component {
             this.setState({borderWidth: event.target.value});
         } else if (name === "updateBorderColor") {
             this.setState({borderColor: event.target.value});
+        } else if (name === "updateBorderRadius") {
+            this.setState({borderRadius: event.target.value});
         }
     };
 
@@ -80,6 +86,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxBorderWidth(this.state.borderWidth);
         } else if (name === "updateBorderColor") {
             this.state.updateTextBoxBorderColor(this.state.borderColor);
+        } else if (name === "updateBorderRadius") {
+            this.state.updateTextBoxBorderRadius(this.state.borderRadius);
         }
     };
 
@@ -142,6 +150,14 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* borderRadius */}
+                <form onSubmit={this.handleSubmit} name="updateBorderRadius">
+                    <label>
+                        Border Radius:
+                        <input type="text" placeholder="enter border Radius: " name="updateBorderRadius" value={this.state.borderRadius} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 {/* textboxColor */}
                 {/* textColor */}
                 {/* fontSize */}
