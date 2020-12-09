@@ -15,6 +15,7 @@ export default class TextBoxProperties extends Component {
             borderColor: '',
             borderRadius: '',
             textboxColor: '',
+            textColor: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
@@ -22,7 +23,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderWidth: function() {},
             updateTextBoxBorderColor: function() {},
             updateTextBoxBorderRadius: function() {},
-            updateTextBoxTextboxColor: function() {}
+            updateTextBoxTextboxColor: function() {},
+            updateTextBoxTextColor: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -38,7 +40,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderWidth,
             updateTextBoxBorderColor,
             updateTextBoxBorderRadius,
-            updateTextBoxTextboxColor
+            updateTextBoxTextboxColor,
+            updateTextBoxTextColor
         } = this.context;
 
         this.setState({
@@ -49,7 +52,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderWidth,
             updateTextBoxBorderColor,
             updateTextBoxBorderRadius,
-            updateTextBoxTextboxColor
+            updateTextBoxTextboxColor,
+            updateTextBoxTextColor
         })
     };
 
@@ -72,6 +76,8 @@ export default class TextBoxProperties extends Component {
             this.setState({borderRadius: event.target.value});
         } else if (name === "updateTextboxColor") {
             this.setState({textboxColor: event.target.value});
+        } else if (name === "updateTextColor") {
+            this.setState({textColor: event.target.value});
         }
     };
 
@@ -96,6 +102,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxBorderRadius(this.state.borderRadius);
         } else if (name === "updateTextboxColor") {
             this.state.updateTextBoxTextboxColor(this.state.textboxColor);
+        } else if (name === "updateTextColor") {
+            this.state.updateTextBoxTextColor(this.state.textColor);
         }
     };
 
@@ -176,6 +184,13 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* textColor */}
+                <form onSubmit={this.handleSubmit} name="updateTextColor">
+                    <label>
+                        Text Color:
+                        <input type="text" placeholder="enter text color: " name="updateTextColor" value={this.state.textColor} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
                 {/* fontSize */}
                 {/* fontFamily */}
             </>
