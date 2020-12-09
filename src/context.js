@@ -1128,6 +1128,7 @@ class ItemProvider extends Component {
                 updateTextBoxBorderWidth: this.updateTextBoxBorderWidth,
                 updateTextBoxBorderColor: this.updateTextBoxBorderColor,
                 updateTextBoxBorderRadius: this.updateTextBoxBorderRadius,
+                updateTextBoxTextboxColor: this.updateTextBoxTextboxColor,
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm
             }}>
