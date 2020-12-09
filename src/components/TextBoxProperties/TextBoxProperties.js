@@ -10,9 +10,11 @@ export default class TextBoxProperties extends Component {
             placeholderValue: '',
             heightValue: '',
             widthValue: '',
+            defaultValue: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
-            updateTextBoxWidth: function() {}
+            updateTextBoxWidth: function() {},
+            updateTextBoxDefaultValue: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,12 +22,18 @@ export default class TextBoxProperties extends Component {
     }
 
     componentDidMount() {
-        const { updateTextBoxPlaceholder, updateTextBoxHeight, updateTextBoxWidth } = this.context;
+        const {
+            updateTextBoxPlaceholder,
+            updateTextBoxHeight,
+            updateTextBoxWidth,
+            updateTextBoxDefaultValue
+        } = this.context;
 
         this.setState({
             updateTextBoxPlaceholder,
             updateTextBoxHeight,
-            updateTextBoxWidth
+            updateTextBoxWidth,
+            updateTextBoxDefaultValue
         })
     };
 
@@ -38,19 +46,24 @@ export default class TextBoxProperties extends Component {
             this.setState({heightValue: event.target.value});
         } else if (name === "updateWidth") {
             this.setState({widthValue: event.target.value});
+        } else if (name === "updateDefaultValue") {
+            this.setState({defaultValue: event.target.value});
         }
     };
 
     handleSubmit(event) {
         event.preventDefault();
         let name = event.target.name;
+        console.log(name);
 
         if (name === "updatePlaceholder") {
-            this.state.updateTextBoxPlaceholder(this.state.value);
+            this.state.updateTextBoxPlaceholder(this.state.placeholderValue);
         } else if (name === "updateHeight") {
-            this.state.updateTextBoxHeight(this.state.value);
+            this.state.updateTextBoxHeight(this.state.heightValue);
         } else if (name === "updateWidth") {
-            this.state.updateTextBoxWidth(this.state.value);
+            this.state.updateTextBoxWidth(this.state.widthValue);
+        } else if (name === "updateDefaultValue") {
+            this.state.updateTextBoxDefaultValue(this.state.defaultValue);
         }
     };
 
@@ -86,6 +99,14 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* defaultValue */}
+                <form onSubmit={this.handleSubmit} name="updateDefaultValue">
+                    <label>
+                        default value:
+                        <input type="text" placeholder="enter default value: " name="updateDefaultValue" value={this.state.defaultValue} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 {/* borderWidth */}
                 {/* borderColor */}
                 {/* borderRadius */}
