@@ -17,6 +17,7 @@ export default class TextBoxProperties extends Component {
             textboxColor: '',
             textColor: '',
             fontSize: '',
+            fontFamily: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
@@ -26,7 +27,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderRadius: function() {},
             updateTextBoxTextboxColor: function() {},
             updateTextBoxTextColor: function() {},
-            updateTextBoxFontSize: function() {}
+            updateTextBoxFontSize: function() {},
+            updateTextBoxFontFamily: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -44,7 +46,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderRadius,
             updateTextBoxTextboxColor,
             updateTextBoxTextColor,
-            updateTextBoxFontSize
+            updateTextBoxFontSize,
+            updateTextBoxFontFamily
         } = this.context;
 
         this.setState({
@@ -57,7 +60,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxBorderRadius,
             updateTextBoxTextboxColor,
             updateTextBoxTextColor,
-            updateTextBoxFontSize
+            updateTextBoxFontSize,
+            updateTextBoxFontFamily
         })
     };
 
@@ -84,6 +88,8 @@ export default class TextBoxProperties extends Component {
             this.setState({textColor: event.target.value});
         } else if (name === "updateFontSize") {
             this.setState({fontSize: event.target.value});
+        } else if (name === "updateFontFamily") {
+            this.setState({fontFamily: event.target.value});
         }
     };
 
@@ -112,6 +118,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxTextColor(this.state.textColor);
         } else if (name === "updateFontSize") {
             this.state.updateTextBoxFontSize(this.state.fontSize);
+        } else if (name === "updateFontFamily") {
+            this.state.updateTextBoxFontFamily(this.state.fontFamily);
         }
     };
 
@@ -210,6 +218,13 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* fontFamily */}
+                <form onSubmit={this.handleSubmit} name="updateFontFamily">
+                    <label>
+                        Font Family:
+                        <input type="text" placeholder="enter font family: " name="updateFontFamily" value={this.state.fontFamily} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
             </>
         )
     }
