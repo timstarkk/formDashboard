@@ -12,11 +12,13 @@ export default class TextBoxProperties extends Component {
             widthValue: '',
             defaultValue: '',
             borderWidth: '',
+            borderColor: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
             updateTextBoxDefaultValue: function() {},
-            updateTextBoxBorderWidth: function() {}
+            updateTextBoxBorderWidth: function() {},
+            updateTextBoxBorderColor: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -29,7 +31,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxHeight,
             updateTextBoxWidth,
             updateTextBoxDefaultValue,
-            updateTextBoxBorderWidth
+            updateTextBoxBorderWidth,
+            updateTextBoxBorderColor
         } = this.context;
 
         this.setState({
@@ -37,7 +40,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxHeight,
             updateTextBoxWidth,
             updateTextBoxDefaultValue,
-            updateTextBoxBorderWidth
+            updateTextBoxBorderWidth,
+            updateTextBoxBorderColor
         })
     };
 
@@ -54,6 +58,8 @@ export default class TextBoxProperties extends Component {
             this.setState({defaultValue: event.target.value});
         } else if (name === "updateBorderWidth") {
             this.setState({borderWidth: event.target.value});
+        } else if (name === "updateBorderColor") {
+            this.setState({borderColor: event.target.value});
         }
     };
 
@@ -72,6 +78,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxDefaultValue(this.state.defaultValue);
         } else if (name === "updateBorderWidth") {
             this.state.updateTextBoxBorderWidth(this.state.borderWidth);
+        } else if (name === "updateBorderColor") {
+            this.state.updateTextBoxBorderColor(this.state.borderColor);
         }
     };
 
@@ -125,6 +133,14 @@ export default class TextBoxProperties extends Component {
                 </form>
 
                 {/* borderColor */}
+                <form onSubmit={this.handleSubmit} name="updateBorderColor">
+                    <label>
+                        Border Color:
+                        <input type="text" placeholder="enter border Color: " name="updateBorderColor" value={this.state.borderColor} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 {/* borderRadius */}
                 {/* textboxColor */}
                 {/* textColor */}
