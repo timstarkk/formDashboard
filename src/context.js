@@ -901,6 +901,13 @@ class ItemProvider extends Component {
             if (i.i === selectedGridItem) {
                 i.defaultValue = value;
                 properties[index].defaultValue = value;
+
+                for (const j of values) {
+                    if (j.id === i.id) {
+                        // is the value for textbox desiring change, update value
+                        j.value = value;
+                    };
+                };
             };
         };
 
@@ -908,7 +915,8 @@ class ItemProvider extends Component {
             layouts: {
                 lg: layout
             },
-            properties
+            properties,
+            values
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
