@@ -1220,6 +1220,7 @@ class ItemProvider extends Component {
             styles["width"] = `${i.width}`
             styles["background"] = `${i.textboxColor}`
             styles["color"] = `${i.textColor}`
+            styles["padding-left"] = "15px"
         }
 
         return styles;
