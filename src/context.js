@@ -359,6 +359,7 @@ class ItemProvider extends Component {
         const items = [];
 
         for (const i of this.state.layouts.lg) {
+            let id = i.id;
             // check if item has a defined type //
             if(i.type === 'none'){
                 // item has no type
