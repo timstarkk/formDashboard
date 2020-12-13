@@ -361,7 +361,7 @@ class ItemProvider extends Component {
         for (const i of this.state.layouts.lg) {
             let id = i.id;
             let values =  this.state.values;
-            
+
             // check if item has a defined type //
             if(i.type === 'none'){
                 // item has no type
@@ -431,7 +431,7 @@ class ItemProvider extends Component {
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={}
+                            value={values.id}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
                         /> 
