@@ -907,7 +907,7 @@ class ItemProvider extends Component {
 
                 for (const j of values) {
                     if (j.id === i.id) {
-                        // is the value for textbox desiring change, update value
+                        // this is the value for textbox desiring change, update value
                         j.value = value;
                     };
                 };
@@ -1201,11 +1201,10 @@ class ItemProvider extends Component {
     };
 
     classAdder = (i) => {
-        console.log(i);
+        // console.log(i);
         // console.log(this.state.layouts.lg);
 
         return "helloFromClassAdder"
-
     };
     
     styleAdder = (i) => {
@@ -1226,11 +1225,18 @@ class ItemProvider extends Component {
     };
 
     valueAdder = (i) => {
-        return 'hellofromvalueadder'
+        let itemId = i.i;
+        let values = this.state.values;
+
+        for (const item of values) {
+            if (item.id === itemId) {
+                return item.value;
+            }
+        }
     };
 
     handleChange = (event) => {
-        console.log(event);
+        // console.log(event);
     };
 
     render() {
