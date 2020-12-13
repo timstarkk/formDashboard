@@ -264,6 +264,7 @@ class ItemProvider extends Component {
                             textColor
                             fontSize
                             fontFamily
+                            paddingLeft
                         }
                     }
                 }
@@ -307,7 +308,8 @@ class ItemProvider extends Component {
                 textboxColor: i.textboxColor,
                 textColor: i.textColor,
                 fontSize: i.fontSize,
-                fontFamily: i.fontFamily
+                fontFamily: i.fontFamily,
+                paddingLeft: i.paddingLeft
             });
 
             if (i.type === "text") {
@@ -637,7 +639,8 @@ class ItemProvider extends Component {
                                 textboxColor,
                                 textColor,
                                 fontSize,
-                                fontFamily
+                                fontFamily,
+                                paddingLeft
                             } 
                         } 
                     }
@@ -722,7 +725,8 @@ class ItemProvider extends Component {
             textboxColor: undefined,
             textColor: undefined,
             fontSize: undefined,
-            fontFamily: undefined
+            fontFamily: undefined,
+            paddingLeft: undefined
         };
         types.push('none');
         layout.push(blankItem);
@@ -740,7 +744,8 @@ class ItemProvider extends Component {
             textboxColor: "undefined",
             textColor: "undefined",
             fontSize: "undefined",
-            fontFamily: "undefined"
+            fontFamily: "undefined",
+            paddingLeft: "undefined"
         });
         
         this.setState({
@@ -777,7 +782,8 @@ class ItemProvider extends Component {
                     textboxColor: i.textboxColor,
                     textColor: i.textColor,
                     fontSize: i.fontSize,
-                    fontFamily: i.fontFamily
+                    fontFamily: i.fontFamily,
+                    paddingLeft: i.paddingLeft
                 });
                 return i;
             }
@@ -1228,7 +1234,7 @@ class ItemProvider extends Component {
             styles["width"] = `${i.width}`
             styles["background"] = `${i.textboxColor}`
             styles["color"] = `${i.textColor}`
-            styles["padding-left"] = "15px"
+            styles["padding-left"] = `${i.paddingLeft}`
         }
 
         return styles;
