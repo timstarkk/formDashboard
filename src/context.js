@@ -655,8 +655,7 @@ class ItemProvider extends Component {
     chooseType = (newType) => {
         let gridItemLetter = this.state.selectedGridItem;
         let types = [];
-        let values = this.state.values;
-        
+
         let layout = this.state.layouts.lg.map(i => {
             if (i.i === gridItemLetter) {
                 i.type = newType
@@ -665,6 +664,7 @@ class ItemProvider extends Component {
             types.push(i.type);
             return i;
         });
+
         
         this.setState({
             layouts: {
