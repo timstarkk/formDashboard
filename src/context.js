@@ -1184,7 +1184,20 @@ class ItemProvider extends Component {
     };
     
     styleAdder = (i) => {
-        console.log('hello from styleAdder');
+        const styles = {};
+        
+        if (i.type === "text") {
+            styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
+            styles["border-radius"] = `${i.borderRadius}`
+            styles["font-family"] = `${i.fontFamily}`
+            styles["font-size"] = `${i.fontSize}`
+            styles["height"] = `${i.height}`
+            styles["width"] = `${i.width}`
+            styles["background"] = `${i.textboxColor}`
+            styles["color"] = `${i.textColor}`
+        }
+
+        return styles;
     };
 
     render() {
