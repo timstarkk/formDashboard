@@ -1168,7 +1168,11 @@ class ItemProvider extends Component {
     async callLambda() {
         await API.graphql({ query: nameOfMutation, variables: {someVar: 'foo', otherVar: 'bar'}})
         .then(res => { console.log(res) });
-    }
+    };
+
+    classAdder = () => {
+        return "helloFromClassAdder"
+    };
 
     render() {
         return (
