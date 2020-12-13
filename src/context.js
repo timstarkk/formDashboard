@@ -415,7 +415,7 @@ class ItemProvider extends Component {
                     key={i.i}>
 
                         {i.type === "text" ?
-                        <input type={i.type} className={this.classAdder()} /> 
+                        <input type={i.type} placeholder={i.placeholder} className={this.classAdder(i)} /> 
                         : <input type={i.type} />}
 
                         <a id={`item-settings-button-${i.i}`} 
@@ -1170,8 +1170,12 @@ class ItemProvider extends Component {
         .then(res => { console.log(res) });
     };
 
-    classAdder = () => {
+    classAdder = (i) => {
+        console.log(i);
+        // console.log(this.state.layouts.lg);
+
         return "helloFromClassAdder"
+
     };
 
     render() {
