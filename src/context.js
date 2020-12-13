@@ -418,6 +418,7 @@ class ItemProvider extends Component {
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
+                            value={i.defaultValue}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
                         /> 
@@ -1185,7 +1186,7 @@ class ItemProvider extends Component {
     
     styleAdder = (i) => {
         const styles = {};
-        
+
         if (i.type === "text") {
             styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
             styles["border-radius"] = `${i.borderRadius}`
