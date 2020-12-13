@@ -1201,6 +1201,10 @@ class ItemProvider extends Component {
         return styles;
     };
 
+    handleChange = (event) => {
+        console.log(event);
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
