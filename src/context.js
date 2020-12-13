@@ -414,7 +414,9 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <input type={i.type} />
+                        {i.type === "text" ?
+                        <input type={i.type} classList={}/> 
+                        : <input type={i.type} />}
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
