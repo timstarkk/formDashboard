@@ -434,6 +434,7 @@ class ItemProvider extends Component {
                             value={this.valueAdder(i)}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
+                            onChange={e => this.handleChange(i, e)}
                         /> 
                         : <input type={i.type} />}
 
@@ -572,7 +573,7 @@ class ItemProvider extends Component {
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
         let forms = await that.getForms();
-        console.log(forms);
+        // console.log(forms);
         let updatedForm = {
             id: formId,
             contents: {
@@ -582,7 +583,7 @@ class ItemProvider extends Component {
             }
         };
 
-        console.log(updatedForm);
+        // console.log(updatedForm);
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
         let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
@@ -1235,8 +1236,9 @@ class ItemProvider extends Component {
         }
     };
 
-    handleChange = (event) => {
-        // console.log(event);
+    handleChange = (i, event) => {
+        console.log(i);
+        console.log(event.target.value);
     };
 
     render() {
