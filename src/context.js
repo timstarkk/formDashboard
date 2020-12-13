@@ -415,7 +415,11 @@ class ItemProvider extends Component {
                     key={i.i}>
 
                         {i.type === "text" ?
-                        <input type={i.type} placeholder={i.placeholder} className={this.classAdder(i)} /> 
+                        <input 
+                            type={i.type} 
+                            placeholder={i.placeholder} 
+                            className={this.classAdder(i)} 
+                        /> 
                         : <input type={i.type} />}
 
                         <a id={`item-settings-button-${i.i}`} 
