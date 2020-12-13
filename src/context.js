@@ -431,7 +431,7 @@ class ItemProvider extends Component {
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={'yo'}
+                            value={this.valueAdder()}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
                         /> 
