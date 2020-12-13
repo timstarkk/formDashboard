@@ -43,7 +43,8 @@ class ItemProvider extends Component {
         },
         types: [],
         labels: [],
-        properties: []
+        properties: [],
+        values: []
     };
 
     // async componentDidMount() {
