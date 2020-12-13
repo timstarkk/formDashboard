@@ -1181,6 +1181,11 @@ class ItemProvider extends Component {
         return "helloFromClassAdder"
 
     };
+    
+    styleAdder = (i) => {
+        console.log('hello from styleAdder');
+    };
+
     render() {
         return (
             <ItemContext.Provider value={{
