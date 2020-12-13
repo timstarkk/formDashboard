@@ -284,6 +284,7 @@ class ItemProvider extends Component {
         let types = [];
         let labels = [];
         let properties = [];
+        let values = [];
         for(const i of layout) {
             types.push(i.type);
             labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue});
@@ -300,6 +301,13 @@ class ItemProvider extends Component {
                 fontSize: i.fontSize,
                 fontFamily: i.fontFamily
             });
+
+            if (i.type === "text") {
+                values.push({
+                    id: i.id,
+                    value: i.defaultValue
+                })
+            };
         };
         
         this.setState({
@@ -310,7 +318,8 @@ class ItemProvider extends Component {
             },
             types,
             labels,
-            properties
+            properties,
+            values
         })
     }
 
