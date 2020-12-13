@@ -51,7 +51,8 @@ type Layout {
   textboxColor: String,
   textColor: String,
   fontSize: String,
-  fontFamily: String
+  fontFamily: String,
+  padding-left: String
 }
 
 type Mutation {
