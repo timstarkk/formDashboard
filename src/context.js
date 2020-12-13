@@ -431,7 +431,7 @@ class ItemProvider extends Component {
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={this.valueAdder()}
+                            value={this.valueAdder(i)}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
                         /> 
@@ -1225,7 +1225,7 @@ class ItemProvider extends Component {
         return styles;
     };
 
-    valueAdder = () => {
+    valueAdder = (i) => {
         return 'hellofromvalueadder'
     };
 
