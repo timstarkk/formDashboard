@@ -304,7 +304,7 @@ class ItemProvider extends Component {
 
             if (i.type === "text") {
                 values.push({
-                    id: i.id,
+                    id: i.i,
                     value: i.defaultValue
                 })
             };
@@ -359,8 +359,9 @@ class ItemProvider extends Component {
         const items = [];
 
         for (const i of this.state.layouts.lg) {
-            let id = i.id;
+            let id = i.i;
             let values =  this.state.values;
+            let value = '';
 
             // check if item has a defined type //
             if(i.type === 'none'){
@@ -426,12 +427,11 @@ class ItemProvider extends Component {
                     onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
-
                         {i.type === "text" ?
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={values.id}
+                            value={'yo'}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
                         /> 
