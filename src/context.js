@@ -43,7 +43,8 @@ class ItemProvider extends Component {
         },
         types: [],
         labels: [],
-        properties: []
+        properties: [],
+        values: []
     };
 
     // async componentDidMount() {
@@ -291,6 +292,7 @@ class ItemProvider extends Component {
         let types = [];
         let labels = [];
         let properties = [];
+        let values = [];
         for(const i of layout) {
             types.push(i.type);
             labels.push({isLabel: i.isLabel, labelFor: i.labelFor, textValue: i.textValue});
@@ -307,6 +309,13 @@ class ItemProvider extends Component {
                 fontSize: i.fontSize,
                 fontFamily: i.fontFamily
             });
+
+            if (i.type === "text") {
+                values.push({
+                    id: i.i,
+                    value: i.defaultValue
+                })
+            };
         };
         
         this.setState({
@@ -317,7 +326,8 @@ class ItemProvider extends Component {
             },
             types,
             labels,
-            properties
+            properties,
+            values
         })
     }
 
@@ -357,6 +367,10 @@ class ItemProvider extends Component {
         const items = [];
 
         for (const i of this.state.layouts.lg) {
+            let id = i.i;
+            let values =  this.state.values;
+            let value = '';
+
             // check if item has a defined type //
             if(i.type === 'none'){
                 // item has no type
@@ -421,14 +435,14 @@ class ItemProvider extends Component {
                     onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
-
                         {i.type === "text" ?
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={i.defaultValue}
+                            value={this.valueAdder(i)}
                             style={this.styleAdder(i)}
                             className={this.classAdder(i)} 
+                            onChange={e => this.handleChange(i, e)}
                         /> 
                         : <input type={i.type} />}
 
@@ -567,7 +581,7 @@ class ItemProvider extends Component {
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
         let forms = await that.getForms();
-        console.log(forms);
+        // console.log(forms);
         let updatedForm = {
             id: formId,
             contents: {
@@ -577,7 +591,7 @@ class ItemProvider extends Component {
             }
         };
 
-        console.log(updatedForm);
+        // console.log(updatedForm);
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
         let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
@@ -653,6 +667,7 @@ class ItemProvider extends Component {
     chooseType = (newType) => {
         let gridItemLetter = this.state.selectedGridItem;
         let types = [];
+
         let layout = this.state.layouts.lg.map(i => {
             if (i.i === gridItemLetter) {
                 i.type = newType
@@ -661,6 +676,7 @@ class ItemProvider extends Component {
             types.push(i.type);
             return i;
         });
+
         
         this.setState({
             layouts: {
@@ -890,12 +906,20 @@ class ItemProvider extends Component {
         let layout = this.state.layouts.lg;
         // need selected item.
         let selectedGridItem = this.state.selectedGridItem;
+        let values = this.state.values;
 
         // loop through layouts until i.i === selectedGridItem;
         for (const [index, i] of layout.entries()) {
             if (i.i === selectedGridItem) {
                 i.defaultValue = value;
                 properties[index].defaultValue = value;
+
+                for (const j of values) {
+                    if (j.id === i.id) {
+                        // this is the value for textbox desiring change, update value
+                        j.value = value;
+                    };
+                };
             };
         };
 
@@ -903,7 +927,8 @@ class ItemProvider extends Component {
             layouts: {
                 lg: layout
             },
-            properties
+            properties,
+            values
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
@@ -1189,7 +1214,6 @@ class ItemProvider extends Component {
         // console.log(this.state.layouts.lg);
 
         return "helloFromClassAdder"
-
     };
     
     styleAdder = (i) => {
@@ -1204,13 +1228,38 @@ class ItemProvider extends Component {
             styles["width"] = `${i.width}`
             styles["background"] = `${i.textboxColor}`
             styles["color"] = `${i.textColor}`
+            styles["padding-left"] = "15px"
         }
 
         return styles;
     };
 
-    handleChange = (event) => {
-        console.log(event);
+    valueAdder = (i) => {
+        let itemId = i.i;
+        let values = this.state.values;
+
+        for (const item of values) {
+            if (item.id === itemId) {
+                return item.value;
+            }
+        }
+    };
+
+    handleChange = (i, event) => {
+        let itemId = i.i;
+        let values = this.state.values;
+        let newValue = event.target.value;
+
+        
+        for (const item of values) {
+            if (item.id === itemId) {
+                item.value = newValue;
+            };
+        };
+
+        this.setState({
+            values
+        });
     };
 
     render() {
