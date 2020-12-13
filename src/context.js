@@ -1225,6 +1225,10 @@ class ItemProvider extends Component {
         return styles;
     };
 
+    valueAdder = () => {
+        return 'hellofromvalueadder'
+    };
+
     handleChange = (event) => {
         console.log(event);
     };
