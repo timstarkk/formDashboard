@@ -51,6 +51,7 @@ export default class MyFirstGrid extends Component {
       i.textColor = properties[index].textColor;
       i.fontSize = properties[index].fontSize;
       i.fontFamily = properties[index].fontFamily;
+      i.paddingLeft = properties[index].paddingLeft;
     })
     this.state.updateLayouts(layout);
   }
