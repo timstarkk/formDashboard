@@ -894,6 +894,7 @@ class ItemProvider extends Component {
         let layout = this.state.layouts.lg;
         // need selected item.
         let selectedGridItem = this.state.selectedGridItem;
+        let values = this.state.values;
 
         // loop through layouts until i.i === selectedGridItem;
         for (const [index, i] of layout.entries()) {
