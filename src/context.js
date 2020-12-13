@@ -1237,8 +1237,20 @@ class ItemProvider extends Component {
     };
 
     handleChange = (i, event) => {
-        console.log(i);
-        console.log(event.target.value);
+        let itemId = i.i;
+        let values = this.state.values;
+        let newValue = event.target.value;
+
+        
+        for (const item of values) {
+            if (item.id === itemId) {
+                item.value = newValue;
+            };
+        };
+
+        this.setState({
+            values
+        });
     };
 
     render() {
