@@ -417,7 +417,7 @@ class ItemProvider extends Component {
                         {i.type === "text" ?
                         <input 
                             type={i.type} 
-                            placeholder={i.placeholder} 
+                            placeholder={i.placeholder}
                             className={this.classAdder(i)} 
                         /> 
                         : <input type={i.type} />}
@@ -1181,7 +1181,6 @@ class ItemProvider extends Component {
         return "helloFromClassAdder"
 
     };
-
     render() {
         return (
             <ItemContext.Provider value={{
