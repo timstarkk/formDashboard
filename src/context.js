@@ -1353,7 +1353,8 @@ class ItemProvider extends Component {
                 updateTextBoxFontFamily: this.updateTextBoxFontFamily,
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm,
-                updateTextBoxPaddingLeft: this.updateTextBoxPaddingLeft
+                updateTextBoxPaddingLeft: this.updateTextBoxPaddingLeft,
+                updateTextBoxFontWeight: this.updateTextBoxFontWeight
             }}>
                 {this.props.children}
             </ItemContext.Provider>
