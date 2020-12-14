@@ -264,6 +264,7 @@ class ItemProvider extends Component {
                             fontSize
                             fontFamily
                             paddingLeft
+                            fontWeight
                         }
                     }
                 }
@@ -308,7 +309,8 @@ class ItemProvider extends Component {
                 textColor: i.textColor,
                 fontSize: i.fontSize,
                 fontFamily: i.fontFamily,
-                paddingLeft: i.paddingLeft
+                paddingLeft: i.paddingLeft,
+                fontWeight: i.fontWeight
             });
 
             if (i.type === "text") {
@@ -639,7 +641,8 @@ class ItemProvider extends Component {
                                 textColor,
                                 fontSize,
                                 fontFamily,
-                                paddingLeft
+                                paddingLeft,
+                                fontWeight
                             } 
                         } 
                     }
@@ -725,7 +728,8 @@ class ItemProvider extends Component {
             textColor: undefined,
             fontSize: undefined,
             fontFamily: undefined,
-            paddingLeft: undefined
+            paddingLeft: undefined,
+            fontWeight: undefined
         };
         types.push('none');
         layout.push(blankItem);
@@ -744,7 +748,8 @@ class ItemProvider extends Component {
             textColor: "undefined",
             fontSize: "undefined",
             fontFamily: "undefined",
-            paddingLeft: "undefined"
+            paddingLeft: "undefined",
+            fontWeight: "undefined"
         });
         
         this.setState({
@@ -782,7 +787,8 @@ class ItemProvider extends Component {
                     textColor: i.textColor,
                     fontSize: i.fontSize,
                     fontFamily: i.fontFamily,
-                    paddingLeft: i.paddingLeft
+                    paddingLeft: i.paddingLeft,
+                    fontWeight: i.fontWeight
                 });
                 return i;
             }
@@ -1250,14 +1256,15 @@ class ItemProvider extends Component {
 
         if (i.type === "text") {
             styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
-            styles["border-radius"] = `${i.borderRadius}`
-            styles["font-family"] = `${i.fontFamily}`
-            styles["font-size"] = `${i.fontSize}`
-            styles["height"] = `${i.height}`
-            styles["width"] = `${i.width}`
-            styles["background"] = `${i.textboxColor}`
-            styles["color"] = `${i.textColor}`
-            styles["padding-left"] = `${i.paddingLeft}`
+            styles["border-radius"] = `${i.borderRadius}`;
+            styles["font-family"] = `${i.fontFamily}`;
+            styles["font-size"] = `${i.fontSize}`;
+            styles["height"] = `${i.height}`;
+            styles["width"] = `${i.width}`;
+            styles["background"] = `${i.textboxColor}`;
+            styles["color"] = `${i.textColor}`;
+            styles["padding-left"] = `${i.paddingLeft}`;
+            styles["font-weight"] = `${i.fontWeight}`;
         }
 
         return styles;
