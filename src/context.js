@@ -140,6 +140,10 @@ class ItemProvider extends Component {
 
     async addFormFunction(that) {
         let uuid = uuidv4();
+        let i1 = uuidv4();
+        let i2 = uuidv4();
+        let i3 = uuidv4();
+        let i4 = uuidv4();
         const userId = that.state.currentUser.sub
         let forms = await that.getForms();
         let newForm = {
@@ -148,10 +152,10 @@ class ItemProvider extends Component {
                 columns: 9,
                 rows: 9,
                 layout: [
-                    {i: 'a', x: 0, y: 0, w: 12, h: 4, type: "text", isLabel: false},
-                    {i: 'b', x: 0, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
-                    {i: 'c', x: 6, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
-                    {i: 'd', x: 0, y: 2, w: 12, h: 4, type: "text", isLabel: false}
+                    {i: `${i1}`, x: 0, y: 0, w: 12, h: 4, type: "text", isLabel: false},
+                    {i: `${i2}`, x: 0, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
+                    {i: `${i3}`, x: 6, y: 1, w: 6, h: 4, type: "radio", isLabel: false},
+                    {i: `${i4}`, x: 0, y: 2, w: 12, h: 4, type: "text", isLabel: false}
                 ]
             }
         };
