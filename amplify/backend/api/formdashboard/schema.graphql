@@ -52,7 +52,8 @@ type Layout {
   textColor: String,
   fontSize: String,
   fontFamily: String,
-  paddingLeft: String
+  paddingLeft: String,
+  fontWeight: String
 }
 
 type Mutation {
