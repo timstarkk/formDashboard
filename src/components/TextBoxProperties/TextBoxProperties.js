@@ -19,6 +19,7 @@ export default class TextBoxProperties extends Component {
             fontSize: '',
             fontFamily: '',
             paddingLeft: '',
+            fontWeight: '',
             updateTextBoxPlaceholder: function() {},
             updateTextBoxHeight: function() {},
             updateTextBoxWidth: function() {},
@@ -30,7 +31,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextColor: function() {},
             updateTextBoxFontSize: function() {},
             updateTextBoxFontFamily: function() {},
-            updateTextBoxPaddingLeft: function() {}
+            updateTextBoxPaddingLeft: function() {},
+            updateTextBoxFontWeight: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -50,7 +52,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextColor,
             updateTextBoxFontSize,
             updateTextBoxFontFamily,
-            updateTextBoxPaddingLeft
+            updateTextBoxPaddingLeft,
+            updateTextBoxFontWeight
         } = this.context;
 
         this.setState({
@@ -65,7 +68,8 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextColor,
             updateTextBoxFontSize,
             updateTextBoxFontFamily,
-            updateTextBoxPaddingLeft
+            updateTextBoxPaddingLeft,
+            updateTextBoxFontWeight
         })
     };
 
@@ -96,6 +100,8 @@ export default class TextBoxProperties extends Component {
             this.setState({fontFamily: event.target.value});
         } else if (name === "updatePaddingLeft") {
             this.setState({paddingLeft: event.target.value});
+        } else if (name === "updateFontWeight") {
+            this.setState({fontWeight: event.target.value});
         }
     };
 
@@ -128,6 +134,8 @@ export default class TextBoxProperties extends Component {
             this.state.updateTextBoxFontFamily(this.state.fontFamily);
         } else if (name === "updatePaddingLeft") {
             this.state.updateTextBoxPaddingLeft(this.state.paddingLeft);
+        } else if (name === "updateFontWeight") {
+            this.state.updateTextBoxFontWeight(this.state.fontWeight);
         }
     };
 
@@ -239,6 +247,15 @@ export default class TextBoxProperties extends Component {
                     <label>
                         Padding Left:
                         <input type="text" placeholder="enter padding left: " name="updatePaddingLeft" value={this.state.paddingLeft} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
+                {/* fontWeight */}
+                <form onSubmit={this.handleSubmit} name="updateFontWeight">
+                    <label>
+                        Font Weight:
+                        <input type="text" placeholder="enter font weight: " name="updateFontWeight" value={this.state.fontWeight} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
