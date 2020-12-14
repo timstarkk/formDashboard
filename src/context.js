@@ -34,12 +34,7 @@ class ItemProvider extends Component {
         selectedForm: '',
         selectedGridItem: '',
         layouts: {
-            lg: [
-                {i: 'a', x: 0, y: 0, w: 12, h: 4},
-                {i: 'b', x: 0, y: 1, w: 6, h: 4},
-                {i: 'c', x: 6, y: 1, w: 6, h: 4},
-                {i: 'd', x: 0, y: 2, w: 12, h: 4}
-                ]
+            lg: []
         },
         types: [],
         labels: [],
@@ -1246,6 +1241,8 @@ class ItemProvider extends Component {
     
     styleAdder = (i) => {
         const styles = {};
+        console.log('yoyoyoyoyoyoyoyoyoyoyo');
+        console.log(i);
 
         if (i.type === "text") {
             styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
