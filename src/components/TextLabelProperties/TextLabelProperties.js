@@ -9,8 +9,12 @@ export default class TextLabelProperties extends Component {
         this.state = {
             value: '',
             textColor: '',
+            fontSize: '',
+            fontFamily: '',
             updateTextValue: function() {},
-            updateTextColor: function() {}
+            updateTextColor: function() {},
+            updateTextBoxFontSize: function() {},
+            updateTextBoxFontFamily: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,12 +24,16 @@ export default class TextLabelProperties extends Component {
     componentDidMount() {
         const {
             updateTextValue,
-            updateTextColor
+            updateTextColor,
+            updateTextBoxFontSize,
+            updateTextBoxFontFamily
         } = this.context;
 
         this.setState({
             updateTextValue,
-            updateTextColor
+            updateTextColor,
+            updateTextBoxFontSize,
+            updateTextBoxFontFamily
         })
     };
 
@@ -36,7 +44,11 @@ export default class TextLabelProperties extends Component {
             this.setState({value: event.target.value});
         } else if (name === "updateTextColor") {
             this.setState({textColor: event.target.value})
-        }
+        } else if (name === "updateFontSize") {
+            this.setState({fontSize: event.target.value});
+        } else if (name === "updateFontFamily") {
+            this.setState({fontFamily: event.target.value});
+        } 
     };
 
     handleSubmit(event) {
@@ -48,6 +60,10 @@ export default class TextLabelProperties extends Component {
             this.state.updateTextValue(this.state.value);
         } else if (name === "updateTextColor") {
             this.state.updateTextColor(this.state.textColor);
+        } else if (name === "updateFontSize") {
+            this.state.updateTextBoxFontSize(this.state.fontSize);
+        } else if (name === "updateFontFamily") {
+            this.state.updateTextBoxFontFamily(this.state.fontFamily);
         }
     };
 
@@ -71,6 +87,25 @@ export default class TextLabelProperties extends Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
+
+                {/* fontSize */}
+                <form onSubmit={this.handleSubmit} name="updateFontSize">
+                    <label>
+                        Font Size:
+                        <input type="text" placeholder="enter font size: " name="updateFontSize" value={this.state.fontSize} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
+                {/* fontFamily */}
+                <form onSubmit={this.handleSubmit} name="updateFontFamily">
+                    <label>
+                        Font Family:
+                        <input type="text" placeholder="enter font family: " name="updateFontFamily" value={this.state.fontFamily} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
             </>
         )
     }
