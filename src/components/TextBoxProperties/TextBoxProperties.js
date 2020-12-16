@@ -74,7 +74,7 @@ export default class TextBoxProperties extends Component {
 
     handleChange(event) {
         let name = event.target.name;
-        console.log(name);
+        
         if (name === "updatePlaceholder") {
             this.setState({placeholderValue: event.target.value});
         } else if (name === "updateHeight") {
