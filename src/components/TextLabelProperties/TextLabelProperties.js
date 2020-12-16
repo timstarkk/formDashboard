@@ -36,7 +36,9 @@ export default class TextLabelProperties extends Component {
         event.preventDefault();
         let name = event.target.name;
 
-        this.state.updateTextValue(this.state.value);
+        if (name === "updateValue") {
+            this.state.updateTextValue(this.state.value);
+        }
     };
 
     render() {
