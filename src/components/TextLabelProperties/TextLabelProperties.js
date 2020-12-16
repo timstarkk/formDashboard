@@ -11,10 +11,12 @@ export default class TextLabelProperties extends Component {
             textColor: '',
             fontSize: '',
             fontFamily: '',
+            fontWeight: '',
             updateTextValue: function() {},
             updateTextColor: function() {},
             updateTextBoxFontSize: function() {},
-            updateTextBoxFontFamily: function() {}
+            updateTextBoxFontFamily: function() {},
+            updateTextBoxFontWeight: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,14 +28,16 @@ export default class TextLabelProperties extends Component {
             updateTextValue,
             updateTextColor,
             updateTextBoxFontSize,
-            updateTextBoxFontFamily
+            updateTextBoxFontFamily,
+            updateTextBoxFontWeight
         } = this.context;
 
         this.setState({
             updateTextValue,
             updateTextColor,
             updateTextBoxFontSize,
-            updateTextBoxFontFamily
+            updateTextBoxFontFamily,
+            updateTextBoxFontWeight
         })
     };
 
@@ -48,7 +52,9 @@ export default class TextLabelProperties extends Component {
             this.setState({fontSize: event.target.value});
         } else if (name === "updateFontFamily") {
             this.setState({fontFamily: event.target.value});
-        } 
+        } else if (name === "updateFontWeight") {
+            this.setState({fontWeight: event.target.value});
+        }
     };
 
     handleSubmit(event) {
@@ -64,6 +70,8 @@ export default class TextLabelProperties extends Component {
             this.state.updateTextBoxFontSize(this.state.fontSize);
         } else if (name === "updateFontFamily") {
             this.state.updateTextBoxFontFamily(this.state.fontFamily);
+        } else if (name === "updateFontWeight") {
+            this.state.updateTextBoxFontWeight(this.state.fontWeight);
         }
     };
 
@@ -102,6 +110,15 @@ export default class TextLabelProperties extends Component {
                     <label>
                         Font Family:
                         <input type="text" placeholder="enter font family: " name="updateFontFamily" value={this.state.fontFamily} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
+                {/* fontWeight */}
+                <form onSubmit={this.handleSubmit} name="updateFontWeight">
+                    <label>
+                        Font Weight:
+                        <input type="text" placeholder="enter font weight: " name="updateFontWeight" value={this.state.fontWeight} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
