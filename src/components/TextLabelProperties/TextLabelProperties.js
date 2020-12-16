@@ -39,10 +39,10 @@ export default class TextLabelProperties extends Component {
         return (
             <>
                 {/* value */}
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} name="updateValue">
                     <label>
                         Desired Text:
-                        <input type="text" name="name" placeholder="enter text: " value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" name="updateValue" placeholder="enter text: " value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
