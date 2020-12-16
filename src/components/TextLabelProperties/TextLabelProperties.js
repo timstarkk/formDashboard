@@ -34,7 +34,6 @@ export default class TextLabelProperties extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const {updateTextValue} = this.context;
 
         this.state.updateTextValue(this.state.value);
     };
