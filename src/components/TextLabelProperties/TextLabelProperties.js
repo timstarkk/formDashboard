@@ -5,6 +5,7 @@ import { ItemContext } from '../../context';
 export default class TextLabelProperties extends Component {
     static contextType = ItemContext;
     constructor(props) {
+        super();
         this.state = {
             value: '',
             updateTextValue: function() {}

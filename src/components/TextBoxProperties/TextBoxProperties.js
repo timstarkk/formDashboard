@@ -5,6 +5,7 @@ import { ItemContext } from '../../context';
 export default class TextBoxProperties extends Component {
     static contextType = ItemContext;
     constructor(props) {
+        super();
         this.state = {
             placeholderValue: '',
             heightValue: '',
@@ -107,7 +108,7 @@ export default class TextBoxProperties extends Component {
     handleSubmit(event) {
         event.preventDefault();
         let name = event.target.name;
-        
+
         if (name === "updatePlaceholder") {
             this.state.updateTextBoxPlaceholder(this.state.placeholderValue);
         } else if (name === "updateHeight") {
