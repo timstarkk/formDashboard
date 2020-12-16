@@ -265,6 +265,8 @@ class ItemProvider extends Component {
                             fontFamily
                             paddingLeft
                             fontWeight
+                            italic
+                            letterSpacing
                         }
                     }
                 }
@@ -310,7 +312,9 @@ class ItemProvider extends Component {
                 fontSize: i.fontSize,
                 fontFamily: i.fontFamily,
                 paddingLeft: i.paddingLeft,
-                fontWeight: i.fontWeight
+                fontWeight: i.fontWeight,
+                italic: i.italic,
+                letterSpacing: i.letterSpacing
             });
 
             if (i.type === "text") {
@@ -642,7 +646,9 @@ class ItemProvider extends Component {
                                 fontSize,
                                 fontFamily,
                                 paddingLeft,
-                                fontWeight
+                                fontWeight,
+                                italic,
+                                letterSpacing
                             } 
                         } 
                     }
@@ -729,7 +735,9 @@ class ItemProvider extends Component {
             fontSize: undefined,
             fontFamily: undefined,
             paddingLeft: undefined,
-            fontWeight: undefined
+            fontWeight: undefined,
+            italic: undefined,
+            letterSpacing: undefined
         };
         types.push('none');
         layout.push(blankItem);
@@ -749,7 +757,9 @@ class ItemProvider extends Component {
             fontSize: "undefined",
             fontFamily: "undefined",
             paddingLeft: "undefined",
-            fontWeight: "undefined"
+            fontWeight: "undefined",
+            italic: "undefined",
+            letterSpacing: "undefined"
         });
         
         this.setState({
@@ -788,7 +798,9 @@ class ItemProvider extends Component {
                     fontSize: i.fontSize,
                     fontFamily: i.fontFamily,
                     paddingLeft: i.paddingLeft,
-                    fontWeight: i.fontWeight
+                    fontWeight: i.fontWeight,
+                    italic: i.italic,
+                    letterSpacing: i.letterSpacing
                 });
                 return i;
             }
