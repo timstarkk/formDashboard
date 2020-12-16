@@ -415,7 +415,7 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <p>{textValue ? textValue : 'text'}</p>
+                        <p style={this.styleAdder(i)}>{textValue ? textValue : 'text'}</p>
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
@@ -1285,8 +1285,6 @@ class ItemProvider extends Component {
     
     styleAdder = (i) => {
         const styles = {};
-        console.log('yoyoyoyoyoyoyoyoyoyoyo');
-        console.log(i);
 
         if (i.type === "text") {
             styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
