@@ -10,7 +10,7 @@ export default class TextLabelProperties extends Component {
             value: '',
             textColor: '',
             updateTextValue: function() {},
-            updateTextBoxTextColor: function() {}
+            updateTextColor: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,12 +20,12 @@ export default class TextLabelProperties extends Component {
     componentDidMount() {
         const {
             updateTextValue,
-            updateTextBoxTextColor
+            updateTextColor
         } = this.context;
 
         this.setState({
             updateTextValue,
-            updateTextBoxTextColor
+            updateTextColor
         })
     };
 
@@ -47,7 +47,7 @@ export default class TextLabelProperties extends Component {
         if (name === "updateValue") {
             this.state.updateTextValue(this.state.value);
         } else if (name === "updateTextColor") {
-            this.state.updateTextBoxTextColor(this.state.textColor);
+            this.state.updateTextColor(this.state.textColor);
         }
     };
 
