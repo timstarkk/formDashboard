@@ -8,7 +8,9 @@ export default class TextLabelProperties extends Component {
         super();
         this.state = {
             value: '',
-            updateTextValue: function() {}
+            textColor: '',
+            updateTextValue: function() {},
+            updateTextBoxTextColor: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -17,11 +19,13 @@ export default class TextLabelProperties extends Component {
 
     componentDidMount() {
         const {
-            updateTextValue
+            updateTextValue,
+            updateTextBoxTextColor
         } = this.context;
 
         this.setState({
-            updateTextValue
+            updateTextValue,
+            updateTextBoxTextColor
         })
     };
 
@@ -30,15 +34,20 @@ export default class TextLabelProperties extends Component {
         
         if (name === "updateValue") {
             this.setState({value: event.target.value});
+        } else if (name === "updateTextColor") {
+            this.setState({textColor: event.target.value})
         }
     };
 
     handleSubmit(event) {
         event.preventDefault();
         let name = event.target.name;
+        console.log(this.state.textColor)
 
         if (name === "updateValue") {
             this.state.updateTextValue(this.state.value);
+        } else if (name === "updateTextColor") {
+            this.state.updateTextBoxTextColor(this.state.textColor);
         }
     };
 
@@ -50,6 +59,15 @@ export default class TextLabelProperties extends Component {
                     <label>
                         Desired Text:
                         <input type="text" name="updateValue" placeholder="enter text: " value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+                
+                {/* textColor */}
+                <form onSubmit={this.handleSubmit} name="updateTextColor">
+                    <label>
+                        Text Color:
+                        <input type="text" placeholder="enter text color: " name="updateTextColor" value={this.state.textColor} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
