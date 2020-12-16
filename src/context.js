@@ -1299,9 +1299,9 @@ class ItemProvider extends Component {
             styles["font-weight"] = `${i.fontWeight}`;
         } else if (i.type === "textlabel") {
             styles["color"] = `${i.textColor}`;
-            // styles["font-family"] = `${i.fontFamily}`;
-            // styles["font-size"] = `${i.fontSize}`;
-            // styles["font-weight"] = `${i.fontWeight}`;
+            styles["font-family"] = `${i.fontFamily}`;
+            styles["font-size"] = `${i.fontSize}`;
+            styles["font-weight"] = `${i.fontWeight}`;
         }
 
         return styles;
