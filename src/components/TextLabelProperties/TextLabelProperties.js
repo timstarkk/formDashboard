@@ -15,7 +15,9 @@ export default class TextLabelProperties extends Component {
     }
 
     componentDidMount() {
-        const { updateTextValue } = this.context;
+        const {
+            updateTextValue
+        } = this.context;
 
         this.setState({
             updateTextValue
@@ -36,6 +38,7 @@ export default class TextLabelProperties extends Component {
     render() {
         return (
             <>
+                {/* value */}
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Desired Text:
