@@ -53,7 +53,9 @@ type Layout {
   fontSize: String,
   fontFamily: String,
   paddingLeft: String,
-  fontWeight: String
+  fontWeight: String,
+  italic: Boolean,
+  letterSpacing: String
 }
 
 type Mutation {
