@@ -30,7 +30,7 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextboxColor: function() {},
             updateTextColor: function() {},
             updateFontSize: function() {},
-            updateTextBoxFontFamily: function() {},
+            updateFontFamily: function() {},
             updateTextBoxPaddingLeft: function() {},
             updateTextBoxFontWeight: function() {}
         }
@@ -51,7 +51,7 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextboxColor,
             updateTextColor,
             updateFontSize,
-            updateTextBoxFontFamily,
+            updateFontFamily,
             updateTextBoxPaddingLeft,
             updateTextBoxFontWeight
         } = this.context;
@@ -67,7 +67,7 @@ export default class TextBoxProperties extends Component {
             updateTextBoxTextboxColor,
             updateTextColor,
             updateFontSize,
-            updateTextBoxFontFamily,
+            updateFontFamily,
             updateTextBoxPaddingLeft,
             updateTextBoxFontWeight
         })
@@ -130,7 +130,7 @@ export default class TextBoxProperties extends Component {
         } else if (name === "updateFontSize") {
             this.state.updateFontSize(this.state.fontSize);
         } else if (name === "updateFontFamily") {
-            this.state.updateTextBoxFontFamily(this.state.fontFamily);
+            this.state.updateFontFamily(this.state.fontFamily);
         } else if (name === "updatePaddingLeft") {
             this.state.updateTextBoxPaddingLeft(this.state.paddingLeft);
         } else if (name === "updateFontWeight") {
