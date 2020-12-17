@@ -16,7 +16,7 @@ export default class TextLabelProperties extends Component {
             updateTextColor: function() {},
             updateFontSize: function() {},
             updateFontFamily: function() {},
-            updateTextBoxFontWeight: function() {}
+            updateFontWeight: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -29,7 +29,7 @@ export default class TextLabelProperties extends Component {
             updateTextColor,
             updateFontSize,
             updateFontFamily,
-            updateTextBoxFontWeight
+            updateFontWeight
         } = this.context;
 
         this.setState({
@@ -37,7 +37,7 @@ export default class TextLabelProperties extends Component {
             updateTextColor,
             updateFontSize,
             updateFontFamily,
-            updateTextBoxFontWeight
+            updateFontWeight
         })
     };
 
@@ -71,7 +71,7 @@ export default class TextLabelProperties extends Component {
         } else if (name === "updateFontFamily") {
             this.state.updateFontFamily(this.state.fontFamily);
         } else if (name === "updateFontWeight") {
-            this.state.updateTextBoxFontWeight(this.state.fontWeight);
+            this.state.updateFontWeight(this.state.fontWeight);
         }
     };
 

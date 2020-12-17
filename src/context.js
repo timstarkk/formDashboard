@@ -1131,7 +1131,7 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
-    updateTextBoxFontWeight = (value) => {
+    updateFontWeight = (value) => {
         let properties = this.state.properties;
         let layout = this.state.layouts.lg;
         // need selected item.
@@ -1369,7 +1369,7 @@ class ItemProvider extends Component {
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm,
                 updateTextBoxPaddingLeft: this.updateTextBoxPaddingLeft,
-                updateTextBoxFontWeight: this.updateTextBoxFontWeight
+                updateFontWeight: this.updateFontWeight
             }}>
                 {this.props.children}
             </ItemContext.Provider>
