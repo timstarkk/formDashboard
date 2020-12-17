@@ -1065,7 +1065,7 @@ class ItemProvider extends Component {
         }, () => {console.log('state changed');this.updateLayouts(layout)});
     };
 
-    updateTextBoxFontSize = (value) => {
+    updateFontSize = (value) => {
         let properties = this.state.properties;
         let layout = this.state.layouts.lg;
         // need selected item.
@@ -1364,7 +1364,7 @@ class ItemProvider extends Component {
                 updateTextBoxBorderRadius: this.updateTextBoxBorderRadius,
                 updateTextBoxTextboxColor: this.updateTextBoxTextboxColor,
                 updateTextColor: this.updateTextColor,
-                updateTextBoxFontSize: this.updateTextBoxFontSize,
+                updateFontSize: this.updateFontSize,
                 updateTextBoxFontFamily: this.updateTextBoxFontFamily,
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm,
