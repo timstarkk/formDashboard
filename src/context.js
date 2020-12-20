@@ -1320,6 +1320,9 @@ class ItemProvider extends Component {
             styles["padding-left"] = `${i.paddingLeft}`;
             styles["font-weight"] = `${i.fontWeight}`;
         } else if (i.type === "textlabel") {
+            if (i.italic === true) {
+                styles["font-style"] = `italic`;
+            }
             styles["color"] = `${i.textColor}`;
             styles["font-family"] = `${i.fontFamily}`;
             styles["font-size"] = `${i.fontSize}`;
