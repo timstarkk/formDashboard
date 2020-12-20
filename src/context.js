@@ -1391,7 +1391,8 @@ class ItemProvider extends Component {
                 handleFormSubmit: this.handleFormSubmit,
                 handleDeployForm: this.handleDeployForm,
                 updateTextBoxPaddingLeft: this.updateTextBoxPaddingLeft,
-                updateFontWeight: this.updateFontWeight
+                updateFontWeight: this.updateFontWeight,
+                updateFontItalic: this.updateFontItalic
             }}>
                 {this.props.children}
             </ItemContext.Provider>
