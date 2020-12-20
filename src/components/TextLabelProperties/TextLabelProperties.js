@@ -12,11 +12,13 @@ export default class TextLabelProperties extends Component {
             fontSize: '',
             fontFamily: '',
             fontWeight: '',
+            fontItalic: Boolean,
             updateTextValue: function() {},
             updateTextColor: function() {},
             updateFontSize: function() {},
             updateFontFamily: function() {},
-            updateFontWeight: function() {}
+            updateFontWeight: function() {},
+            updateFontItalic: function() {}
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,27 +26,54 @@ export default class TextLabelProperties extends Component {
     }
 
     componentDidMount() {
+        // grab checked/unchecked from italic inside this grid item's layout
         const {
+            selectedGridItem,
+            layouts,
             updateTextValue,
             updateTextColor,
             updateFontSize,
             updateFontFamily,
-            updateFontWeight
+            updateFontWeight,
+            updateFontItalic
         } = this.context;
 
+        let checked = false;
+        let layout = layouts.lg;
+
+        for (const item of layout) {
+            if (item.i === selectedGridItem) {
+                if (!item.italic || item.italic === undefined) {
+                    // do nothing
+                } else {
+                    checked = item.italic;
+                }
+            }
+        }
+        console.log(checked);
+
         this.setState({
+            fontItalic: checked,
             updateTextValue,
             updateTextColor,
             updateFontSize,
             updateFontFamily,
-            updateFontWeight
+            updateFontWeight,
+            updateFontItalic
         })
     };
 
     handleChange(event) {
         let name = event.target.name;
-        
-        if (name === "updateValue") {
+        let type = event.target.type;
+
+        if (type == 'checkbox') {
+            // is checkbox, update state
+
+            if (name === "updateFontItalic") {
+                this.setState({fontItalic: !this.state.fontItalic}, () => this.state.updateFontItalic(this.state.fontItalic));
+            };
+        } else if (name === "updateValue") {
             this.setState({value: event.target.value});
         } else if (name === "updateTextColor") {
             this.setState({textColor: event.target.value})
@@ -54,13 +83,12 @@ export default class TextLabelProperties extends Component {
             this.setState({fontFamily: event.target.value});
         } else if (name === "updateFontWeight") {
             this.setState({fontWeight: event.target.value});
-        }
+        };
     };
 
     handleSubmit(event) {
         event.preventDefault();
         let name = event.target.name;
-        console.log(this.state.textColor)
 
         if (name === "updateValue") {
             this.state.updateTextValue(this.state.value);
@@ -122,6 +150,12 @@ export default class TextLabelProperties extends Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
+
+                {/* fontItalic */}
+                <label>
+                    Font Italic: 
+                    <input type="checkbox" name="updateFontItalic" checked={this.state.fontItalic} onChange={this.handleChange} />
+                </label>
 
             </>
         )
