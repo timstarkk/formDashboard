@@ -12,7 +12,6 @@
 }
 
 .grid-item {
-    border: 1px solid darkgreen;
     display: flex;
     justify-content: center;
     align-items: center;
