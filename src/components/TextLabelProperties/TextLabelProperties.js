@@ -50,7 +50,6 @@ export default class TextLabelProperties extends Component {
                 }
             }
         }
-        console.log(checked);
 
         this.setState({
             fontItalic: checked,
