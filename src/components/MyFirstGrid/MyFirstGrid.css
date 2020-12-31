@@ -1,6 +1,37 @@
 .grid-item {
+    border: none;
+    z-index: 50;
+}
+
+.grid-item:hover {
     border: 2px solid grey;
 }
+
+.grid-item > span {
+    visibility: hidden;
+}
+
+.grid-item:hover > span {
+    visibility: visible;
+}
+
+.react-grid-item.react-grid-placeholder:hover ~ div {
+    border: 2px solid grey;
+}
+
+.react-grid-item.resizing {
+    border: 2px solid grey;
+}
+
+.react-grid-item.resizing > span {
+    visibility: visible;
+}
+
+/* .react-grid-item.react-draggable-dragging {
+    transition: none;
+    z-index: 3;
+    will-change: transform;
+} */
 
 .item-hover-button {
     height: 30px;
