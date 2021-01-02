@@ -383,9 +383,8 @@ class ItemProvider extends Component {
                 // item has no type
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    ref={`gridItemRef`}
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onMouseUpCapture={() => this.handleGridItemBorders(false)}
+                    onClick={() => this.handleGridItemBorders(false)}
                     onMouseEnter={e => this.handleHover(e, false)} 
                     onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
@@ -414,9 +413,8 @@ class ItemProvider extends Component {
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     onMouseEnter={e => this.handleHover(e, false)} 
-                    ref={`gridItemRef`}
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onMouseUpCapture={() => this.handleGridItemBorders(false)}
+                    onClick={() => this.handleGridItemBorders(false)}
                     onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
@@ -444,9 +442,8 @@ class ItemProvider extends Component {
                 // item has a type
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    ref={`gridItemRef`}
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onMouseUpCapture={() => this.handleGridItemBorders(false)}
+                    onClick={() => this.handleGridItemBorders(false)}
                     className={`grid-item`} 
                     key={i.i}>
                         {i.type === "text" ?
@@ -1368,11 +1365,16 @@ class ItemProvider extends Component {
     };
 
     handleGridItemBorders = (showBorders) => {
+        let gridItems = document.getElementsByClassName('react-grid-item');
         if (showBorders) {
-            console.log('showing borders');
+            for(const i of gridItems) {
+                i.classList.add('show');
+            };
         } else {
-            console.log('removing borders');
-        }
+            for(const i of gridItems) {
+                i.classList.remove('show');
+            };
+        };
     };
 
     render() {
