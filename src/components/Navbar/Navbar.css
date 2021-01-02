@@ -38,7 +38,7 @@
     /* background-color: var(--mainWhite); */
   } 
   .nav-links a {
-    font-family: nunito;
+    font-family: 'Open Sans';
     display: block;
     text-decoration: none;
     padding: 1rem 0;
@@ -46,7 +46,7 @@
     transition: var(--mainTransition);
     text-align: center;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: var(--mainSpacing);
   }
   .nav-links a:hover {
@@ -71,11 +71,11 @@
     align-items: center;
   }
   .logo-text {
-    font-family: nunito;
+    font-family: 'Open Sans';
     color: var(--mainWhite);
     text-decoration: none;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: var(--mainSpacing);
   }
   .logo-text.nav-white {
