@@ -13,7 +13,6 @@
     width: 60vw;
     }
     .banner h1 {
-        font-family: 'Varela Round';
         font-size: 2.5rem;
         line-height: 2.5rem;
         letter-spacing: 0.8rem;
@@ -21,7 +20,7 @@
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         background-clip: text;
-        font-weight: 400;
+        font-weight: 700;
         margin-bottom: 0px;
         margin-bottom: 1.5rem;
     }
