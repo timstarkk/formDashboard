@@ -8,11 +8,11 @@ import Title from '../Title/Title';
 export default class Featured extends Component {
     static contextType = ItemContext;
     render() {
-        let { loading, featuredItems: items } = this.context;
+        // let { loading, featuredItems: items } = this.context;
 
-        items = items.map(item => {
-            return <Item key={item.id} item={item} />
-        });
+        // items = items.map(item => {
+        //     return <Item key={item.id} item={item} />
+        // });
 
         return (
             <div className="featured-section">
@@ -20,7 +20,7 @@ export default class Featured extends Component {
                     <section className="featured-container">
                         <Title title="featured selection" />
                         <div className="featured-items-center">
-                            {loading ? <Loading /> : items}
+                            {/* {loading ? <Loading /> : items} */}
                         </div>
                     </section>
                 </div>
