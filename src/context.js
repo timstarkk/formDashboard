@@ -39,7 +39,8 @@ class ItemProvider extends Component {
         types: [],
         labels: [],
         properties: [],
-        values: []
+        values: [],
+        movingGridItem: false
     };
 
     // async componentDidMount() {
