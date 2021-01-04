@@ -472,7 +472,6 @@ class ItemProvider extends Component {
                 let itemId = i.i;
                 let values = this.state.values;
                 let thisValue = '';
-                console.log(this.state.values);
                 for (const item of values) {
                     if (item.id === itemId) {
                         thisValue = item.value;
@@ -555,6 +554,16 @@ class ItemProvider extends Component {
                 )
             } else if (i.type === 'textlabel') {
                 let textValue = i.textValue;
+                let styles = {};
+
+                if (i.italic === true) {
+                    styles["font-style"] = `italic`;
+                }
+                styles["color"] = `${i.textColor}`;
+                styles["font-family"] = `${i.fontFamily}`;
+                styles["font-size"] = `${i.fontSize}`;
+                styles["font-weight"] = `${i.fontWeight}`;
+
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     // onMouseEnter={e => this.handleHover(e, false)} 
@@ -562,7 +571,7 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <p>{textValue ? textValue : 'text'}</p>
+                        <p style={styles}>{textValue ? textValue : 'text'}</p>
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
@@ -583,6 +592,32 @@ class ItemProvider extends Component {
                 )
             } else {
                 // item has a type
+
+                // get styles
+                let styles = {};
+                if (i.type === "text") {
+                    styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
+                    styles["border-radius"] = `${i.borderRadius}`;
+                    styles["font-family"] = `${i.fontFamily}`;
+                    styles["font-size"] = `${i.fontSize}`;
+                    styles["height"] = `${i.height}`;
+                    styles["width"] = `${i.width}`;
+                    styles["background"] = `${i.textboxColor}`;
+                    styles["color"] = `${i.textColor}`;
+                    styles["padding-left"] = `${i.paddingLeft}`;
+                    styles["font-weight"] = `${i.fontWeight}`;
+                }
+
+                // get value
+                let itemId = i.i;
+                let values = this.state.values;
+                let thisValue = '';
+                for (const item of values) {
+                    if (item.id === itemId) {
+                        thisValue = item.value;
+                    }
+                }
+
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     // onMouseEnter={e => this.handleHover(e, false)} 
@@ -590,7 +625,16 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <input type={i.type} />
+                        {i.type === "text" ?
+                        <input 
+                            type={i.type} 
+                            placeholder={i.placeholder}
+                            value={thisValue}
+                            style={styles}
+                            className={this.classAdder(i)} 
+                            onChange={e => this.handleChange(i, e)}
+                        /> 
+                        : <input type={i.type} />}
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
