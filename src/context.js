@@ -378,6 +378,7 @@ class ItemProvider extends Component {
             let id = i.i;
             let values =  this.state.values;
             let value = '';
+            console.log(i);
 
             // check if item has a defined type //
             if(i.type === 'none'){
@@ -411,6 +412,16 @@ class ItemProvider extends Component {
                 )
             } else if (i.type === 'textlabel') {
                 let textValue = i.textValue;
+                let styles = {};
+
+                if (i.italic === true) {
+                    styles["font-style"] = `italic`;
+                }
+                styles["color"] = `${i.textColor}`;
+                styles["font-family"] = `${i.fontFamily}`;
+                styles["font-size"] = `${i.fontSize}`;
+                styles["font-weight"] = `${i.fontWeight}`;
+
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     onMouseEnter={e => this.handleHover(e, false)} 
@@ -420,7 +431,7 @@ class ItemProvider extends Component {
                     className={`grid-item`} 
                     key={i.i}>
 
-                        <p style={this.styleAdder(i)}>{textValue ? textValue : 'text'}</p>
+                        <p style={styles}>{textValue ? textValue : 'text'}</p>
 
                         <a id={`item-settings-button-${i.i}`} 
                         className={`item-hover-button item-settings-button`} 
@@ -441,6 +452,22 @@ class ItemProvider extends Component {
                 )
             } else {
                 // item has a type
+
+                let styles = {};
+
+                if (i.type === "text") {
+                    styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
+                    styles["border-radius"] = `${i.borderRadius}`;
+                    styles["font-family"] = `${i.fontFamily}`;
+                    styles["font-size"] = `${i.fontSize}`;
+                    styles["height"] = `${i.height}`;
+                    styles["width"] = `${i.width}`;
+                    styles["background"] = `${i.textboxColor}`;
+                    styles["color"] = `${i.textColor}`;
+                    styles["padding-left"] = `${i.paddingLeft}`;
+                    styles["font-weight"] = `${i.fontWeight}`;
+                }
+
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
@@ -452,7 +479,7 @@ class ItemProvider extends Component {
                             type={i.type} 
                             placeholder={i.placeholder}
                             value={this.valueAdder(i)}
-                            style={this.styleAdder(i)}
+                            style={styles}
                             className={this.classAdder(i)} 
                             onChange={e => this.handleChange(i, e)}
                         /> 
@@ -1308,33 +1335,6 @@ class ItemProvider extends Component {
         // console.log(this.state.layouts.lg);
 
         return "helloFromClassAdder"
-    };
-    
-    styleAdder = (i) => {
-        const styles = {};
-
-        if (i.type === "text") {
-            styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
-            styles["border-radius"] = `${i.borderRadius}`;
-            styles["font-family"] = `${i.fontFamily}`;
-            styles["font-size"] = `${i.fontSize}`;
-            styles["height"] = `${i.height}`;
-            styles["width"] = `${i.width}`;
-            styles["background"] = `${i.textboxColor}`;
-            styles["color"] = `${i.textColor}`;
-            styles["padding-left"] = `${i.paddingLeft}`;
-            styles["font-weight"] = `${i.fontWeight}`;
-        } else if (i.type === "textlabel") {
-            if (i.italic === true) {
-                styles["font-style"] = `italic`;
-            }
-            styles["color"] = `${i.textColor}`;
-            styles["font-family"] = `${i.fontFamily}`;
-            styles["font-size"] = `${i.fontSize}`;
-            styles["font-weight"] = `${i.fontWeight}`;
-        }
-
-        return styles;
     };
 
     valueAdder = (i) => {
