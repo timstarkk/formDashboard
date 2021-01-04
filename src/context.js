@@ -1364,6 +1364,21 @@ class ItemProvider extends Component {
                                 isLabel
                                 labelFor
                                 textValue
+                                placeholder
+                                height
+                                width
+                                defaultValue
+                                borderWidth
+                                borderColor
+                                borderRadius
+                                textboxColor
+                                textColor
+                                fontSize
+                                fontFamily
+                                paddingLeft
+                                fontWeight
+                                italic
+                                letterSpacing
                             }
                         }
                     }
