@@ -1372,6 +1372,9 @@ class ItemProvider extends Component {
         `
 
         let form = await API.graphql(graphqlOperation(getForm)).then(res => {console.log('yes its in here');return res.data.getForms.form}).catch(error => console.log(error.message));
+
+        await this.handleSelectForm(form[0]);
+
         this.setState({
             forms: form,
             layouts: {
