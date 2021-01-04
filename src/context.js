@@ -453,8 +453,8 @@ class ItemProvider extends Component {
             } else {
                 // item has a type
 
+                // get styles
                 let styles = {};
-
                 if (i.type === "text") {
                     styles["border"] = `${i.borderWidth} solid ${i.borderColor}`;
                     styles["border-radius"] = `${i.borderRadius}`;
@@ -468,6 +468,17 @@ class ItemProvider extends Component {
                     styles["font-weight"] = `${i.fontWeight}`;
                 }
 
+                // get value
+                let itemId = i.i;
+                let values = this.state.values;
+                let thisValue = '';
+                console.log(this.state.values);
+                for (const item of values) {
+                    if (item.id === itemId) {
+                        thisValue = item.value;
+                    }
+                }
+
                 items.push(
                     <div id={`grid-item-${i.i}`} 
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
@@ -478,7 +489,7 @@ class ItemProvider extends Component {
                         <input 
                             type={i.type} 
                             placeholder={i.placeholder}
-                            value={this.valueAdder(i)}
+                            value={thisValue}
                             style={styles}
                             className={this.classAdder(i)} 
                             onChange={e => this.handleChange(i, e)}
@@ -1335,17 +1346,6 @@ class ItemProvider extends Component {
         // console.log(this.state.layouts.lg);
 
         return "helloFromClassAdder"
-    };
-
-    valueAdder = (i) => {
-        let itemId = i.i;
-        let values = this.state.values;
-
-        for (const item of values) {
-            if (item.id === itemId) {
-                return item.value;
-            }
-        }
     };
 
     handleChange = (i, event) => {
