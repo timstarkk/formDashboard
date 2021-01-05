@@ -378,7 +378,6 @@ class ItemProvider extends Component {
             let id = i.i;
             let values =  this.state.values;
             let value = '';
-            console.log(i);
 
             // check if item has a defined type //
             if(i.type === 'none'){
