@@ -3,15 +3,15 @@
     z-index: 50;
 }
 
-.grid-item:hover {
+.dashboard-grid-item:hover {
     border: 2px solid grey;
 }
 
-.grid-item > span {
+.dashboard-grid-item > span {
     visibility: hidden;
 }
 
-.grid-item:hover > span {
+.dashboard-grid-item:hover > span {
     visibility: visible;
 }
 
@@ -27,7 +27,7 @@
     visibility: visible;
 }
 
-.grid-item.show {
+.dashboard-grid-item.show {
     border: 2px solid grey;
 }
 
