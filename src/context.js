@@ -340,6 +340,7 @@ class ItemProvider extends Component {
     }
 
     handleHover = (e, left) => {
+        let target = e.target;
         if (left) {
             let hoverButtons = document.getElementsByClassName('item-hover-button');
             for (const i of hoverButtons) {
