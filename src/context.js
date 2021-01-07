@@ -339,46 +339,6 @@ class ItemProvider extends Component {
         })
     }
 
-    handleHover = (e, left) => {
-        let target = e.target;
-
-        if (!target.classList.contains('grid-item') ||
-            target.classList.contains('react-draggable-dragging') ||
-            target.classList.contains('show')) {
-            // do nothing
-        } else {
-            if (left) {
-                let hoverButtons = document.getElementsByClassName('item-hover-button');
-                for (const i of hoverButtons) {
-                    if(i.classList.contains('show')) {
-                        i.classList.remove('show');
-                    }
-                }
-            } else {
-                if (e.target !== null) {
-                    // check if e.target is the settingsButton already.
-                    if (e.target.classList.contains('item-hover-button')){
-                        // the target is already an <a>
-                        if (!e.target.classList.contains('show')){
-                            e.target.classList.add('show');
-                        } else {
-                            e.target.classList.remove('show');
-                        }
-                    } else if (e.target.classList.contains('grid-item')) {
-                        let hoverButtons = e.target.querySelectorAll('a');
-                        for (const i of hoverButtons) {
-                            if (!i.classList.contains('show')) {
-                                i.classList.add('show');
-                            } else {
-                                i.classList.remove('show');
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     displayForm = () => {
         const items = [];
 
@@ -394,8 +354,6 @@ class ItemProvider extends Component {
                     <div id={`grid-item-${i.i}`} 
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
                     onClick={() => this.handleGridItemBorders(false)}
-                    onMouseEnter={e => this.handleHover(e, false)} 
-                    onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item dashboard-grid-item`} 
                     key={i.i}>
 
@@ -431,10 +389,8 @@ class ItemProvider extends Component {
 
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    onMouseEnter={e => this.handleHover(e, false)} 
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
                     onClick={() => this.handleGridItemBorders(false)}
-                    onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item dashboard-grid-item`} 
                     key={i.i}>
 
@@ -489,8 +445,6 @@ class ItemProvider extends Component {
                     <div id={`grid-item-${i.i}`} 
                     onMouseDownCapture={() => this.handleGridItemBorders(true)}
                     onClick={() => this.handleGridItemBorders(false)}
-                    onMouseEnter={e => this.handleHover(e, false)} 
-                    onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item dashboard-grid-item`} 
                     key={i.i}>
                         {i.type === "text" ?
