@@ -341,30 +341,37 @@ class ItemProvider extends Component {
 
     handleHover = (e, left) => {
         let target = e.target;
-        if (left) {
-            let hoverButtons = document.getElementsByClassName('item-hover-button');
-            for (const i of hoverButtons) {
-                if(i.classList.contains('show')) {
-                    i.classList.remove('show');
-                }
-            }
+
+        if (!target.classList.contains('grid-item') ||
+            target.classList.contains('react-draggable-dragging') ||
+            target.classList.contains('show')) {
+            // do nothing
         } else {
-            if (e.target !== null) {
-                // check if e.target is the settingsButton already.
-                if (e.target.classList.contains('item-hover-button')){
-                    // the target is already an <a>
-                    if (!e.target.classList.contains('show')){
-                        e.target.classList.add('show');
-                    } else {
-                        e.target.classList.remove('show');
+            if (left) {
+                let hoverButtons = document.getElementsByClassName('item-hover-button');
+                for (const i of hoverButtons) {
+                    if(i.classList.contains('show')) {
+                        i.classList.remove('show');
                     }
-                } else if (e.target.classList.contains('grid-item')) {
-                    let hoverButtons = e.target.querySelectorAll('a');
-                    for (const i of hoverButtons) {
-                        if (!i.classList.contains('show')) {
-                            i.classList.add('show');
+                }
+            } else {
+                if (e.target !== null) {
+                    // check if e.target is the settingsButton already.
+                    if (e.target.classList.contains('item-hover-button')){
+                        // the target is already an <a>
+                        if (!e.target.classList.contains('show')){
+                            e.target.classList.add('show');
                         } else {
-                            i.classList.remove('show');
+                            e.target.classList.remove('show');
+                        }
+                    } else if (e.target.classList.contains('grid-item')) {
+                        let hoverButtons = e.target.querySelectorAll('a');
+                        for (const i of hoverButtons) {
+                            if (!i.classList.contains('show')) {
+                                i.classList.add('show');
+                            } else {
+                                i.classList.remove('show');
+                            }
                         }
                     }
                 }
