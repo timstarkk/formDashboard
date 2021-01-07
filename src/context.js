@@ -1391,22 +1391,9 @@ class ItemProvider extends Component {
     };
 
     handleGridItemBorders = (showBorders) => {
-        let gridItems = document.getElementsByClassName('react-grid-item');
-        if (showBorders) {
-            for(const i of gridItems) {
-                i.classList.add('show');
-                this.setState({
-                    movingGridItem: true
-                });
-            };
-        } else {
-            for(const i of gridItems) {
-                i.classList.remove('show');
-                this.setState({
-                    movingGridItem: false
-                });
-            };
-        };
+        this.setState({
+            movingGridItem: showBorders
+        });
     };
 
     render() {
