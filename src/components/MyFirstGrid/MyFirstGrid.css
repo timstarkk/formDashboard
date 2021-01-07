@@ -33,11 +33,13 @@
 
 .dashboard-grid-item.show {
     border: 2px solid grey;
+    pointer-events: none;
 }
 
 .grid-item.react-draggable-dragging {
     z-index: 100;
     border: 2px solid grey;
+    pointer-events: none;
 }
 
 .item-hover-button {
