@@ -7,6 +7,10 @@
     border: 2px solid grey;
 }
 
+.dashboard-grid-item:hover > .item-hover-button{
+    visibility: visible;
+}
+
 .dashboard-grid-item > span {
     visibility: hidden;
 }
@@ -51,10 +55,6 @@
 
 .item-hover-button:hover {
     cursor: pointer;
-}
-
-.item-hover-button.show {
-    visibility: visible;
 }
 
 .grid-item-contents-container {
