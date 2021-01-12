@@ -492,8 +492,6 @@ class ItemProvider extends Component {
                 // item has no type
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    // onMouseEnter={e => this.handleHover(e, false)} 
-                    // onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
 
@@ -529,8 +527,6 @@ class ItemProvider extends Component {
 
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    // onMouseEnter={e => this.handleHover(e, false)} 
-                    // onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
 
@@ -583,8 +579,6 @@ class ItemProvider extends Component {
 
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    // onMouseEnter={e => this.handleHover(e, false)} 
-                    // onMouseLeave={e => this.handleHover(e, true)} 
                     className={`grid-item`} 
                     key={i.i}>
 
