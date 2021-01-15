@@ -11,23 +11,25 @@ export default class MyFirstGrid extends Component {
     super();
     this.state = { 
       updateLayouts: function () {},
-      layouts: {}
+      layouts: {},
+      movingGridItem: false
     };
 
     this.onLayoutChange = this.onLayoutChange.bind(this);
+    this.handleBorders = this.handleBorders.bind(this);
   }
 
   componentDidMount() {
     const { updateLayouts, layouts } = this.context;
-
+    console.log('didmountdidmount')
     this.setState({
       updateLayouts,
       layouts
     });
   }
 
-  onLayoutChange(layout, layouts) {
-    const { types, labels, properties } = this.context;
+  onLayoutChange = async (layout, layouts) => {
+    const { types, labels, properties, handleGridItemBorders } = this.context;
     layout.map((i, index) => {
       i.isResizable = true;
       i.isDraggable = true;
@@ -54,22 +56,32 @@ export default class MyFirstGrid extends Component {
       i.paddingLeft = properties[index].paddingLeft;
       i.italic = properties[index].italic;
     })
+
     this.state.updateLayouts(layout);
   }
 
+  handleBorders = (show) => {
+    this.setState({
+      movingGridItem: show
+    });
+  };
+
   render() {
-    const { layouts, displayForm } = this.context;
+    const { layouts, displayForm, movingGridItem, handleGridItemBorders } = this.context;
+
     return (
       <>
         <ResponsiveReactGridLayout 
         className="layout" 
         layouts={layouts}
         onLayoutChange={this.onLayoutChange}
+        onDrag={() => this.handleBorders(true)}
+        onDragStop={() => this.handleBorders(false)}
         breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
         cols={{lg: 12, md: 12, sm: 12, xs: 12, xxs: 12}}
         rowHeight={30}>
           {/* have these grid items populate based on database object.*/}
-          {displayForm()}
+          {displayForm(this.state.movingGridItem)}
         </ResponsiveReactGridLayout>
       </>
     );

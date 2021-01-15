@@ -31,9 +31,13 @@
     visibility: visible;
 }
 
-.dashboard-grid-item.show {
+.dashboard-grid-item.showBorders {
     border: 2px solid grey;
     pointer-events: none;
+}
+
+.dashboard-grid-item.hideBorders {
+    pointer-events: all;
 }
 
 .grid-item.react-draggable-dragging {
