@@ -1319,8 +1319,6 @@ class ItemProvider extends Component {
     };
 
     handleDeployForm = async (formId) => {
-        console.log('hello from handleDeployForm')
-
         const getForm = `
             query {
                 getForms(id: "${formId}") {
