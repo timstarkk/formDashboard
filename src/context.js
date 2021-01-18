@@ -813,7 +813,7 @@ class ItemProvider extends Component {
         };
         types.push('none');
         layout.push(blankItem);
-        console.log(layout);
+        
         labels.push({isLabel: false, labelFor: undefined, textValue: undefined});
         // set default properties
         properties.push({
