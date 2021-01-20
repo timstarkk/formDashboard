@@ -849,8 +849,6 @@ class ItemProvider extends Component {
         let properties = [];
 
         let layout = this.state.layouts.lg.filter((i, index) => {
-            console.log(i);
-            console.log(index);
             if (i.i === gridItem) {
                 // do nothing
                 console.log('do nothing, found it');
