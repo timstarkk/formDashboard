@@ -56,9 +56,10 @@ export default class Dashboard extends Component {
 
     handleGlobalProperties() {
         let that = this;
+        const { toggleToolbox } = this.context;
 
         // this.handleAddFormAsync(that);
-        console.log('hello from global properties')
+        toggleToolbox();
     }
 
     async handleAddFormAsync(that) {
