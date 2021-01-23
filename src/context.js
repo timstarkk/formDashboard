@@ -219,17 +219,9 @@ class ItemProvider extends Component {
     };
 
     async getFormsAsync(that) {
-        // return [{id: '1', content: 'forms'}];
         const userId = that.state.currentUser.sub;
         let success = false;
         let forms = [];
-        // console.log('one')
-        // if movingGridItem, handle mouse up
-        // if (this.state.movingGridItem) {
-        //     await this.setState({
-        //         movingGridItem: false
-        //     }, () => console.log('setstate updated moving grid item in getforms'));
-        // };
 
         const getForms = `
         query {
@@ -649,13 +641,8 @@ class ItemProvider extends Component {
 
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
-        console.log('updatinglayouts');
-        // let forms = await that.getForms();
-        // console.log(forms);
-        // console.log(this.state.forms);
-        // console.log(forms);
+
         let forms = this.state.forms;
-        console.log(forms);
 
         let updatedForm = {
             id: formId,
@@ -665,8 +652,6 @@ class ItemProvider extends Component {
                 layout: layout
             }
         };
-
-        // console.log(updatedForm);
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
         let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
@@ -679,13 +664,8 @@ class ItemProvider extends Component {
             }
         })
 
-        console.log(updatedForms);
-        console.log('hello')
-
         let stringifiedItems = JSON.stringify(updatedForms);
         let unquotedItems = stringifiedItems.replace(/"([^"]+)":/g, '$1:');
-
-        console.log(unquotedItems);
 
         const updateLayout = `
             mutation {
