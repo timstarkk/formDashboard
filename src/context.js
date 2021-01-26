@@ -120,11 +120,14 @@ class ItemProvider extends Component {
     };
 
     toggleToolbox = (selectedGridItem) => {
-        let settingsButtons = document.getElementsByClassName('item-settings-button');
 
-        for (const i of settingsButtons) {
-            if(i.classList.contains('show')) {
-                i.classList.remove('show');
+        if (selectedGridItem !== 'global') {
+            let settingsButtons = document.getElementsByClassName('item-settings-button');
+    
+            for (const i of settingsButtons) {
+                if(i.classList.contains('show')) {
+                    i.classList.remove('show');
+                }
             }
         }
 
@@ -872,10 +875,14 @@ class ItemProvider extends Component {
         let selectedGridItem = this.state.selectedGridItem;
         let selectedType = '';
 
-        // grab selected item type
-        for (const i of this.state.layouts.lg) {
-            if (i.i === selectedGridItem) {
-                selectedType = i.type;
+        if (selectedGridItem === 'global') {
+            selectedType = selectedGridItem;
+        } else {
+            // grab selected item type
+            for (const i of this.state.layouts.lg) {
+                if (i.i === selectedGridItem) {
+                    selectedType = i.type;
+                }
             }
         }
 
