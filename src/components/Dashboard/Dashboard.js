@@ -59,7 +59,7 @@ export default class Dashboard extends Component {
         const { toggleToolbox } = this.context;
 
         // this.handleAddFormAsync(that);
-        toggleToolbox();
+        toggleToolbox('global');
     }
 
     async handleAddFormAsync(that) {
