@@ -29,7 +29,12 @@ export default class Toolbox extends Component {
     handleRenderToolbox = () => {
         let selectedType = this.state.renderToolbox();
 
-        if (selectedType === 'none') {
+        if (selectedType === 'global') {
+            // render global toolbox
+            return (
+                <p> hello from global properties </p>
+            )
+        } else if (selectedType === 'none') {
             return (
                 <>
                     <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('text')}>Textbox</div>
