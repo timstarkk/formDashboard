@@ -5,6 +5,7 @@ import { IoIosArrowRoundForward as Arrow } from "react-icons/io";
 import './Toolbox.css';
 import CartList from '../CartList/CartList';
 import Properties from '../Properties/Properties';
+import Switch from "react-switch";
 
 export default class Toolbox extends Component {
     static contextType = ItemContext;
@@ -12,6 +13,7 @@ export default class Toolbox extends Component {
         super();
 
         this.state = {
+            openSwitch: false,
             renderToolbox: function() {},
             chooseType: function() {}
         }
@@ -29,7 +31,25 @@ export default class Toolbox extends Component {
     handleRenderToolbox = () => {
         let selectedType = this.state.renderToolbox();
 
-        if (selectedType === 'none') {
+        if (selectedType === 'global') {
+            // render global properties toolbox
+            return (
+                <>
+                    <div>
+                        <div>
+                            <Switch 
+                                onChange={() => this.handleSwitch(this.state.openSwitch)} 
+                                checked={this.state.openSwitch} 
+                                height={18}
+                                width={38}
+                                uncheckedIcon={false}
+                                checkedIcon={false}
+                            /> 
+                        </div>
+                    </div>
+                </>
+            )
+        } else if (selectedType === 'none') {
             return (
                 <>
                     <div className="btn btn-secondary element-btn" onClick={() => this.state.chooseType('text')}>Textbox</div>
@@ -44,6 +64,13 @@ export default class Toolbox extends Component {
         } else {
             return <p></p>;
         }
+    };
+
+    handleSwitch = (openSwitch) => {
+        console.log('hello from global form switch');
+        // run some function
+        
+        this.setState({ openSwitch: !openSwitch });
     };
 
     render() {

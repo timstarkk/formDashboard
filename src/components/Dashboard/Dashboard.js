@@ -54,14 +54,22 @@ export default class Dashboard extends Component {
         this.handleAddFormAsync(that);
     }
 
+    handleGlobalProperties() {
+        let that = this;
+        const { toggleToolbox } = this.context;
+
+        // this.handleAddFormAsync(that);
+        toggleToolbox('global');
+    }
+
     async handleAddFormAsync(that) {
-        const { addFormButton } =   that.context;
+        const { addFormButton, forms } =   that.context;
         await addFormButton(); 
-        await that.formGetter(that);
-        let forms = that.state.forms;
+        // await that.formGetter(that);
+        // let forms = that.state.forms;
         that.setState({
             forms
-        }, () => that.forceUpdate())
+        }, () => {console.log('forcing update');that.forceUpdate()})
     };
 
     async formGetter(that) {
@@ -85,7 +93,9 @@ export default class Dashboard extends Component {
         let { addGridItem } = this.context;
 
         forms = this.context.forms;
-    
+        
+
+        console.log('dashboard renderrrrrr')
         return (
             <>
             {this.state.isLoggedIn
@@ -118,6 +128,9 @@ export default class Dashboard extends Component {
                             </div>
                             <div className='btn btn-primary plus-button' onClick={addGridItem}>
                                 <p>g</p>
+                            </div>
+                            <div className='btn btn-primary plus-button' onClick={() => {this.handleGlobalProperties()}}>
+                                <p>f</p>
                             </div>
                         </div>
                         <FullForm />

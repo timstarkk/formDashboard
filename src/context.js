@@ -120,11 +120,14 @@ class ItemProvider extends Component {
     };
 
     toggleToolbox = (selectedGridItem) => {
-        let settingsButtons = document.getElementsByClassName('item-settings-button');
 
-        for (const i of settingsButtons) {
-            if(i.classList.contains('show')) {
-                i.classList.remove('show');
+        if (selectedGridItem !== 'global') {
+            let settingsButtons = document.getElementsByClassName('item-settings-button');
+    
+            for (const i of settingsButtons) {
+                if(i.classList.contains('show')) {
+                    i.classList.remove('show');
+                }
             }
         }
 
@@ -146,7 +149,7 @@ class ItemProvider extends Component {
         let i3 = uuidv4();
         let i4 = uuidv4();
         const userId = that.state.currentUser.sub
-        let forms = await that.getForms();
+        let forms = that.state.forms;
         let newForm = {
             id: uuid,
             contents: {
@@ -207,8 +210,7 @@ class ItemProvider extends Component {
         `
 
         API.graphql(graphqlOperation(addForm)).then(async res => {
-            console.log('form add successful!'); await this.getForms()
-            .then(async res => API.graphql(graphqlOperation(addFormForm)).then(res => console.log('formform add successful!')).catch(err => console.log(err)))   
+            console.log('form add successful!'); API.graphql(graphqlOperation(addFormForm)).then(res => console.log('formform add successful!')).catch(err => console.log(err)) 
         }).catch(err => console.log(err));
         // add to forms
     };
@@ -220,7 +222,6 @@ class ItemProvider extends Component {
     };
 
     async getFormsAsync(that) {
-        // return [{id: '1', content: 'forms'}];
         const userId = that.state.currentUser.sub;
         let success = false;
         let forms = [];
@@ -339,7 +340,7 @@ class ItemProvider extends Component {
         })
     }
 
-    displayForm = () => {
+    displayForm = (showBorders) => {
         const items = [];
 
         for (const i of this.state.layouts.lg) {
@@ -352,9 +353,13 @@ class ItemProvider extends Component {
                 // item has no type
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onClick={() => this.handleGridItemBorders(false)}
-                    className={`grid-item dashboard-grid-item`} 
+                    // onMouseDownCapture={() => {
+                    //     if (!showBorders) {
+                    //         this.handleGridItemBorders(true)
+                    //     }
+                    // }}  
+                    // onMouseUp={() => this.handleGridItemBorders(false)}
+                    className={`grid-item dashboard-grid-item ` + (showBorders ? 'showBorders' : 'hideBorders')} 
                     key={i.i}>
 
                         <a id={`item-settings-button-${i.i}`} 
@@ -389,9 +394,13 @@ class ItemProvider extends Component {
 
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onClick={() => this.handleGridItemBorders(false)}
-                    className={`grid-item dashboard-grid-item`} 
+                    // onMouseDownCapture={() => {
+                    //     if (!showBorders) {
+                    //         this.handleGridItemBorders(true)
+                    //     }
+                    // }}
+                    // onMouseUp={() => this.handleGridItemBorders(false)}
+                    className={`grid-item dashboard-grid-item ` + (showBorders ? 'showBorders' : 'hideBorders')} 
                     key={i.i}>
 
                         <p style={styles}>{textValue ? textValue : 'text'}</p>
@@ -443,9 +452,13 @@ class ItemProvider extends Component {
 
                 items.push(
                     <div id={`grid-item-${i.i}`} 
-                    onMouseDownCapture={() => this.handleGridItemBorders(true)}
-                    onClick={() => this.handleGridItemBorders(false)}
-                    className={`grid-item dashboard-grid-item`} 
+                    // onMouseDownCapture={() => {
+                    //     if (!showBorders) {
+                    //         this.handleGridItemBorders(true)
+                    //     }
+                    // }}
+                    // onMouseUp={() => this.handleGridItemBorders(false)}
+                    className={`grid-item dashboard-grid-item ` + (showBorders ? 'showBorders' : 'hideBorders')} 
                     key={i.i}>
                         {i.type === "text" ?
                         <input 
@@ -631,8 +644,9 @@ class ItemProvider extends Component {
 
     async updateLayoutsAsync(that, layout, formId) {
         const userId = this.state.currentUser.sub
-        let forms = await that.getForms();
-        // console.log(forms);
+
+        let forms = this.state.forms;
+
         let updatedForm = {
             id: formId,
             contents: {
@@ -641,8 +655,6 @@ class ItemProvider extends Component {
                 layout: layout
             }
         };
-
-        // console.log(updatedForm);
         
         let stringifiedItemsSingle = JSON.stringify([updatedForm]);
         let unquotedItemsSingle = stringifiedItemsSingle.replace(/"([^"]+)":/g, '$1:');
@@ -713,8 +725,7 @@ class ItemProvider extends Component {
         `
 
         API.graphql(graphqlOperation(updateLayout)).then(async res => {
-            console.log('update layout successful!'); await this.getForms()
-            .then(async res => API.graphql(graphqlOperation(updateLayoutForm)).then(res => console.log('update layout in form model successful!')).catch(err => console.log(err)))   
+            console.log('update layout successful!'); API.graphql(graphqlOperation(updateLayoutForm)).then(res => console.log('update layout in form model successful!')).catch(err => console.log(err))   
         }).catch(err => console.log(err));
         // add to forms
     }
@@ -785,7 +796,7 @@ class ItemProvider extends Component {
         };
         types.push('none');
         layout.push(blankItem);
-        console.log(layout);
+        
         labels.push({isLabel: false, labelFor: undefined, textValue: undefined});
         // set default properties
         properties.push({
@@ -821,8 +832,6 @@ class ItemProvider extends Component {
         let properties = [];
 
         let layout = this.state.layouts.lg.filter((i, index) => {
-            console.log(i);
-            console.log(index);
             if (i.i === gridItem) {
                 // do nothing
                 console.log('do nothing, found it');
@@ -866,10 +875,14 @@ class ItemProvider extends Component {
         let selectedGridItem = this.state.selectedGridItem;
         let selectedType = '';
 
-        // grab selected item type
-        for (const i of this.state.layouts.lg) {
-            if (i.i === selectedGridItem) {
-                selectedType = i.type;
+        if (selectedGridItem === 'global') {
+            selectedType = selectedGridItem;
+        } else {
+            // grab selected item type
+            for (const i of this.state.layouts.lg) {
+                if (i.i === selectedGridItem) {
+                    selectedType = i.type;
+                }
             }
         }
 
@@ -1291,8 +1304,6 @@ class ItemProvider extends Component {
     };
 
     handleDeployForm = async (formId) => {
-        console.log('hello from handleDeployForm')
-
         const getForm = `
             query {
                 getForms(id: "${formId}") {
@@ -1385,21 +1396,14 @@ class ItemProvider extends Component {
     };
 
     handleGridItemBorders = (showBorders) => {
-        let gridItems = document.getElementsByClassName('react-grid-item');
         if (showBorders) {
-            for(const i of gridItems) {
-                i.classList.add('show');
-                this.setState({
-                    movingGridItem: true
-                });
-            };
+            this.setState({
+                movingGridItem: true
+            });
         } else {
-            for(const i of gridItems) {
-                i.classList.remove('show');
-                this.setState({
-                    movingGridItem: false
-                });
-            };
+            this.setState({
+                movingGridItem: false
+            }, () => console.log(this.state.movingGridItem));
         };
     };
 
@@ -1438,7 +1442,8 @@ class ItemProvider extends Component {
                 handleDeployForm: this.handleDeployForm,
                 updateTextBoxPaddingLeft: this.updateTextBoxPaddingLeft,
                 updateFontWeight: this.updateFontWeight,
-                updateFontItalic: this.updateFontItalic
+                updateFontItalic: this.updateFontItalic,
+                handleGridItemBorders: this.handleGridItemBorders
             }}>
                 {this.props.children}
             </ItemContext.Provider>
