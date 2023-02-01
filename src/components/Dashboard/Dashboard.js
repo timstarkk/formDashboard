@@ -123,14 +123,14 @@ export default class Dashboard extends Component {
                                 forms.map(form => {return <FormThumbnail key={form.id} form={form}/>})
                                 }
                             </div>
-                            <div className='btn btn-primary plus-button' onClick={() => {this.handleAddForm()}}>
-                                <p>+</p>
+                            <div className='btn btn-primary plus-button text-sm' onClick={() => {this.handleAddForm()}}>
+                                <p>add new form</p>
                             </div>
-                            <div className='btn btn-primary plus-button' onClick={addGridItem}>
-                                <p>g</p>
+                            <div className='btn btn-primary plus-button text-sm' onClick={addGridItem}>
+                                <p>add grid item</p>
                             </div>
                             <div className='btn btn-primary plus-button' onClick={() => {this.handleGlobalProperties()}}>
-                                <p>f</p>
+                                <p>form settings</p>
                             </div>
                         </div>
                         <FullForm />
